@@ -244,7 +244,11 @@ class ForthLightningForCausalLM(nn.Module, HasInnerState, IsHybrid, SupportsLoRA
                 own[n].data.copy_(w)
                 loaded.add(n)
         loaded |= {f"kernel.{n}" for n in self.kernel.load_weights(kern)}
-        files = sorted(glob.glob(os.path.join(self.config.base_model, "*.safetensors")))
+        base = self.config.base_model
+        if not os.path.isdir(base):  # a Hugging Face id (markab/rpn-gpt-lightning): download it, or reuse the HF cache
+            from huggingface_hub import snapshot_download
+            base = snapshot_download(base, allow_patterns=["*.safetensors", "*.json"])
+        files = sorted(glob.glob(os.path.join(base, "*.safetensors")))
         loaded |= {f"base.{n}" for n in self.base.load_weights(safetensors_weights_iterator(files, False))}
         for name, m in list(self.kernel.model.named_modules()):
             parent, _, attr = name.rpartition(".")
