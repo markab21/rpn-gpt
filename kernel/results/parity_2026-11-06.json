@@ -1,0 +1,186 @@
+{
+ "what": "Every kernel-owned position of every case: the compiled kernel (HF transformers, bf16) vs the spec kernel/text_vm.py, in one full prefill and (cached_checked cases) token by token with the cache. GPU run of kernel/sp_test.py OUT text, 2026-11-06 kernel (NOTEJ fix + names release); summarized here.",
+ "kernel_layers": "MMM-MMMMMMM-M-M-MMMM-MM-M-*",
+ "layer_key": "M = Mamba-2 mixer, - = MLP, * = attention",
+ "residual_dims_used": 5543,
+ "residual_width": 6144,
+ "transformers": "5.16.1",
+ "min_top2_margin": 1.0,
+ "total": {
+  "cases": 618,
+  "tokens": 938230,
+  "kernel_positions": 765734,
+  "wrong_prefill": 0,
+  "cached_checked": 596,
+  "wrong_cached_decode": 0
+ },
+ "by_group": {
+  "real": {
+   "cases": 312,
+   "tokens": 748541,
+   "kernel_positions": 595551,
+   "wrong_prefill": 0,
+   "cached_checked": 298,
+   "wrong_cached_decode": 0
+  },
+  "t2a": {
+   "cases": 27,
+   "tokens": 7693,
+   "kernel_positions": 5963,
+   "wrong_prefill": 0,
+   "cached_checked": 27,
+   "wrong_cached_decode": 0
+  },
+  "t2b": {
+   "cases": 33,
+   "tokens": 3406,
+   "kernel_positions": 2642,
+   "wrong_prefill": 0,
+   "cached_checked": 33,
+   "wrong_cached_decode": 0
+  },
+  "t2bs": {
+   "cases": 2,
+   "tokens": 267,
+   "kernel_positions": 200,
+   "wrong_prefill": 0,
+   "cached_checked": 2,
+   "wrong_cached_decode": 0
+  },
+  "t2c": {
+   "cases": 42,
+   "tokens": 17190,
+   "kernel_positions": 16225,
+   "wrong_prefill": 0,
+   "cached_checked": 42,
+   "wrong_cached_decode": 0
+  },
+  "t2cs": {
+   "cases": 3,
+   "tokens": 797,
+   "kernel_positions": 711,
+   "wrong_prefill": 0,
+   "cached_checked": 3,
+   "wrong_cached_decode": 0
+  },
+  "t2d": {
+   "cases": 57,
+   "tokens": 13199,
+   "kernel_positions": 9726,
+   "wrong_prefill": 0,
+   "cached_checked": 57,
+   "wrong_cached_decode": 0
+  },
+  "t2e": {
+   "cases": 15,
+   "tokens": 2262,
+   "kernel_positions": 1865,
+   "wrong_prefill": 0,
+   "cached_checked": 15,
+   "wrong_cached_decode": 0
+  },
+  "t2et": {
+   "cases": 3,
+   "tokens": 409,
+   "kernel_positions": 287,
+   "wrong_prefill": 0,
+   "cached_checked": 3,
+   "wrong_cached_decode": 0
+  },
+  "t2f": {
+   "cases": 25,
+   "tokens": 110278,
+   "kernel_positions": 105167,
+   "wrong_prefill": 0,
+   "cached_checked": 17,
+   "wrong_cached_decode": 0
+  },
+  "t2g": {
+   "cases": 4,
+   "tokens": 1879,
+   "kernel_positions": 1300,
+   "wrong_prefill": 0,
+   "cached_checked": 4,
+   "wrong_cached_decode": 0
+  },
+  "t2h": {
+   "cases": 16,
+   "tokens": 1374,
+   "kernel_positions": 1084,
+   "wrong_prefill": 0,
+   "cached_checked": 16,
+   "wrong_cached_decode": 0
+  },
+  "t2n": {
+   "cases": 24,
+   "tokens": 13315,
+   "kernel_positions": 12690,
+   "wrong_prefill": 0,
+   "cached_checked": 24,
+   "wrong_cached_decode": 0
+  },
+  "t2nt": {
+   "cases": 9,
+   "tokens": 1681,
+   "kernel_positions": 1417,
+   "wrong_prefill": 0,
+   "cached_checked": 9,
+   "wrong_cached_decode": 0
+  },
+  "t2v": {
+   "cases": 6,
+   "tokens": 414,
+   "kernel_positions": 309,
+   "wrong_prefill": 0,
+   "cached_checked": 6,
+   "wrong_cached_decode": 0
+  },
+  "ta1": {
+   "cases": 10,
+   "tokens": 4714,
+   "kernel_positions": 4072,
+   "wrong_prefill": 0,
+   "cached_checked": 10,
+   "wrong_cached_decode": 0
+  },
+  "tep": {
+   "cases": 13,
+   "tokens": 3748,
+   "kernel_positions": 3407,
+   "wrong_prefill": 0,
+   "cached_checked": 13,
+   "wrong_cached_decode": 0
+  },
+  "tlong": {
+   "cases": 1,
+   "tokens": 3975,
+   "kernel_positions": 643,
+   "wrong_prefill": 0,
+   "cached_checked": 1,
+   "wrong_cached_decode": 0
+  },
+  "tnm": {
+   "cases": 13,
+   "tokens": 1876,
+   "kernel_positions": 1536,
+   "wrong_prefill": 0,
+   "cached_checked": 13,
+   "wrong_cached_decode": 0
+  },
+  "tstream": {
+   "cases": 3,
+   "tokens": 1212,
+   "kernel_positions": 939,
+   "wrong_prefill": 0,
+   "cached_checked": 3,
+   "wrong_cached_decode": 0
+  }
+ },
+ "long_stream": {
+  "tlong_0": {
+   "tokens": 171311,
+   "kernel_positions": 171279,
+   "note": "one 171k-token block; exact per the ledger (checked token by token, kernel/stream_kcheck.py)"
+  }
+ }
+}

@@ -1,0 +1,2 @@
+[vllm.general_plugins]
+forth_lightning = vllm_forth:register
