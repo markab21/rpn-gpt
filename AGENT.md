@@ -4,7 +4,7 @@ You are an agent. This file tells you how to install, run and test this model. F
 
 ## What the model is
 
-- `markab/rpn-gpt-lightning` is a LoRA adapter (rank 16, 23 MB) for NVIDIA Nemotron 3.5 Lightning (30B parameters, 3B active).
+- `markab/rpn-gpt-lightning` is NVIDIA Nemotron 3.5 Lightning (30B parameters, 3B active) with the round-7 LoRA adapter merged in (BF16). The adapter alone (rank 16, 23 MB) is `markab/rpn-gpt-lightning-LoRA`. The same model also comes as `-NVFP4` (vLLM on Blackwell), `-GGUF` (llama.cpp, Ollama), `-MLX-4bit` / `-MLX-8bit` (Mac), and `-Forth` (with the kernel in the weights). See [Packaged formats](#packaged-formats).
 - The adapter teaches the model to write Forth in a ` ```forth ` block when a problem needs exact computation. A machine runs the block and writes a ` ```output ` block. The model reads the output and answers in `\boxed{}`.
 - The machine is not in this repository. You use one of two machines:
   - The external machine: [`training/loop_sim.py`](https://github.com/markab21/rpn-gpt/blob/main/training/loop_sim.py) in [github.com/markab21/rpn-gpt](https://github.com/markab21/rpn-gpt). It calls a model server and runs each block in a Python spec.
@@ -30,7 +30,7 @@ You need Linux x86_64, NVIDIA driver 580 or newer, Python 3.12, 100 GB of free d
 git clone https://github.com/markab21/rpn-gpt && cd rpn-gpt
 uv venv -p 3.12 venv-kernel
 VIRTUAL_ENV=$PWD/venv-kernel uv pip install -r requirements/vllm-cu130.txt   # vllm 0.29.0, torch 2.13.0+cu130, transformers 5.16.1, peft 0.21.2
-venv-kernel/bin/hf download markab/rpn-gpt-lightning --local-dir adapters/rpn-gpt-lightning
+venv-kernel/bin/hf download markab/rpn-gpt-lightning-LoRA --local-dir adapters/rpn-gpt-lightning
 venv-kernel/bin/hf download nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16 \
   --revision a9904d24bcc1d289a1950fa9d2b978c47cf903b9 --local-dir lightning-bf16
 export VLLM_API_KEY=$(openssl rand -hex 16)
@@ -123,7 +123,7 @@ Use Apple silicon with 48 GB or more and 80 GB of free disk. The script download
 
 ```sh
 git clone https://github.com/markab21/rpn-gpt && cd rpn-gpt && uv sync
-uvx hf download markab/rpn-gpt-lightning --local-dir adapters/rpn-gpt-lightning
+uvx hf download markab/rpn-gpt-lightning-LoRA --local-dir adapters/rpn-gpt-lightning
 caffeinate -i bash training/mlx_local.sh $PWD/adapters/rpn-gpt-lightning
 ```
 
@@ -138,6 +138,31 @@ caffeinate -i env LOOP_SERVER=mlx VLLM_API_KEY=local LOOP_MODEL=default_model \
 ```
 
 We measured 3 of 3 correct on problems 6, 3 and 9 of demo10 in 4 minutes 17 seconds, about 50 tokens/s.
+
+## Packaged formats
+
+The adapter is also merged and packaged. These need no LoRA flags. Every format writes Forth blocks only. [`rpn_chat.py`](rpn_chat.py) runs them for one question, and `training/loop_sim.py` runs them for a set. All results are from 2026-11-06, one RTX PRO 6000 per server, with card v4, think 12000 / turn 24000.
+
+| Repository | Serve with | Measured |
+|---|---|---|
+| `markab/rpn-gpt-lightning` (BF16, 62 GB) | `vllm serve markab/rpn-gpt-lightning --served-model-name rpn --max-model-len 65536` | dev_round[:100] x2 93.0% (BF16 + LoRA on the same problems: 89.5%, noise) |
+| `markab/rpn-gpt-lightning-NVFP4` (22 GB) | the same, plus `--kv-cache-dtype bfloat16` | frozen x1 90.5% (BF16 + LoRA 91.7%, NVFP4 + LoRA 87.5%). Use this one, not NVFP4 + LoRA |
+| `markab/rpn-gpt-lightning-GGUF` (Q4_K_M 24.5 GB, Q8_0 33.6 GB) | `hf download markab/rpn-gpt-lightning-GGUF --include '*Q4_K_M*' --local-dir gguf` then `llama-server -m gguf/rpn-gpt-lightning-Q4_K_M.gguf -ngl 99 -c 32768` (llama.cpp `6c01da627` or newer) or `ollama pull hf.co/markab/rpn-gpt-lightning-GGUF:Q4_K_M` (Ollama 0.40.15) | frozen x1: Q4_K_M 91.2%, Q8_0 93.5% |
+| `markab/rpn-gpt-lightning-MLX-4bit` (17 GB) | `mlx_lm.server --model markab/rpn-gpt-lightning-MLX-4bit --port 8090` (mlx-lm 0.32.2) | M4 Max 128 GB: 3 of 3 demo10 problems correct, 240 s, about 62 tokens/s (8-bit: not run) |
+| `markab/rpn-gpt-lightning-Forth` (kernel 7.4 GB + the BF16 repo) | `FORTH_VISIBLE=1 VLLM_DISABLE_COMPILE_CACHE=1 PYTHONPATH=$PWD/kernel/composite vllm serve markab/rpn-gpt-lightning-Forth --served-model-name forth --max-model-len 65536 --no-enable-flashinfer-autotune --no-enable-prefix-caching --no-async-scheduling -cc '{"cudagraph_mode": "FULL_DECODE_ONLY"}'` | plain chat, no client: 6 of 6 correct; HF transformers 3 of 3, every kernel token exact |
+
+One question through the machine. The answer must be `1290731`:
+
+```sh
+uv run python rpn_chat.py "Calculate the remainder when 82225043186179281 is divided by 6469193." --base-url http://127.0.0.1:8000 --model rpn
+# llama-server: --server llamacpp --base-url http://127.0.0.1:8080
+# Ollama:       --server ollama --base-url http://127.0.0.1:11434 --model hf.co/markab/rpn-gpt-lightning-GGUF:Q4_K_M
+# MLX:          --server mlx --base-url http://127.0.0.1:8090 --model default_model
+```
+
+For a whole set on llama.cpp, use `LOOP_SERVER=llamacpp LIGHTNING_URL=http://127.0.0.1:8080/completion`. On Ollama, use `LOOP_SERVER=ollama LIGHTNING_URL=http://127.0.0.1:11434/api/generate LOOP_MODEL=<tag>`. llama.cpp gives about 9 tokens/s per slot at 64 slots, so a frozen run takes about 2 hours on one GPU. Several servers in a comma list in `LIGHTNING_URL` split the work.
+
+Plain chat without the machine: set the card as the system prompt, `stop: ["```output"]` and `max_tokens`. With no thinking budget, a hard question can think past 16000 tokens.
 
 ## Common failures
 

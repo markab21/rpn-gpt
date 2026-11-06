@@ -4,7 +4,7 @@ This page shows how to run the released model on a fresh machine. Each section g
 
 The release has three parts:
 
-- The adapter: [`markab/rpn-gpt-lightning`](https://huggingface.co/markab/rpn-gpt-lightning). It is the round-7 LoRA adapter (`s2a_r7`, rank 16, 23 MB) and its system prompt, the card `reference_v4.txt`.
+- The adapter: [`markab/rpn-gpt-lightning-LoRA`](https://huggingface.co/markab/rpn-gpt-lightning-LoRA). It is the round-7 LoRA adapter (`s2a_r7`, rank 16, 23 MB) and its system prompt, the card `reference_v4.txt`. The same model, merged and packaged, is [`markab/rpn-gpt-lightning`](https://huggingface.co/markab/rpn-gpt-lightning) (BF16) with `-NVFP4`, `-GGUF`, `-MLX-4bit`, `-MLX-8bit` and `-Forth` versions: [Path 5](#path-5-packaged-formats).
 - The base model: NVIDIA Nemotron 3.5 Lightning, as [BF16](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16) (61 GB) or [NVFP4](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4) (21 GB).
 - This repository: the external machine ([`training/loop_sim.py`](../training/loop_sim.py)), the kernel builder, the composite, and the evaluation sets.
 
@@ -38,6 +38,8 @@ All packages came from wheels. Nothing needed a source build. The full pins are 
 | math-verify | 0.9.0 | not used |
 | mlx / mlx-lm | not used | 0.32.4 / 0.32.2 |
 | huggingface_hub | 1.33.0 | 2.4.0 |
+| llama.cpp (Path 5) | `6c01da627` (2026-11-06), CUDA build for sm_120 | not used |
+| Ollama (Path 5) | 0.40.15 (Linux tarball) | not used |
 
 Keep vLLM at 0.29.0. The kernel is exact on vLLM 0.29.0. vLLM 0.32.0 emitted wrong kernel tokens in its compiled mode. You do not need `mamba-ssm` or `causal-conv1d`. vLLM has its own Mamba kernels. The HF composite runs without them, but slower.
 
@@ -61,6 +63,13 @@ Pinned base revisions:
 | Composite in vLLM (offline batch) | 1 | 16 dev problems (big arithmetic) | 15 of 16 correct, 16 of 16 kernel-exact | 4 min 53 s (all at once) |
 | Composite in vLLM (OpenAI server) | 1 | 16 dev problems (big arithmetic) | 16 of 16 correct, every kernel output block equal to the spec | 2 min 32 s (all at once) |
 | Mac, MLX NVFP4 + LoRA, external machine | Apple GPU | 3 problems from demo10 | 3 of 3 correct | 4 min 17 s |
+| Merged BF16 (`markab/rpn-gpt-lightning`), external machine | 1 | dev_round[:100] x2 | 93.0%; BF16 + LoRA on the same problems 89.5%, +3.5 [-1.5, +8.5] | about 20 min |
+| Merged NVFP4 (`-NVFP4`), external machine | 1 | frozen test x1 (600) | 90.5% (median 806 tokens): -1.2 [-3.7, +1.3] vs BF16 + LoRA, +3.0 [+0.2, +5.8] vs NVFP4 + LoRA | about 30 min |
+| GGUF Q4_K_M, llama-server, external machine | 3 | frozen test x1 (600) | 91.2% (median 749 tokens): -0.5 [-3.2, +2.2] vs BF16 + LoRA | about 2 h |
+| GGUF Q8_0, llama-server, external machine | 3 | frozen test x1 (600) | 93.5% (median 669 tokens): +1.8 [-0.8, +4.5] vs BF16 + LoRA | about 2 h |
+| Mac, MLX 4-bit (`-MLX-4bit`), `rpn_chat.py --server mlx` | Apple GPU | 3 problems from demo10 | 3 of 3 correct | 4 min, about 62 tokens/s |
+| `-Forth` (composite on the merged base), HF transformers | 1 | 3 problems | 3 of 3 correct, 1431 of 1431 kernel tokens exact | 132 s |
+| `-Forth`, vLLM OpenAI server, BF16 base | 1 | 3 problems x2 | 6 of 6 correct, no client | under 1 min after start |
 
 The ledger values on the frozen test (x2, the same card and budgets) are 92.1% for s2a_r7 and 79.1% for stock. One sample per problem moves by about 2.5 points.
 
@@ -78,7 +87,7 @@ You need Linux x86_64, an NVIDIA GPU with 80 GB or more for BF16 (about 30 GB fo
      --revision a9904d24bcc1d289a1950fa9d2b978c47cf903b9 --local-dir lightning-bf16
    venv-kernel/bin/hf download nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4 \
      --revision bee7596271d1495f6992ae224aefde4410e816b8 --local-dir lightning-nvfp4
-   venv-kernel/bin/hf download markab/rpn-gpt-lightning --local-dir adapters/rpn-gpt-lightning
+   venv-kernel/bin/hf download markab/rpn-gpt-lightning-LoRA --local-dir adapters/rpn-gpt-lightning
    export VLLM_API_KEY=$(openssl rand -hex 16)
    ```
 
@@ -225,7 +234,7 @@ You need Apple silicon with 48 GB or more and about 80 GB of disk (the BF16 down
 
 ```sh
 git clone https://github.com/markab21/rpn-gpt && cd rpn-gpt && uv sync
-uvx hf download markab/rpn-gpt-lightning --local-dir adapters/rpn-gpt-lightning
+uvx hf download markab/rpn-gpt-lightning-LoRA --local-dir adapters/rpn-gpt-lightning
 caffeinate -i bash training/mlx_local.sh $PWD/adapters/rpn-gpt-lightning     # leave it running
 ```
 
@@ -259,6 +268,66 @@ The remainder is 1290731. \boxed{1290731}
 
 Keep Mac runs to a few problems. A long-thinking problem runs for minutes.
 
+## Path 5: packaged formats
+
+These are the Hugging Face repositories with the adapter already merged. No LoRA flags are needed. Every format uses the same external machine, [`rpn_chat.py`](../rpn_chat.py) for one question or `training/loop_sim.py` for a set. The only exception is `-Forth`, which has the kernel in the weights.
+
+Tested on the same RTX PRO 6000 machine, one GPU per server, on 2026-11-06. The same card, think 12000 / turn 24000, temperature 1.0 and top-p 0.95 were used for every run. Versions: vLLM 0.29.0 and transformers 5.16.1 (as above), llama.cpp `6c01da627` (2026-11-06, built with `-DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=120`), Ollama 0.40.15 (Linux tarball), mlx 0.32.4 / mlx-lm 0.32.2 (conversion on Linux).
+
+| Repository | What it is | Result | Time |
+|---|---|---|---|
+| `markab/rpn-gpt-lightning` | BF16, adapter merged ([`training/merge_lora.py`](../training/merge_lora.py)), 62 GB | Teacher-forced top-1 agreement with BF16 + LoRA: 99.5% of 2025 tokens (stock: 89.8%). dev_round[:100] x2: 93.0% vs BF16 + LoRA 89.5%, +3.5 [-1.5, +8.5] | merge 13 s (CPU) |
+| `markab/rpn-gpt-lightning-NVFP4` | NVIDIA's NVFP4 checkpoint, with the 93 adapter-target linears as merged BF16 ([`training/nvfp4_merge.py`](../training/nvfp4_merge.py)), 22 GB | frozen x1 90.5% (median 806 tokens): -1.2 [-3.7, +1.3] vs BF16 + LoRA, +3.0 [+0.2, +5.8] vs NVFP4 + LoRA | 600 problems in about 30 min |
+| `markab/rpn-gpt-lightning-GGUF` | Q4_K_M 24.5 GB, Q5_K_M 26.0 GB, Q8_0 33.6 GB | frozen x1: Q4_K_M 91.2%, Q8_0 93.5%. Q5_K_M not measured | about 2 h each (llama-server, 64 slots, about 9 tokens/s per slot) |
+| Ollama (the same GGUF) | `ollama create` from the Q4_K_M file | `rpn_chat.py --server ollama`: output blocks exact. Plain chat stops after the program (`params` stop) | one question, 1 to 2 min |
+| `markab/rpn-gpt-lightning-MLX-4bit`, `-MLX-8bit` | `mlx_lm.convert -q --q-bits 4` / `8`, group 64, 17 GB / 32 GB | M4 Max 128 GB, 4-bit: 3 of 3 demo10 problems correct through `rpn_chat.py --server mlx` (mlx-lm 0.32.2) | 240 s, about 62 tokens/s. 8-bit: converted, not run |
+| `markab/rpn-gpt-lightning-Forth` | the composite: kernel (7.4 GB) + modeling code, `base_model` = the merged repo | HF transformers: 3 of 3 correct, 1431 of 1431 kernel tokens exact. vLLM OpenAI server with the BF16 base: 6 of 6 correct with no client | 132 s (HF, 3 problems); server start about 3 min |
+
+### One question, any server
+
+```sh
+uv run python rpn_chat.py "Calculate the remainder when 82225043186179281 is divided by 6469193." \
+  --base-url http://localhost:8000 --model rpn                       # vLLM (a trailing /v1 is fine)
+#   --server llamacpp --base-url http://localhost:8080               # llama-server
+#   --server ollama --base-url http://localhost:11434 --model hf.co/markab/rpn-gpt-lightning-GGUF:Q4_K_M
+#   --server mlx --base-url http://localhost:8090 --model default_model
+```
+
+It prints the turn, with each ` ```output ` block that the spec wrote, then `--- N Forth block(s) run, T tokens, answer: A`. On vLLM and llama-server (Q4_K_M), the mod question above came back correct in about 5 s. On Ollama (Q4_K_M), a two-part question (a product, then the product mod 1000003) ran 2 blocks, and both outputs were exact. Set `VLLM_API_KEY` if the server has a key.
+
+### vLLM: merged BF16 and NVFP4
+
+```sh
+vllm serve markab/rpn-gpt-lightning --served-model-name rpn --max-model-len 65536
+vllm serve markab/rpn-gpt-lightning-NVFP4 --served-model-name rpn --max-model-len 65536 --kv-cache-dtype bfloat16
+```
+
+The NVFP4 checkpoint loads as `modelopt_mixed`, with the MoE weights as W4A16 through Marlin on sm_120. NVIDIA's own scales did not come out of a plain re-quantization (my recipe matched only the BF16 tensors). NVFP4 rounding error on the adapter targets is about 9%, so those linears stay BF16 (+1.3 GB). The merged NVFP4 does better than NVIDIA NVFP4 + LoRA at runtime (+3.0 points, paired).
+
+### llama.cpp and Ollama
+
+```sh
+llama-server -m rpn-gpt-lightning-Q4_K_M.gguf -ngl 99 -c 131072 -np 4 --port 8080
+OLLAMA_HOST=127.0.0.1:11434 ollama serve &
+ollama pull hf.co/markab/rpn-gpt-lightning-GGUF:Q4_K_M   # or: ollama create rpn -f Modelfile (FROM ./rpn-gpt-lightning-Q4_K_M.gguf)
+```
+
+Ollama 0.40.15 detects the architecture (`nemotron_h_moe`) and uses its built-in `nemotron-3-nano` renderer and parser, so the repository has no `template` file. Its `system` file is the card. Its `params` sets temperature 1.0, top-p 0.95, top-k 0, min-p 0, context 32768, at most 16000 new tokens, and stop ` ```output `. With these, `/api/chat` returns the thinking in its own field and ends the reply with the program. `rpn_chat.py --server ollama` uses `/api/generate` in raw mode with its own prompt and stops. We tested the local-file form (`ollama create`). The `hf.co/` pull needs the published repository.
+
+### The kernel in the weights from the Hub
+
+```sh
+FORTH_VISIBLE=1 VLLM_DISABLE_COMPILE_CACHE=1 PYTHONPATH=$PWD/kernel/composite \
+  vllm serve markab/rpn-gpt-lightning-Forth --served-model-name forth --max-model-len 65536 \
+  --no-enable-flashinfer-autotune --no-enable-prefix-caching --no-async-scheduling -cc '{"cudagraph_mode": "FULL_DECODE_ONLY"}'
+```
+
+This is the composite of Path 3 with the merged model as its base, so it needs no adapter and no NVFP4 copy. `vllm_forth.py` downloads `config.base_model` when it is a Hub id. We tested the served composite with a local copy of the checkpoint (6 of 6 correct). We tested the Hub-id loading separately, with a copy whose `base_model` was `nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16`: vLLM started and read the base from the Hugging Face cache. `markab/rpn-gpt-lightning` itself can only be tested after it is published.
+
+### Plain chat, no machine
+
+Use the card as the system prompt, `stop: ["```output"]` and a `max_tokens` limit. Without the loop's thinking budget, a hard question can make the model compute by hand for a long time. "What is 2^64 mod 1000007?" ran into a 16000-token limit in 3 of 4 chat samples. Through `loop_sim.py` (budget 12000), the same question went 4 of 4 correct.
+
 ## Problems we hit, and the fixes
 
 | Problem | Fix |
@@ -269,11 +338,13 @@ Keep Mac runs to a few problems. A long-thinking problem runs for minutes.
 | One shard of the BF16 download stopped at 2.4 GB for minutes | Stop `hf download` and run it again. It resumes and checks each file. |
 | vLLM warns "Your GPU does not have native support for FP4 computation" | Expected on sm_120 with this checkpoint: the MoE weights are W4A16. |
 | NVIDIA's NVFP4 checkpoint does not load in mlx-lm | Quantize the BF16 checkpoint with `mlx_lm.convert --q-mode nvfp4` (done by `training/mlx_local.sh`). |
+| `kernel/composite/e2e.py` read `training/data/demo_pool.json`, which is not in this repository | It now picks its big-number problems from `demo_set.json`. |
+| `vllm_forth.py` read `config.base_model` as a local folder, so a composite that names a Hub repository did not load | It now downloads a Hub id with `snapshot_download`. |
 | `mlx_lm.server` stops generating after an exact prompt-cache hit | `training/mlx_local.sh` patches one line of `mlx_lm/models/cache.py`. A repeated prompt is then prefilled again. |
 
 ## Not tested
 
 - GPUs other than the RTX PRO 6000 (sm_120). On Hopper or newer data-center GPUs, vLLM can pick native FP4 kernels for the NVFP4 base. We did not measure them.
-- The composite with a BF16 base in vLLM. `e2e_vllm.py` and `serve_forth.sh` use the NVFP4 base.
-- Other servers (SGLang, llama.cpp, Ollama) for the external machine. `loop_sim.py` has `LOOP_SERVER=llamacpp` from earlier work with other models.
+- `e2e_vllm.py` and `serve_forth.sh` with a BF16 base. We served the `-Forth` composite (merged BF16 base) with the same flags in Path 5.
+- SGLang. The GGUF Q5_K_M file. The MLX 8-bit model. Ollama's `hf.co/` pull and the Hub-id downloads of our own repositories, before they are published.
 - A Mac with less than 128 GB.
