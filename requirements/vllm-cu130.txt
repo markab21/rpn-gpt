@@ -1,6 +1,6 @@
 # GPU serving + the composite (Linux x86_64, NVIDIA driver >= 580 for CUDA 13). Python 3.12. Wheels only, no builds.
 # Tested 2026-11-06 on RTX PRO 6000 Blackwell (sm_120). Install: uv pip install -r requirements/vllm-cu130.txt
-# Top level: vllm==0.29.0 transformers==5.16.1 peft==0.21.2 math_verify (the rest is what they resolved to).
+# Top level: vllm==0.29.0 transformers==5.16.1 peft==0.21.2 math_verify rich==15.0.0 (demos/live.py; the rest is what they resolved to).
 accelerate==1.15.0
 agent-detector==2.0.0
 aiohappyeyeballs==2.7.1

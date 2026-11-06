@@ -1,5 +1,5 @@
 # Mac (Apple silicon) local path: training/mlx_local.sh. Python 3.12. Wheels only.
-# Tested 2026-11-06 on an M4 Max (128 GB), macOS 27. Top level: mlx==0.32.4 mlx-lm==0.32.2 transformers==5.22.2 huggingface_hub==2.4.0.
+# Tested 2026-11-06 on an M4 Max (128 GB), macOS 27. Top level: mlx==0.32.4 mlx-lm==0.32.2 transformers==5.22.2 huggingface_hub==2.4.0 rich==15.0.0 (demos/live.py).
 annotated-doc==0.0.5
 anyio==4.16.0
 click==8.5.0

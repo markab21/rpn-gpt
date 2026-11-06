@@ -4,6 +4,14 @@ An exact Forth machine, compiled by hand into the weights of a language model, a
 
 The model is NVIDIA Nemotron 3.5 Lightning (30B parameters, 3B active). In the same network sits a small stack machine, the kernel. We computed its weights. We did not train them. The model writes ordinary Forth in a ` ```forth ` block. When the model closes the block, the kernel writes the ` ```output ` block, token by token, in the same forward passes. There is no tool call and no host program. Then we trained LoRA adapters so that the model uses the machine when a problem needs it, and served the result in vLLM.
 
+![A live request on one GPU: the model writes a Forth program, and the kernel inside its weights writes the output](demos/live-gpu.svg)
+
+A real request to [`markab/rpn-gpt-lightning-Forth`](https://huggingface.co/markab/rpn-gpt-lightning-Forth) in vLLM on one RTX PRO 6000, 8 s from question to answer ([watch it stream](demos/live-gpu.gif), [asciinema recording](demos/live-gpu.cast), [more takes](demos/README.md#live-recordings)). The model writes the yellow `forth` block. The kernel inside the same weights runs it in 297 hidden tokens and writes the green output block, with no tool call. To run it, start the server as in [Deploy and test](playbooks/deploy.md#the-kernel-in-the-weights-from-the-hub), then:
+
+```sh
+python demos/live.py "Calculate the remainder when 82225043186179281 is divided by 6469193." --gpu 0
+```
+
 A real turn (round-1 adapter, kernel in the weights, [full context](demos/in-the-weights.md#the-shortest-turn)). The problem: "Calculate the remainder when 82225043186179281 is divided by 6469193." After its thinking, the model writes:
 
 ```forth

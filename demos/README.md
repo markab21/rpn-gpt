@@ -9,6 +9,31 @@ This folder shows the model at work. Each transcript is a real rollout from our 
 3. [Errors, recovery and limits](errors.md). The fixed error lines, how the model fixes a block, and what fills code memory.
 4. [One problem per family](families.md). A complete transcript per problem family, from a big multiplication to Miller-Rabin, and where the model still fails.
 
+## Live recordings
+
+Real requests, recorded in real time with [asciinema](https://asciinema.org) while [`live.py`](live.py) streamed them. Each `.svg` is the finished screen, and each `.cast` plays the stream (`asciinema play demos/live-gpu.cast`). Thinking is dimmed and cut after a few lines. Every answer below is correct, and every output block is equal to the output of the spec for the same program.
+
+![The model writes a Forth program, and the kernel in its weights writes the output](live-gpu.gif)
+
+- [Big remainder](live-gpu.svg) ([cast](live-gpu.cast)): 82225043186179281 mod 6469193 on one RTX PRO 6000. One block, 297 hidden kernel tokens, 8.0 s.
+- [Error, then a fix](live-error.svg) ([cast](live-error.cast)): "Multiply 8579391 by 901918761221." The model pushes the 12-digit number last, the kernel writes the fixed error line, and the model swaps the operands. 2 blocks, 455 hidden kernel tokens, 17.0 s.
+- [A loop](live-loop.svg) ([cast](live-loop.cast)): 15 steps of x -> (21066x + 36252) mod 161691 from 43392. One block, 5,194 hidden kernel tokens (about 346 a pass), 45.0 s.
+- [The same model on a Mac](live-mac.svg) ([cast](live-mac.cast)): `markab/rpn-gpt-lightning-MLX-4bit` in `mlx_lm.server` on an M4 Max, with the external machine: `live.py --external` runs each block in the spec on the CPU. Thinking budget 3,000 tokens. Correct after one error and a fix, 2,283 tokens in 25.1 s (91 tokens/s). The GPU turns run at about 122 tokens/s, hidden kernel tokens included.
+
+Reproduce on a GPU (server as in [Deploy and test](../playbooks/deploy.md#the-kernel-in-the-weights-from-the-hub)):
+
+```sh
+python demos/live.py "Multiply 8579391 by 901918761221." --gpu 0 --svg out.svg
+```
+
+On a Mac (`mlx_lm.server --model markab/rpn-gpt-lightning-MLX-4bit --port 8090` in another terminal):
+
+```sh
+uv run python demos/live.py "Calculate the remainder when 82225043186179281 is divided by 6469193." --external \
+  --base-url http://localhost:8090 --model markab/rpn-gpt-lightning-MLX-4bit --tokenizer markab/rpn-gpt-lightning-MLX-4bit \
+  --think-budget 3000
+```
+
 ## The usual way and this way
 
 The usual way to give a language model exact computation is a tool call. The model writes code, usually Python. Generation stops. A host program runs the code in a sandbox and sends the result back as a new message. The model reads it and goes on.

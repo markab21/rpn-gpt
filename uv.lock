@@ -1034,6 +1034,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "huggingface-hub" },
     { name = "jinja2" },
+    { name = "rich" },
     { name = "transformers" },
 ]
 
@@ -1054,6 +1055,7 @@ requires-dist = [
     { name = "huggingface-hub" },
     { name = "jinja2" },
     { name = "math-verify", marker = "extra == 'gpu'" },
+    { name = "rich", specifier = "==15.0.0" },
     { name = "safetensors", marker = "extra == 'gpu'" },
     { name = "torch", marker = "extra == 'gpu'" },
     { name = "transformers", specifier = ">=4.57" },

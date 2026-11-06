@@ -318,11 +318,21 @@ Ollama 0.40.15 detects the architecture (`nemotron_h_moe`). After `ollama create
 
 ```sh
 FORTH_VISIBLE=1 VLLM_DISABLE_COMPILE_CACHE=1 PYTHONPATH=$PWD/kernel/composite \
-  vllm serve markab/rpn-gpt-lightning-Forth --served-model-name forth --max-model-len 65536 \
+  vllm serve markab/rpn-gpt-lightning-Forth --served-model-name forth --max-model-len 65536 --host 127.0.0.1 \
   --no-enable-flashinfer-autotune --no-enable-prefix-caching --no-async-scheduling -cc '{"cudagraph_mode": "FULL_DECODE_ONLY"}'
 ```
 
 This is the composite of Path 3 with the merged model as its base, so it needs no adapter and no NVFP4 copy. `vllm_forth.py` downloads `config.base_model` when it is a Hub id. Tested from the Hub with an empty `HF_HOME`: the server downloaded `markab/rpn-gpt-lightning-Forth` and its base `markab/rpn-gpt-lightning`, then started in about 3 minutes. 4 of 4 chat answers were correct, and 3 of them used the machine. All 6 output blocks that the kernel wrote were equal to the spec (one error message, then the fixed program).
+
+Without `--host`, vLLM listens on every interface on port 8000, and with no `VLLM_API_KEY` anyone who can reach the port can use the server. A second test on another machine of the same type, from an empty cache: the download took about 12 minutes (69 GB), and the server was ready 7 minutes after the start (314 s of it compiling, because `VLLM_DISABLE_COMPILE_CACHE=1` compiles at every start).
+
+To watch one request, run [`demos/live.py`](../demos/live.py) on the same machine. It streams the turn and marks the blocks that the kernel wrote:
+
+```sh
+venv-kernel/bin/python demos/live.py "Calculate the remainder when 82225043186179281 is divided by 6469193." --gpu 0
+```
+
+The time of a turn changes from sample to sample, because the server has no thinking budget. On this question, the turn took between 5 s and 95 s in our runs (one GPU, one request at a time, about 122 tokens/s, hidden kernel tokens included). A loop costs about 346 hidden tokens per pass for a 6-digit multiply and mod: 15 passes took 5,194 hidden tokens, about 42 s of the 45 s turn.
 
 ### Plain chat, no machine
 
