@@ -1,34 +1,8 @@
 # Playbooks
 
-This page shows how to do each step of the project, from an empty GPU machine to a measured adapter. The GPU steps use Ansible playbooks in [`ansible/`](ansible/). The CPU steps run on a laptop.
+This page shows each step of the project, from an empty GPU machine to a measured adapter. The GPU steps are Ansible playbooks in [`ansible/`](ansible/), run from your laptop. The CPU steps run on the laptop itself.
 
-What the steps use:
-
-| Tool | Used for |
-|---|---|
-| [uv](https://docs.astral.sh/uv/) | Every Python environment, local and on the GPU machine |
-| [Ansible](https://docs.ansible.com/) | Running each GPU step with its checks, from your laptop |
-| [vLLM](https://docs.vllm.ai/) 0.29 | Serving Lightning (BF16, NVFP4, LoRA) and the composite plugin |
-| [NeMo AutoModel](https://github.com/NVIDIA-NeMo/Automodel) | LoRA SFT on the 30B MoE |
-| [NeMo RL](https://github.com/NVIDIA-NeMo/RL) | Its lock file builds the three envs. GRPO, if you try it. |
-| [Hugging Face Hub](https://huggingface.co/docs/huggingface_hub) | Model checkpoints, and your own repos for rows and adapters |
-| [Hugging Face transformers](https://huggingface.co/docs/transformers) | The tokenizer everywhere, the kernel build, the HF composite |
-
-## Contents
-
-- [On your laptop](#on-your-laptop)
-- [Set up a GPU machine](#set-up-a-gpu-machine)
-- [Build the kernel and test parity](#build-the-kernel-and-test-parity)
-- [Build the composite](#build-the-composite)
-- [Serve a model](#serve-a-model)
-- [Generate problems](#generate-problems)
-- [Roll out](#roll-out)
-- [Grade](#grade)
-- [Build rows](#build-rows)
-- [Train a LoRA round](#train-a-lora-round)
-- [Evaluate](#evaluate)
-- [Run in the weights](#run-in-the-weights)
-- [Stop a job, see the machine](#stop-a-job-see-the-machine)
+The steps use [uv](https://docs.astral.sh/uv/), [Ansible](https://docs.ansible.com/), [vLLM](https://docs.vllm.ai/) 0.29, [NeMo AutoModel](https://github.com/NVIDIA-NeMo/Automodel) (LoRA SFT), [NeMo RL](https://github.com/NVIDIA-NeMo/RL) (its lock file builds the environments, and GRPO), and the [Hugging Face Hub](https://huggingface.co/docs/huggingface_hub).
 
 ## On your laptop
 
@@ -42,11 +16,11 @@ uv run python kernel/show_stream.py '2 3 + .'          # one block's token strea
 uv run --group dev pytest -q                           # spec, grader and every doc example
 ```
 
-The first run downloads the pinned Lightning tokenizer (a few MB). For a few rollouts on a Mac, [`training/mlx_local.sh`](../training/mlx_local.sh) serves Lightning 8-bit with MLX. Keep these local runs small: a few problems, not a batch.
+The first run downloads the pinned Lightning tokenizer (a few MB). For a few rollouts on a Mac, [`training/mlx_local.sh`](../training/mlx_local.sh) serves Lightning 8-bit with MLX. Keep these local runs to a few problems.
 
 ## Set up a GPU machine
 
-The playbooks were used on a Linux machine with 8 RTX PRO 6000 GPUs (sm_120) and an NGC PyTorch container. Other GPUs need a change to `build_env` in [`site.yml`](ansible/site.yml).
+We used the playbooks on a Linux machine with 8 RTX PRO 6000 GPUs (sm_120) and an NGC PyTorch container. For other GPUs, change `build_env` in [`site.yml`](ansible/site.yml).
 
 1. Copy [`ansible/inventory.example.yml`](ansible/inventory.example.yml) to `ansible/inventory.yml` and fill in your machine's address.
 2. If you want to push rows and adapters to the Hub, export `HF_WRITE_TOKEN` in your shell first. The playbook writes it to the machine's `/etc/environment` and never prints it.
@@ -56,9 +30,9 @@ The playbooks were used on a Linux machine with 8 RTX PRO 6000 GPUs (sm_120) and
 ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/site.yml
 ```
 
-It pushes this repo to `/srv/nemo` on the machine (change it with `-e work=/path`), downloads the pinned Lightning BF16 and NVFP4 checkpoints, and builds three uv envs from NeMo RL's lock: `venv-kernel` (vLLM 0.29 and transformers 5.16.1, for the kernel and serving), `venv-automodel` (training) and `venv-rl-driver` (GRPO). It also makes a random `VLLM_API_KEY`. A rerun changes nothing on a ready machine. `--tags verify` only checks.
+The setup copies this repo to `/srv/nemo` on the machine (change it with `-e work=/path`). It downloads the pinned Lightning BF16 and NVFP4 checkpoints. It builds three uv environments from NeMo RL's lock: `venv-kernel` (vLLM 0.29 and transformers 5.16.1, for the kernel and serving), `venv-automodel` (training) and `venv-rl-driver` (GRPO). It also makes a random `VLLM_API_KEY`. A second run changes nothing on a ready machine. `--tags verify` only checks.
 
-Every playbook assumes that a launch failed until the machine shows otherwise: the GPUs are free before, the GPUs hold the job after, and the job is still alive ([`tasks/launched.yml`](ansible/tasks/launched.yml)).
+Every playbook treats a launch as failed until the machine shows otherwise: the GPUs are free before, the GPUs hold the job after, and the job is still alive ([`tasks/launched.yml`](ansible/tasks/launched.yml)).
 
 ## Build the kernel and test parity
 
@@ -67,7 +41,7 @@ ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/kernel_tes
   [-e progs=kernel/tests/kernel_turns_2d.json] [-e tag=mytest]
 ```
 
-[`kernel/sp_test.py`](../kernel/sp_test.py) builds the kernel ([`sp_kernel.py`](../kernel/sp_kernel.py)), saves it, reloads it with `from_pretrained`, and checks every kernel-owned position of every case against the spec, in prefill and in cached decode. It passes only if every case is exact. The result JSON comes back to `kernel/results/`.
+[`kernel/sp_test.py`](../kernel/sp_test.py) builds the kernel with [`sp_kernel.py`](../kernel/sp_kernel.py), saves it, and reloads it with `from_pretrained`. Then it checks every kernel-owned position of every case against the spec, in prefill and in cached decode. It passes only if every case is exact. The result JSON comes back to `kernel/results/`.
 
 Before you change the spec, measure the change on real programs (CPU):
 
@@ -93,7 +67,7 @@ ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/serve.yml 
   -e model=lightning-nvfp4 -e gpu=1 -e port=8201 [-e "loras='s2a_r5=/srv/nemo/adapters/s2a_r5'"]
 ```
 
-`model=lightning` serves BF16. With `loras`, each adapter is served by its name. An adapter is trained on BF16 and served on the NVFP4 base. vLLM 0.29 runs the LoRA on the NVFP4 MoE at 184 tok/s against 206 tok/s without it.
+`model=lightning` serves BF16. With `loras`, vLLM serves each adapter under its name. Adapters train on BF16 and serve on the NVFP4 base.
 
 To serve the composite (the kernel in the weights) with an adapter, run [`kernel/composite/serve_forth.sh`](../kernel/composite/serve_forth.sh) through `job.yml`:
 
@@ -104,8 +78,6 @@ ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/job.yml -e
 
 ## Generate problems
 
-Every set is seeded, its answers are checked on the spec, and it is disjoint from the held-out sets.
-
 ```sh
 LOOP_TOKENIZER=nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16 uv run python training/mass_sets.py
 uv run python training/dev_round.py 407
@@ -115,14 +87,14 @@ uv run python training/dev_round.py 407
 
 ## Roll out
 
-[`training/loop_sim.py`](../training/loop_sim.py) runs full turns against a server. When the model closes a block, the spec runs it and appends the output block. Each rollout is appended to `OUT.json.partial.jsonl`, so a stopped run resumes with the same command.
+[`training/loop_sim.py`](../training/loop_sim.py) runs full turns against a server, with the spec as the external machine. It appends each rollout to `OUT.json.partial.jsonl`, so the same command resumes a stopped run.
 
 ```sh
 CMD="LOOP_MODEL=s2a_r5 LIGHTNING_URL=http://localhost:8201/v1/completions venv-kernel/bin/python training/loop_sim.py training/data/dev_round.json training/data/cards/reference_v4.txt --think --think-budget 12000 --max-tokens 24000 --samples 4 --out runs/r5_dev.json"
 ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/job.yml -e tag=r5_dev -e gpus=none -e "cmd='$CMD'"
 ```
 
-Use the defaults that the ledger settled: think 12000, turn 24000, the model card's sampling (temperature 1.0, top-p 0.95). Run 1 to 10 problems first and read them.
+Use think 12000, turn 24000, and the model card's sampling (temperature 1.0, top-p 0.95). Run 1 to 10 problems first and read them.
 
 ## Grade
 
@@ -133,7 +105,7 @@ uv run --with math_verify python training/math_grade.py runs/math500.json runs/m
 uv run python training/mass_report.py PROBLEMS.json OUT_PREFIX runs/*.json   # pass rates per family and kind
 ```
 
-Read and bucket the wrong rollouts before the next round: token cap, by hand, re-sent block, wrong program, machine limit, format, grader. A grader false negative looks like a skill gap.
+Before the next round, read the wrong rollouts and sort them into buckets: token cap, by hand, re-sent block, wrong program, machine limit, format, grader. A grader false negative looks like a skill gap.
 
 ## Build rows
 
@@ -144,7 +116,7 @@ LOOP_TOKENIZER=nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16 \
   uv run python training/r5_demos.py --prompt training/data/cards/reference_v4.txt --out demos/
 ```
 
-A row is kept only if it is correct, clean, and exact against the composite's token stream. The loss covers only what the model writes. Then upload the rows to your dataset at one commit and note the commit id:
+The builders keep a row only if it is correct, clean, and exact against the composite's token stream. Upload the rows to your dataset in one commit and note the commit id:
 
 ```sh
 RPN_HF_DATASET=you/your-data uv run python training/hf_put.py --msg "round 5 rows" rows/train.jsonl=stage2a/r5/rows/train.jsonl
@@ -158,11 +130,11 @@ ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/stage.yml 
   -e init=none -e steps=465 -e gpus=0,1 [-e val=stage2a/r5/rows/val.jsonl]
 ```
 
-[`training/run_stage.sh`](../training/run_stage.sh) runs NeMo AutoModel with [`training/configs/sft_text.yaml`](../training/configs/sft_text.yaml) (LoRA rank 16, learning rate 1e-4, 16 rows a step). It checks the launch (a first step, a nonzero learning rate, a rank on every GPU) and has a watchdog: a traceback, an out-of-memory error, or a log silent for 10 minutes stops every rank. Train a fresh LoRA on the previous rows plus the new ones, for one epoch.
+[`training/run_stage.sh`](../training/run_stage.sh) runs NeMo AutoModel with [`training/configs/sft_text.yaml`](../training/configs/sft_text.yaml) (LoRA rank 16, learning rate 1e-4, 16 rows a step). It checks the launch (a first step, a nonzero learning rate, a rank on every GPU). Its watchdog stops every rank on a traceback, an out-of-memory error, or a log silent for 10 minutes. Train a fresh LoRA on the previous rows plus the new ones, for one epoch.
 
 ## Evaluate
 
-The rules:
+The rules ([why](../training/README.md#how-we-measure)):
 
 1. Decide each round on the dev set (`dev_round.json`, x4). Use the frozen test (x2) only at milestones.
 2. Serve both adapters on the same `--enable-lora` engines and interleave their requests. Compare with a zero adapter ([`zero_adapter.py`](../training/zero_adapter.py)), never with the base model name.
@@ -173,13 +145,11 @@ The rules:
 uv run python training/paired_delta.py runs/A.json runs/B.json training/data/dev_round.json
 ```
 
-This prints the paired difference per kind with a 95% bootstrap interval. x2 resolves about 2.5 points, x4 about 1.5. A smaller difference is noise.
+This prints the paired difference per kind with a 95% bootstrap interval.
 
 ## Run in the weights
 
-The composite answers on its own: the model writes, the kernel in the weights writes every output block, and each kernel position is checked against the spec.
-
-On the machine, from `/srv/nemo` (or through `job.yml` with `cmd='bash runs/inw.sh'` after you save it there):
+Here the composite answers on its own: the kernel in the weights writes every output block, and the script checks each kernel position against the spec. Run this on the GPU machine from `/srv/nemo`, or save it as `runs/inw.sh` and run it through `job.yml` with `cmd='bash runs/inw.sh'`:
 
 ```sh
 FORTH_VISIBLE=1 CUDA_VISIBLE_DEVICES=0 VLLM_ENABLE_V1_MULTIPROCESSING=0 VLLM_DISABLE_COMPILE_CACHE=1 \
@@ -188,7 +158,7 @@ VLLM_KW='{"moe_backend": "marlin", "compilation_config": {"cudagraph_mode": "FUL
   venv-kernel/bin/python kernel/composite/e2e_vllm.py forth-lightning-nvfp4 runs/inw.json all /srv/nemo/adapters/s2a_r5
 ```
 
-[`e2e_vllm.py`](../kernel/composite/e2e_vllm.py) runs all problems at once in one vLLM engine. [`e2e_demo.py`](../kernel/composite/e2e_demo.py) does the same in the HF composite, one problem at a time: slower, but a reference. The output reports, per problem, the answer, whether every kernel position was exact, and the hidden and visible token counts. The `forth-lightning-nvfp4` directory is made by `serve_forth.sh` on its first run.
+[`e2e_vllm.py`](../kernel/composite/e2e_vllm.py) runs all problems at once in one vLLM engine. [`e2e_demo.py`](../kernel/composite/e2e_demo.py) is the slower HF reference, one problem at a time. Per problem, the output gives the answer, whether every kernel position was exact, and the hidden and visible token counts. `serve_forth.sh` makes the `forth-lightning-nvfp4` directory on its first run.
 
 ## Stop a job, see the machine
 
@@ -197,8 +167,4 @@ ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/status.yml
 ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/stop.yml -e dir=runs/job_TAG
 ```
 
-`status.yml` shows each GPU (memory, use, the job that holds it) and each job's last progress line. `stop.yml` stops one job by the pid in its `RUNNING` file, children first, and waits until its GPUs are free. Only the owner of a job stops it.
-
-## Not ported
-
-The research repository also had playbooks for a judge model (Mammoth), the older special-token curriculum, and machine-rental scripts. They are not part of this story.
+`status.yml` shows each GPU (memory, use, the job that holds it) and each job's last progress line. `stop.yml` stops one job by the pid in its `RUNNING` file, children first, and waits until its GPUs are free.

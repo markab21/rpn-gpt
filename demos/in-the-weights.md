@@ -1,8 +1,8 @@
 # In the weights
 
-On this page, no Python machine runs. The composite model (stock Lightning plus the compiled kernel) answers on its own. The model writes a ` ```forth ` block. When it closes the block, the kernel inside the same model writes the ` ```output ` block, one token per forward pass. Between the two, the kernel works through thousands of hidden tokens that no reader sees.
+On this page, no Python machine runs. The composite model (stock Lightning plus the compiled kernel) answers on its own. When the model closes a ` ```forth ` block, the kernel inside the same model writes the ` ```output ` block. Between the two, the kernel works through thousands of hidden tokens that no reader sees.
 
-The run: the 89-problem demo set, the round-1 adapter (`s2a_r1`), card v2, think 8000 / turn 16000, the Hugging Face composite on one GPU per problem (batch 1). After each run, every kernel-owned position was checked against the spec (`exact` below).
+The run: the demo set (89 of its 90 problems), the round-1 adapter (`s2a_r1`), card v2, think 8000 / turn 16000, the Hugging Face composite at batch 1, one GPU per problem. After each run, a script checked every kernel-owned position against the spec ("exact" below).
 
 | Result | Number |
 |---|---|
@@ -12,7 +12,7 @@ The run: the 89-problem demo set, the round-1 adapter (`s2a_r1`), card v2, think
 | Hidden kernel tokens / visible tokens | 2,735,992 / 565,391 |
 | Median time per problem | 457 s (hidden steps about 114 tok/s, visible about 25 tok/s) |
 
-The 7 inexact turns found two kernel gaps: code memory at its limit (5 turns) and over 32 variables (2 turns). Both are fixed in later kernel releases ([the kernel](../kernel/README.md#bugs-that-the-tests-found)). With the same adapter, card and budget, the external machine scored 76.7% on this set (4 samples per problem). One sample of 89 problems has a 95% interval of about ±8 points, so the difference is within sampling noise.
+The 7 inexact turns found two kernel gaps: code memory at its limit (5 turns) and over 32 variables (2 turns). Later kernel releases fixed both ([the kernel](../kernel/README.md#bugs-that-the-tests-found)). With the same adapter, card and budget, the external machine scored 76.7% on this set (4 samples per problem). One sample of 89 problems has a 95% interval of about ±8 points, so the difference is within sampling noise.
 
 ## The shortest turn
 
@@ -94,7 +94,7 @@ The model wrote 806 visible tokens. Between the closing fence and the output, th
 
 `L6.compound`: "An account holds $82920. Each year it earns 1% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 38 years?" Answer: 120999.
 
-The first block leaves the stack wrong. The kernel stops at the failing word and writes the fixed error lines. The model thinks until the 8000-token budget closes its thinking, then sends a one-line loop: `101 100 */` multiplies by 101 and divides by 100, which is the balance plus its rounded-down 1%.
+The first block leaves the stack wrong. The kernel stops at the failing word and writes the fixed error lines. The model thinks until the 8000-token budget closes its thinking. Then it sends a one-line loop: `101 100 */` multiplies by 101 and divides by 100, which gives the balance plus its rounded-down 1%.
 
 ~~~text
 We need to compute the balance after 38 years, starting with $82920. Each year: interest = floor(balance * 1%). Then balance = balance + interest. Interest is 1% rounded down to a whole dollar. So each year: new_balance = balance + floor(balance * 0.01). Equivalently, new_balance = balance + floor(balance / 100). Since balance is integer dollars.
@@ -152,10 +152,10 @@ fix the program and send the corrected block again
 Ah! So /mod rejects dividend over 10 digits.
 ~~~
 
-Then the model sent `9050210769528805261 34576324 mod . cr`, and the machine printed 27794145, the right answer. (It sent that block twice.) The error lines did their job. Card v4 still has this sentence. It is a candidate for the next card A/B test.
+Then the model sent `9050210769528805261 34576324 mod . cr`, and the machine printed 27794145, the right answer. (It sent that block twice.) The error lines did their job. Card v4 still has this sentence, so it is a candidate for the next card A/B test.
 
 ## What this shows, and what it does not
 
-The kernel in the weights gives the same tokens as the spec, so everything we measure with the external machine holds in the weights. With the round-3 adapter in the vLLM composite, 366 of 407 dev problems were correct (89.9%), against 89.3% with the external machine, and 395 of 407 turns were exact.
+The kernel gives the same tokens as the spec in almost every turn, so results measured with the external machine carry over to the weights. With the round-3 adapter in the vLLM composite (dev set, card v3, think 12000 / turn 24000), 366 of 407 problems were correct (89.9%), against 89.3% with the external machine. 395 of 407 turns were exact at every kernel position.
 
-It is not fast. Each hidden step is a forward pass of the whole composite. The 136-step loop above took 430 s of hidden steps at batch 1 in the Hugging Face composite. In vLLM with 64 problems at once, the same kind of workload took about 50 s per problem. A Python interpreter runs that loop in microseconds. See [the contrast](README.md#the-usual-way-and-this-way).
+It is not fast. Each hidden step is a forward pass of the whole composite. The 136-step loop above took 430 s of hidden steps at batch 1 in the Hugging Face composite. In vLLM with 64 problems at once, the 10-problem demo10 workload took about 50 s per problem. A Python interpreter runs that loop in microseconds. See [the contrast](README.md#the-usual-way-and-this-way).

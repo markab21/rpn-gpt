@@ -1,6 +1,6 @@
 # Errors, recovery and limits
 
-An error stops the block, and the output shows two fixed lines: what went wrong and what to do ([the error list](../forth/README.md#errors)). The model reads them like any other output and sends a corrected block. These are real rollouts of the round-5 adapter on the frozen test (card v4).
+An error stops the block, and the output shows two fixed lines: what went wrong and what to do ([the error list](../forth/README.md#errors)). The model reads them like any other output and sends a corrected block. These are real rollouts of the round-5 adapter on the frozen test (card v4, think 12000 / turn 24000).
 
 ## Which errors happen
 
@@ -96,9 +96,7 @@ Correct, 1086 tokens.
 
 ## Code memory
 
-Code memory holds 192 cells per turn. Top-level code is freed after it runs, but every definition stays, and a definition sent again takes new cells ([why](../forth/README.md#code-memory)). The habit that fills memory is re-sending code that already worked.
-
-Measured on the frozen test, share of machine rollouts that hit "code memory full":
+Code memory holds 192 cells per turn, and a definition sent again takes new cells ([why](../forth/README.md#code-memory)). So the habit that fills memory is re-sending code that already worked. The share of machine rollouts that hit "code memory full" on the frozen test (think 12000 / turn 24000):
 
 | Adapter | Code memory full | Note |
 |---|---|---|
@@ -106,7 +104,7 @@ Measured on the frozen test, share of machine rollouts that hit "code memory ful
 | `s2a_r1` (card v3) | 12.6% | |
 | `s2a_r3` (card v3) | 7.6% | rows with redundant re-runs ranked last |
 
-The kernel change that frees top-level code (it shipped after these runs) avoided 45% of the fulls when replayed on real turns, and lost no answers. On the code-heavy dev set, `s2a_r5` hit "code memory full" in 11 of 400 rollouts.
+The kernel change that frees top-level code shipped after these runs. Replayed on real turns, it avoided 45% of the fulls and lost no answers. On the code-heavy dev set, `s2a_r5` hit "code memory full" in 11 of 400 rollouts.
 
 ## The step cap and the stack cap
 

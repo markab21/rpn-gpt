@@ -1,12 +1,10 @@
 # The Forth dialect
 
-The model writes standard Forth. Forth is a stack language: numbers go onto a stack, and each word takes its inputs from the stack and leaves its outputs there. The notation is reverse Polish (RPN), so `2 3 +` means 2 + 3.
+Forth is a stack language. Numbers go onto a stack, and each word takes its inputs from the stack and leaves its outputs there.
 
-This page lists what the machine supports, its limits, and its error lines. The spec is [`kernel/text_vm.py`](../kernel/text_vm.py). The model learns the dialect from the card, the short reference that is its system prompt: [`training/data/cards/reference_v4.txt`](../training/data/cards/reference_v4.txt).
+This page lists what the machine supports, its limits, and its error lines. The spec is [`kernel/text_vm.py`](../kernel/text_vm.py). The model learns the dialect from the card, the short reference in its system prompt: [`training/data/cards/reference_v4.txt`](../training/data/cards/reference_v4.txt).
 
-Every example on this page ran through the spec. `tests/test_docs.py` runs them again. Blocks under one heading share state, as blocks in one model turn do.
-
-Try your own:
+`tests/test_docs.py` runs every example on this page through the spec. Blocks under one heading share state, as blocks in one model turn do. Try your own:
 
 ```sh
 uv run python -m forth.run '17 5 mod .' ': sq dup * ; 12 sq .'
@@ -14,7 +12,7 @@ uv run python -m forth.run '17 5 mod .' ': sq dup * ; 12 sq .'
 
 ## How a block runs
 
-The model opens a block with a line that holds only ` ```forth `. The machine runs the block when the model closes it with ` ``` `. Then the machine writes an ` ```output ` block. The output holds what `.` printed, or an error. Words and variables stay defined for the later blocks of the turn. The stack starts empty in each block.
+The model opens a block with a line that holds only ` ```forth `, and closes it with ` ``` `. Then the machine runs the block and writes an ` ```output ` block: what `.` printed, or an error. Words and variables stay defined for the later blocks of the turn. The stack starts empty in each block.
 
 ```forth
 2 3 + 4 * .
@@ -148,7 +146,7 @@ Fractions use a numerator and a denominator. This reduces 6/8:
 
 ## Limits
 
-The limits come from the compiled kernel. The spec has the same limits, so the model trains on what the weights will do.
+The limits come from the compiled kernel. The spec has the same limits, so the model trains on what the weights do.
 
 | Limit | Value |
 |---|---|
@@ -202,9 +200,9 @@ A big dividend works with `mod`:
 
 ## Code memory
 
-Code memory holds compiled code. Top-level code (a loop outside a definition) runs once, so the machine frees it at the next block. A definition stays until the turn ends. If the model sends the same definition again, the new copy takes new cells.
+Top-level code (a loop outside a definition) runs once, so the machine frees it at the next block. A definition stays until the turn ends. If the model sends the same definition again, the new copy takes new cells.
 
-This block runs 25 times in one turn with no problem, because its loop is top-level code. (One run shown.)
+This block can run 25 times in one turn, because its loop is top-level code. (One run shown.)
 
 ```forth
 0 100 0 do i + loop .
@@ -213,7 +211,7 @@ This block runs 25 times in one turn with no problem, because its loop is top-le
 4950
 ```
 
-This block defines `s` and then calls it. Sent again and again in one turn, it fills code memory at the eighth copy. The model must not re-send code that already worked. Training taught it that habit ([training](../training/README.md#round-3-clean-on-policy-rows)).
+This block defines `s` and then calls it. If the model sends it again and again in one turn, the eighth copy fills code memory. So the model must not re-send code that already worked. Training taught it that habit ([training](../training/README.md#round-3-clean-on-policy-rows)).
 
 ```forth
 : s 0 100 0 do i + loop ; s .
@@ -224,7 +222,7 @@ This block defines `s` and then calls it. Sent again and again in one turn, it f
 
 ## Errors
 
-An error stops the block. The output shows what was printed before the error, then two fixed lines: `error: <why>` and what to do. The next block starts with an empty stack. Words and variables from earlier blocks stay.
+An error stops the block. The output shows what was printed before the error, then two fixed lines: `error: <why>` and what to do. Words and variables from earlier blocks stay.
 
 ```forth
 1 0 /
@@ -266,15 +264,15 @@ error: the block ran too long (over 196608 kernel steps)
 an endless loop or too many iterations: check each loop's exit condition; fix the program and send the corrected block again
 ```
 
-Each error class has one fixed line. The full list is `ERRS` in [`kernel/text_vm.py`](../kernel/text_vm.py). Some classes add a second line with a hint (`RETRY`). The others end with the line "fix the program and send the corrected block again".
+The full list of error classes is `ERRS` in [`kernel/text_vm.py`](../kernel/text_vm.py). Some classes add a hint to the second line (`RETRY`).
 
 ## Why the errors are short
 
-At first the machine wrote long error reports: the failing word, the stack, a hint. To write those reports, the kernel needs to copy text, and text copy is the hardest mechanism to compile into weights. So we tested first. On 90 hard problems, 4 samples each, stock Lightning scored 71.9% with full reports and 72.8% with one-line errors. Recovery after an error was 58.7% and 57.5%. The short form cost nothing, so the spec kept it. The fixed retry line came from reading transcripts: it turns an error into "fix it and send it again".
+At first the machine wrote long error reports: the failing word, the stack, a hint. To write those, the kernel must copy text, and text copy is the hardest mechanism to compile into weights. So we tested first. On the 90-problem demo set, 4 samples each, stock Lightning with the card scored 71.9% with full reports and 72.8% with one-line errors. Recovery after an error was 58.7% and 57.5%. The short form cost nothing, so the spec kept it. We added the fixed retry line after reading transcripts: it turns an error into "fix it and send it again".
 
 ## What we dropped, and why
 
-The rule was parity first. If the kernel cannot do a feature exactly, the spec drops the feature. Then the training data, which the spec writes, matches what the weights do.
+The rule is parity first. If the kernel cannot do a feature exactly, the spec drops it. Then the training data, which the spec writes, matches what the weights do.
 
 | Dropped | Why |
 |---|---|

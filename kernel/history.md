@@ -1,8 +1,8 @@
 # How we got here: the Qwen phase
 
-Before Nemotron, the project compiled a stack machine into Qwen3.5-0.8B. That work lives in the earlier research repository, not here. This page keeps its results and its lesson.
+Before Nemotron, the project compiled a stack machine into Qwen3.5-0.8B. That work lives in an earlier research repository. This page keeps its results and its lesson.
 
-The idea came from [qwenputer](https://github.com/divagr18/qwenputer) by Divyansh Agrawal. qwenputer compiles a RISC-V calculator into a language model's weights. The Qwen phase reused its MIT-licensed weight compiler and its carry-lookahead construction. The Nemotron kernel in this repository is a new construction for Mamba-2 layers and does not use that code.
+The idea came from [qwenputer](https://github.com/divagr18/qwenputer) by Divyansh Agrawal, which compiles a RISC-V calculator into a language model's weights. The Qwen phase reused its MIT-licensed weight compiler and its carry-lookahead construction. The Nemotron kernel in this repository is a new construction for Mamba-2 layers and does not use that code.
 
 ## What worked
 
@@ -16,7 +16,7 @@ The machine was exact. Execution was never the problem.
 
 ## What did not work
 
-The 0.8B model could not drive the machine. With actions from a fixed, human-written schedule (oracle actions), the machine was right. With actions chosen by the model, it failed:
+The 0.8B model could not drive the machine. With a fixed, human-written schedule of actions, the machine was right. With actions chosen by the model, it failed:
 
 | Experiment | Result |
 |---|---|
@@ -27,4 +27,4 @@ The 0.8B model could not drive the machine. With actions from a fixed, human-wri
 
 ## The lesson
 
-An exact machine needs a model that can plan. So we moved to a strong reasoner, Nemotron 3.5 Lightning, and later to plain-text Forth that the model already knows. The Mamba-2 layers of Nemotron have no delta-rule overwrite, so the kernel had to be designed again from the start ([the kernel](README.md#numbers-in-a-mamba-2-state)).
+An exact machine needs a model that can plan. So we moved to a strong reasoner, Nemotron 3.5 Lightning, and later to plain-text Forth that the model already knows. The Mamba-2 layers of Nemotron have no delta-rule overwrite, so we designed the kernel again from the start ([the kernel](README.md#numbers-in-a-mamba-2-state)).

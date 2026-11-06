@@ -1,12 +1,12 @@
 # Before and after training
 
-The same problem, the same card, the same budget: stock Lightning against a trained adapter. Every transcript on this page is a real rollout from the frozen test, with the external machine (the spec) writing the output blocks. Long thinking is cut at the `[…]` marks. `</think>` marks the end of the model's thinking.
+The same problem, the same card, the same budget: stock Lightning against a trained adapter. Every transcript is a real rollout from the frozen test, with the external machine (the spec) writing the output blocks. Long thinking is cut at the `[…]` marks. `</think>` marks the end of the model's thinking.
 
 ## The model has the right answer and does not trust it
 
 Problem (`DMbig.div_remainder`, hard): "Calculate the remainder when 8191249343249617212 is divided by 3423811." Answer: 2599017.
 
-Stock Lightning, card v2, think 12000 / turn 24000. It spends its first paragraphs on the card's wording. It sends a block with a word that does not exist (three times, the same block). Then it sends the right block and the machine prints the right answer. It does not believe it, starts a long division by hand, and reaches the 24,000-token cap with no answer:
+Stock Lightning, card v2, think 12000 / turn 24000. It spends its first paragraphs on the card's wording. It sends the same block with a word that does not exist, three times. Then it sends the right block, and the machine prints the right answer. The model does not believe it. It starts a long division by hand and reaches the 24,000-token cap with no answer:
 
 ~~~text
 We are asked to calculate the remainder when 8191249343249617212 is divided by 3423811.
@@ -85,7 +85,7 @@ Result: correct, 663 tokens.
 
 Problem (`L6.lcg`, hard): "Let x_0 = 27506 and x_(k+1) = (86756 * x_k + 99314) mod 127181. What is x_123?" Answer: 17405.
 
-Stock Lightning writes no Forth at all. It thinks for about 19,600 characters, tries a closed form with modular powers by hand, and gives a wrong answer. The thinking is cut here to its first lines and the final answer:
+Stock Lightning writes no Forth at all. It thinks for about 19,600 characters, tries a closed form with modular powers by hand, and gives a wrong answer. Here the thinking is cut to its first lines and the final answer:
 
 ~~~text
 We need to compute x_123 where x_0 = 27506, and x_{k+1} = (86756 * x_k + 99314) mod 127181. This is a linear congruential generator.
@@ -170,7 +170,7 @@ Result: correct, 888 tokens. The adapter ran the block once inside its thinking 
 
 Problem (`L6.euclid_trace`, small): "Euclid on 2426035688 and 4967564154: print the second number, each nonzero remainder in order, and finally the gcd."
 
-The round-3 adapter (`s2a_r3`), card v4. It knows the algorithm, but its programs keep breaking: stack underflow, a structure that does not close, an endless loop. Both samples ran to the 24,000-token cap. Here is its start and one of its later blocks:
+The round-3 adapter (`s2a_r3`), card v4. It knows the algorithm, but its programs keep breaking: stack underflow, a structure that does not close, an endless loop. Both samples ran to the 24,000-token cap. Here are its start and one of its later blocks:
 
 ~~~text
 We need to compute the Euclidean algorithm on 2426035688 and 4967564154. The instruction: "print the second number, each nonzero remainder in order, and finally the gcd." So we start with 4967564154, then the sequence of remainders until 0, and then the gcd (which is the last nonzero remainder). We need to output these numbers. The machine is a Forth-like system; we can write a program to compute the Euclidean algorithm and print the second number, each nonzero remainder in order, and finally the gcd. The output should be the numbers printed one per line? The instruction says "print the second number, each nonzero remainder in order, and finally the gcd." Likely we should output them in some format.
@@ -236,6 +236,6 @@ Frozen test, 600 problems, 2 samples each. "Uses machine" is the share of rollou
 | all | 81.0% | | 87.4% | | 91.0% | |
 | median tokens | 3384 | | 1147 | | 850 | |
 
-The trained model uses the machine more on hard problems and less on easy ones. That is the behavior the cold start and the rounds were meant to teach.
+The trained model uses the machine more on hard problems and less on easy ones. The cold start and the rounds set out to teach exactly that.
 
 Settings: stock and `s2a_r1` ran with card v2 and the grader of 2026-11-05, so those two columns compare directly: +6.4 [+4.1, +8.8]. `s2a_r5` ran with card v4 and the grader of 2026-11-06. Its column compares directly only with `s2a_r3` under the same settings: +2.0 [+0.1, +4.0] ([training](../training/README.md#the-rounds)).

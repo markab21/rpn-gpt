@@ -1,19 +1,19 @@
 # Demos
 
-This folder shows the model at work, with real outputs only. Each transcript is a real rollout from our evaluation files. Long thinking is cut at the `[…]` marks. Where a page shows an illustration that is not a real run, it says so.
+This folder shows the model at work. Each transcript is a real rollout from our evaluation files. Long thinking is cut at the `[…]` marks. The one illustration that is not a real run says so.
 
 ## The pages
 
-1. [Before and after training](before-after.md): stock Lightning and our adapters on the same problems. The stock model gets the right output from the machine and does not trust it. It computes by hand when a program is the better way. The trained model writes one short program and reads the answer.
-2. [In the weights](in-the-weights.md): the kernel inside the model writes the output blocks. A 136-step loop is 806 visible tokens and 48,968 hidden kernel tokens, exact at every position.
-3. [Errors, recovery and limits](errors.md): the fixed error lines, how the model fixes a block, and what fills code memory.
-4. [One problem per family](families.md): a complete transcript per problem family, from a big multiplication to Miller-Rabin, and where the model still fails.
+1. [Before and after training](before-after.md). Stock Lightning gets the right output from the machine and does not trust it, or computes by hand when a program is the better way. The trained model writes one short program and reads the answer.
+2. [In the weights](in-the-weights.md). The kernel inside the model writes the output blocks. A 136-step loop is 806 visible tokens and 48,968 hidden kernel tokens, exact at every position.
+3. [Errors, recovery and limits](errors.md). The fixed error lines, how the model fixes a block, and what fills code memory.
+4. [One problem per family](families.md). A complete transcript per problem family, from a big multiplication to Miller-Rabin, and where the model still fails.
 
 ## The usual way and this way
 
-The usual way to give a language model exact computation is a tool call. The model writes code, usually Python. Generation stops. A host program runs the code in a sandbox, then sends the result back as a new message. The model reads it and goes on.
+The usual way to give a language model exact computation is a tool call. The model writes code, usually Python. Generation stops. A host program runs the code in a sandbox and sends the result back as a new message. The model reads it and goes on.
 
-Illustration of the usual way. This is not a real run, and the format is generic, not one vendor API:
+An illustration of the usual way. It is not a real run, and the format is generic:
 
 ```text
 assistant:  I will compute it.
@@ -24,7 +24,7 @@ tool:       2599017
 assistant:  The remainder is 2599017.  \boxed{2599017}
 ```
 
-This project does it another way. The model writes Forth in its normal answer text, and the model's own weights run it inside the same generation. There is no tool call, no host, no round trip. Real, from the in-weights run ([full transcript](in-the-weights.md#the-shortest-turn)):
+Here the model writes Forth in its normal text, and the model's own weights run it inside the same generation. There is no tool call, no host, and no round trip. A real block from the in-weights run ([full transcript](in-the-weights.md#the-shortest-turn)):
 
 ```forth
 82225043186179281 6469193 mod .
@@ -33,7 +33,7 @@ This project does it another way. The model writes Forth in its normal answer te
 1290731
 ```
 
-The model wrote the block. The kernel, a part of the same network, wrote the output block, token by token, and nothing outside the model computed it.
+The model wrote the block. The kernel, a part of the same network, wrote the output block. Nothing outside the model computed it.
 
 | | Tool call (Python, host) | This project (Forth, in the weights) |
 |---|---|---|
@@ -44,6 +44,4 @@ The model wrote the block. The kernel, a part of the same network, wrote the out
 | Speed | Microseconds for a loop | One forward pass per kernel step: a 136-step loop took 430 s at batch 1 |
 | Exactness | As exact as the interpreter | Exact, and tested at every kernel position against a spec |
 
-We do not claim that this beats tool calling. Tool calling is more general and much faster per step. This project shows what a stack language at the kernel level can do with no tool call: the model decides to compute, writes the program, and its own weights compute the answer exactly.
-
-One measured cost of the round-trip style: our external machine works like a tool loop (each block ends a request, and the next request sends the whole turn again). On that workload, vLLM prefilled about 6 prompt tokens for each generated token, even with prefix caching. The in-weights kernel has no such cost, because it writes its output where the model's text stops.
+We do not claim that this beats tool calling. Tool calling is more general and much faster per step. This project shows what a stack language inside the weights can do with no tool call: the model decides to compute, writes the program, and its own weights compute the answer exactly.

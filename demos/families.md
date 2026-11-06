@@ -1,6 +1,6 @@
 # One problem per family
 
-The shortest correct machine rollout of the round-5 adapter (`s2a_r5`) per family, on the frozen test (card v4, think 12000 / turn 24000). Each transcript is complete: the thinking, the block, the machine's output, the answer. Many plans in the thinking have the shape of the round-5 demonstrations: why the machine is needed, the method, then one program.
+For each family, this page shows the shortest correct machine rollout of the round-5 adapter (`s2a_r5`) on the frozen test (card v4, think 12000 / turn 24000). Each transcript is complete: the thinking, the block, the machine's output, the answer. Many plans have the shape of the round-5 demonstrations: why the machine is needed, the method, then one program.
 
 ## Big multiplication
 
@@ -53,7 +53,7 @@ The flag is -1: 1490207 is prime, so the answer is no.
 
 ## Is it prime? (Miller-Rabin, 10 digits)
 
-Trial division up to the square root of a 10-digit number takes too many steps for one block. The model writes Miller-Rabin with modular powers instead. The round-5 demonstrations taught this method for this size.
+Trial division up to the square root of a 10-digit number takes too many steps for one block. So the model writes Miller-Rabin with modular powers, the method that the round-5 demonstrations taught for this size.
 
 "Is 2943118913 a composite number?" Expected: True. Correct, 485 tokens.
 
@@ -186,11 +186,11 @@ After 21 steps a holds a_21 = 944.</think>After 21 steps a holds a_21 = 944.
 
 ## Easy problems: no machine
 
-On easy problems the trained model mostly answers directly. On the frozen test, `s2a_r5` used the machine in 7.1% of easy rollouts and 3.6% of easy_big rollouts, and scored 95.5% and 92.7%. Of the 26 easy families, 18 never used it. Stock Lightning with the same kind of card used it in about 20% to 24% of easy rollouts ([numbers](before-after.md#what-changed-in-numbers)).
+On easy problems the trained model mostly answers directly. On the frozen test, `s2a_r5` used the machine in 7.1% of easy rollouts and 3.6% of easy_big rollouts, and scored 95.5% and 92.7%. Of the 26 easy families, 18 never used it. Stock Lightning with card v2 used it in about 20% to 24% of easy rollouts ([numbers](before-after.md#what-changed-in-numbers)).
 
 ## Where it still fails
 
-`s2a_r5` was wrong in 108 of 1200 frozen-test rollouts (9.0%). 34 of the 108 ran to the token cap. The machine is exact, so a wrong answer from a machine block means the program was wrong. Two real examples:
+`s2a_r5` was wrong in 108 of 1200 frozen-test rollouts (9.0%). 34 of the 108 ran to the token cap. The machine is exact, so a wrong answer from a machine block means that the program was wrong. Two real examples:
 
 A Euclid trace. The program mixes `gcd` and `/mod` and stops after one remainder. The model accepts the short output:
 
