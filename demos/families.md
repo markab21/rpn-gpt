@@ -94,56 +94,6 @@ The floor root is 862767 and the nearest integer is 862768.
 \boxed{862768}
 ~~~
 
-## Compound growth
-
-"A population of 13102 grows by 1% per year (fractional individuals dropped each year). What is it after 30 years?" Expected: 17643. Correct, 522 tokens.
-
-~~~text
-We need to calculate the population after 30 years given initial population 13102, growth rate 1% per year, and fractional individuals dropped each year. That means each year the population becomes floor(1.01 * population) or maybe just truncate fractional individuals. It says "fractional individuals dropped each year", so we multiply by 1.01 and drop the fractional part (i.e., floor). So we need to simulate 30 years of growth with floor after each multiplication.
-
-We can do this with a program. Use Forth to simulate 30 iterations. Initial population 13102. For i from 1 to 30: population = floor(population * 1.01). Since 1.01 = 101/100, we can compute population = floor(population * 101 / 100). In Forth, / divides and truncates toward zero, which for positive numbers is floor. So we can do: 101 * 100 / . But careful: * and / order. We have population * 101 / 100. Since population * 101 might be up to 20 digits? Initial 13102, after 30 years it will grow maybe to around 13102 * (1.01)^30 ≈ 13102 * 1.3478 ≈ 17660, well within 10 digits. So we can just do: population * 101 100 / . But Forth's */ is a*b/c. Actually we can use */: population 101 100 */ . But */ does a*b/c. So 13102 101 100 */ gives floor(13102*101/100). Let's test with a small script.
-
-But we can just write a Forth block to compute 30 iterations. Let's do that.</think>```forth
-variable pop
-13102 to pop
-
-30 0 do
-   pop dup 101 * 100 / to pop
-loop
-
-pop .
-```
-```output
-17643
-```
-The population after 30 years is 17643.
-
-\boxed{17643}
-~~~
-
-## Linear congruential generator
-
-"Let x_0 = 46455 and x_(k+1) = (26179 * x_k + 23558) mod 582027. What is x_78?" Expected: 379794. Correct, 244 tokens.
-
-~~~text
-We need x_78 where x_0 = 46455 and x -> (26179x + 23558) mod 582027. 78 steps with numbers up to 582027: a loop with a multiply and a mod each time, so a short program is the reliable way. Keep x in a variable. Each pass: x @ 26179 * 23558 + 582027 mod, then swap it into the variable. After 78 of those the variable holds x_78 and . prints it.</think>I'll compute it on the machine.
-
-```forth
-variable x
-46455 x !
-26179 constant a
-23558 constant b
-582027 constant m
-78 0 do x @ a * b + m mod x ! loop x @ .
-```
-```output
-379794
-```
-The variable holds x_78 = 379794.
-
-\boxed{379794}
-~~~
-
 ## A trace: every value of a generator
 
 "Starting from 32219, apply x -> (59363x + 69789) mod 829066 3 times and print every value produced." Expected: 31024 391915 69842. Correct, 272 tokens.
