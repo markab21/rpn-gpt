@@ -6,7 +6,7 @@ readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
 # The CPU parts (the spec text_vm, the Forth reference, the problem generators, the row and grading tools) need only these.
-dependencies = ["transformers>=4.57", "huggingface_hub"]
+dependencies = ["transformers>=4.57", "huggingface_hub", "jinja2"]  # jinja2: chat templates (loop_sim)
 
 [project.optional-dependencies]
 # GPU parts: building / testing the compiled kernel and the composite (torch), serving (vLLM 0.29), grading MATH (math_verify).

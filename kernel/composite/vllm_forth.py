@@ -72,6 +72,9 @@ def register():
         return check(self, n, prompt_type, *a, **k)
     InputProcessor._validate_prompt_len = validate
     if VISIBLE:
+        # vllm_visible patches the V1 GPUModelRunner; vLLM 0.29 serves with Model Runner V2 unless a request path needs
+        # custom logits processors (e2e_vllm's Budget does), and under V2 the base reads hidden tokens (garbage output)
+        os.environ["VLLM_USE_V2_MODEL_RUNNER"] = "0"
         import vllm_visible
         vllm_visible.patch_runner()
     if os.environ.get("FORTH_DEBUG"):  # the Mamba2 chunk size actually used, per build (prefill / decode)

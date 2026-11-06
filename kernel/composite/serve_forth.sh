@@ -7,8 +7,7 @@
 # its docstring). Requests: "model": "forth" = base + adapter, "model": "$WORK/forth-lightning-nvfp4" = no adapter.
 # The base reads only the visible stream (FORTH_VISIBLE=1, vllm_visible.py): it needs prefix caching off, async
 # scheduling off and FULL_DECODE_ONLY cudagraphs (vllm_forth.py asserts it); bf16 KV; the SSM cache stays fp32.
-# shortcut: these flags are the ones vllm_kernel_check.py and the speed runs were verified with. This exact server
-# command was not run with them; run one request through it first.
+# Tested on one GPU with s2a_r7: every output block equal to the spec (playbooks/deploy.md). vllm_forth.py forces the V1 runner.
 set -e
 ADAPTER=${1:?adapter dir (adapter_config.json + adapter_model.safetensors)}
 shift

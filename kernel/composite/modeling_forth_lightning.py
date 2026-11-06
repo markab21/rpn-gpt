@@ -9,7 +9,7 @@ Base-side rows (the composite's own small weights; the base checkpoint stays byt
   embed_override: embedding rows for the kernel's reserved tokens (words the model writes, kernel-emitted tokens),
                   fed to the base as inputs_embeds;
   word_head:      lm_head rows for the words the model writes (<lit>, <call>, :, ;, IF, ...).
-A PEFT LoRA on base.lm_head (training/eval_sp.py attach_lora) also adds its delta to the word columns (_head_lora_delta).
+A PEFT LoRA on base.lm_head (e2e_demo.py attach_lora) also adds its delta to the word columns (_head_lora_delta).
 Both are plain modules (PEFT modules_to_save / AutoModel can train them); the kernel must stay frozen.
 Visible stream: the base reads only what its training data shows (model text + the visible output block). A token the
 kernel emitted (its logit for that token at the previous position > mine) with an id < HIDDEN_BELOW is a hidden protocol

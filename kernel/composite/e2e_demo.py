@@ -1,6 +1,6 @@
 """e2e.py on the deliverable setup: demo10.json (hard), reference.txt, loop_sim's think budget (a forced '\n</think>\n\n'
 once THINK generated tokens are spent with no </think>; +GRACE while a ```forth block is open; never on a kernel-owned
-step), optionally the s1_cold LoRA on composite.base (eval_sp.attach_lora). Batch 1, card sampling.
+step), optionally a LoRA on composite.base (attach_lora). Batch 1, card sampling.
   [E2E_SET=training/data/demo_set.json E2E_SYS=training/data/cards/reference_v2.txt E2E_THINK=8000 E2E_TURN=16000] \
   CUDA_VISIBLE_DEVICES=7 python kernel/composite/e2e_demo.py CKPT OUT.json IDX[,IDX] [ADAPTER_DIR] [MAX_ALL=200000]
 Resumes: problems already in OUT.json are skipped (written after each problem, atomically).
@@ -71,9 +71,25 @@ class Budget(LogitsProcessor):
         return scores
 
 
+def attach_lora(base, path):
+    """PEFT LoRA injected in place into the composite's base (module names from the adapter's own keys, which match
+    HF NemotronH's model.layers.N...). -> [LoraLayer]"""
+    from peft import LoraConfig, inject_adapter_in_model
+    from peft.tuners.lora import LoraLayer
+    from safetensors.torch import load_file
+    cfg, sd = json.load(open(f"{path}/adapter_config.json")), load_file(f"{path}/adapter_model.safetensors")
+    hf = lambda k: k.removeprefix("base_model.model.")  # noqa: E731
+    names = sorted({hf(k).rsplit(".lora_", 1)[0] for k in sd})
+    inject_adapter_in_model(LoraConfig(r=cfg["r"], lora_alpha=cfg["lora_alpha"], target_modules=names), base)
+    res = base.load_state_dict({hf(k).replace(".weight", ".default.weight"): v for k, v in sd.items()}, strict=False)
+    assert not res.unexpected_keys, res.unexpected_keys[:5]
+    lora = [m for m in base.modules() if isinstance(m, LoraLayer)]
+    assert len(lora) == len(names), (len(lora), len(names))
+    print(f"LoRA r={cfg['r']} alpha={cfg['lora_alpha']} on {len(names)} modules", flush=True)
+    return lora
+
+
 def lora_hooks(base, adapter):
-    sys.path.insert(0, str(ROOT / "training"))
-    from eval_sp import attach_lora
     lora = attach_lora(base, adapter)
     names = {id(m): n for n, m in base.named_modules()}
     calls = {}
