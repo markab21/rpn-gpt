@@ -49,17 +49,21 @@ def complete(prompt, max_tokens, url):
                                                                     {"Content-Type": "application/json"}), timeout=3600))
         return r["content"] + (r["stopping_word"] if r["stop_type"] == "word" else ""), \
             "length" if r["stop_type"] == "limit" else "stop"
-    if SERVER == "ollama":  # native /api/generate, raw (the prompt is already templated); it drops the stop string and
-        body = {"model": MODEL, "prompt": prompt, "raw": True, "stream": False,  # does not say which stop ended the text
+    if SERVER == "ollama":  # native /api/generate, raw (the prompt is already templated). Ollama drops a stop string and
+        body = {"model": MODEL, "prompt": prompt, "raw": True, "stream": True,  # does not say which one ended the text,
                 "options": {"num_predict": max_tokens, "temperature": TEMP, "top_p": TOP_P, "top_k": 0, "min_p": 0.0,
-                            "stop": ["```\n"], "num_ctx": NUM_CTX}}  # the closing fence only (an opener is ```forth)
-        r = json.load(urllib.request.urlopen(urllib.request.Request(url, json.dumps(body).encode(),
-                                                                    {"Content-Type": "application/json"}), timeout=3600))
-        text, fin = r["response"], "length" if r.get("done_reason") == "length" else "stop"
-        turn = (prompt + text).rsplit("<|im_start|>assistant", 1)[-1]
-        # shortcut: an odd fence count = a block is open, so the stop was its closing fence (not the end of the turn);
-        # a stray ``` in prose would fool it
-        return text + ("```\n" if fin == "stop" and turn.count("```") % 2 else ""), fin
+                            "num_ctx": NUM_CTX}}  # so stream and cut at the first fence here (= the "```" stop above)
+        text, fin = "", "length"
+        with urllib.request.urlopen(urllib.request.Request(url, json.dumps(body).encode(),
+                                                           {"Content-Type": "application/json"}), timeout=3600) as resp:
+            for line in resp:  # closing the stream early cancels the generation
+                r = json.loads(line)
+                text += r.get("response", "")
+                if (k := text.find("```")) >= 0:
+                    return text[:k + 3], "stop"
+                if r.get("done"):
+                    fin = "length" if r.get("done_reason") == "length" else "stop"
+        return text, fin
     body = {"model": MODEL, "prompt": prompt, "max_tokens": max_tokens, "temperature": TEMP, "top_p": TOP_P, "stop": STOPS,
             "include_stop_str_in_output": True} | ({"logprobs": True} if SERVER == "mlx" else {})
     req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json",
