@@ -34,6 +34,8 @@ MODEL = os.environ.get("LOOP_MODEL", "lightning")  # served model name
 TEMP, TOP_P = float(os.environ.get("LOOP_TEMP", "1.0")), float(os.environ.get("LOOP_TOP_P", "0.95"))  # model card
 CHAT_TOK = os.environ.get("LOOP_CHAT_TOKENIZER")  # chat template of another model (the kernel keeps Lightning's tokenizer)
 SERVER = os.environ.get("LOOP_SERVER", "vllm")  # vllm | mlx (mlx_lm.server) | llamacpp (llama-server's /completion)
+# | ollama (/api/generate)
+NUM_CTX = int(os.environ.get("LOOP_NUM_CTX", "32768"))  # ollama: context; keep it fixed (a change reloads the model)
 STOPS = ["```\n", "```"]  # a fence: the kernel takes over at the closing ``` token itself (the model may end its turn right after)
 GRACE = 1000  # tokens past the thinking budget for a ```forth block that is open when the budget runs out
 FENCE_TOKS = {2640: "```\n", 1975: "```"}  # Lightning's fence tokens (mlx drops the stop from the text; its token id tells)
@@ -47,10 +49,21 @@ def complete(prompt, max_tokens, url):
                                                                     {"Content-Type": "application/json"}), timeout=3600))
         return r["content"] + (r["stopping_word"] if r["stop_type"] == "word" else ""), \
             "length" if r["stop_type"] == "limit" else "stop"
+    if SERVER == "ollama":  # native /api/generate, raw (the prompt is already templated); it drops the stop string and
+        body = {"model": MODEL, "prompt": prompt, "raw": True, "stream": False,  # does not say which stop ended the text
+                "options": {"num_predict": max_tokens, "temperature": TEMP, "top_p": TOP_P, "top_k": 0, "min_p": 0.0,
+                            "stop": ["```\n"], "num_ctx": NUM_CTX}}  # the closing fence only (an opener is ```forth)
+        r = json.load(urllib.request.urlopen(urllib.request.Request(url, json.dumps(body).encode(),
+                                                                    {"Content-Type": "application/json"}), timeout=3600))
+        text, fin = r["response"], "length" if r.get("done_reason") == "length" else "stop"
+        turn = (prompt + text).rsplit("<|im_start|>assistant", 1)[-1]
+        # shortcut: an odd fence count = a block is open, so the stop was its closing fence (not the end of the turn);
+        # a stray ``` in prose would fool it
+        return text + ("```\n" if fin == "stop" and turn.count("```") % 2 else ""), fin
     body = {"model": MODEL, "prompt": prompt, "max_tokens": max_tokens, "temperature": TEMP, "top_p": TOP_P, "stop": STOPS,
             "include_stop_str_in_output": True} | ({"logprobs": True} if SERVER == "mlx" else {})
     req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json",
-                                                                 "Authorization": f"Bearer {os.environ['VLLM_API_KEY']}"})
+                                                                 "Authorization": f"Bearer {os.environ.get('VLLM_API_KEY', '')}"})
     c = json.load(urllib.request.urlopen(req, timeout=3600))["choices"][0]
     if SERVER == "mlx" and c["finish_reason"] == "stop" and c["logprobs"]["content"][-1]["id"] in FENCE_TOKS:
         return c["text"] + FENCE_TOKS[c["logprobs"]["content"][-1]["id"]], "stop"
