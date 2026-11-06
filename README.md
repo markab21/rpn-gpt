@@ -37,10 +37,12 @@ We do not claim that this beats tool calling. Tool calling is more general and m
 
 | Claim | Evidence |
 |---|---|
+| All training together | Stock Lightning 79.1% vs our best adapter (round 7) 92.1% on the frozen test: **+13.0 [+10.2, +15.8]**. Hard problems: 69.1% to 89.7% (+20.6). Median answer length: 3494 to 775 tokens.<sup>5</sup> |
 | The kernel in the weights is exact | 618 test cases, 765,734 kernel-owned positions, 0 wrong, in prefill and in cached decode. One more 171k-token block, exact. [Details](kernel/README.md#parity-testing). |
 | The in-weights machine gives the same results as the external one | Round-3 adapter, 407 dev problems: 89.9% in the weights (vLLM composite) vs 89.3% with the external machine. 395 of 407 turns exact at every kernel position.<sup>1</sup> |
 | Training makes the model use the machine well | Stock Lightning 81.0% vs round-1 adapter 87.4% on the frozen test: +6.4 [+4.1, +8.8].<sup>2</sup> |
 | Program demonstrations teach a new habit | Round-5 adapter vs round-3 adapter: +2.0 [+0.1, +4.0] on the frozen test, +11.0 [+5.5, +16.5] on the code-heavy dev set.<sup>3</sup> |
+| The model then learns from its own programs | Round-7 adapter vs round 5: frozen +0.9 [-1.0, +2.8], dev x4 +1.2 [-0.1, +2.6], code-heavy dev +5.0 [-0.2, +10.2]. Small, but positive on every set, with fewer cut-off answers (37 to 22).<sup>5</sup> |
 | Plain math does not get worse | MATH-500 with no machine: stock 97.2%, round-3 adapter 97.7% (+0.5 [-0.4, +1.4]). Round 5 vs stock: +0.0 [-1.1, +1.1].<sup>4</sup> |
 | The composite runs batched in vLLM | 10 hard problems (demo10), 64 streams at once: 50 s per problem. The HF composite at batch 1 took a median of 457 s per problem on the demo set. [Details](kernel/README.md#serving-in-vllm). |
 
@@ -52,15 +54,16 @@ A delta is in points, paired by problem, with a 95% bootstrap interval over prob
 2. Frozen test (600 problems, 2 samples each), card v2, think 12000 / turn 24000, grader of 2026-11-05.
 3. Frozen test x2 and the 200-problem code-heavy dev set x2, card v4, grader of 2026-11-06, adapters on the same LoRA engines.
 4. MATH-500 x2, no machine, the same engine path for both arms.
+5. Frozen test x2, three arms run together on the same LoRA engines (stock as a zero adapter, round 5, round 7), card v4, think 12000 / turn 24000, grader of 2026-11-06. Dev and code-heavy dev for round 7 as in note 3.
 
-We did not yet measure stock Lightning against the round-5 adapter under one setting. The ledger of rounds is in [training](training/README.md#the-rounds).
+The ledger of rounds is in [training](training/README.md#the-rounds).
 
 ## The story, page by page
 
 1. [How we got here](kernel/history.md). A first machine in Qwen3.5-0.8B was exact, but the small model could not drive it.
 2. [The kernel](kernel/README.md). A second, small NemotronH stack (27 layers) with every weight computed by a Python builder. Numbers live as rows of Mamba-2 state, 20 decimal digits each. The composite runs it beside stock Lightning, which stays byte-identical. Where the kernel emits, its logits win. Parity tests compare every kernel position with the spec. They found real bugs, for example [a counter that drifted](kernel/README.md#bugs-that-the-tests-found) after 80,000 kernel tokens.
 3. [The Forth dialect](forth/README.md). The spec, [`kernel/text_vm.py`](kernel/text_vm.py), defines the exact token stream. If the kernel cannot do a feature exactly, the feature leaves the spec.
-4. [Training](training/README.md). On easy problems the machine hurts (88.7% without it, 75.6% with the full card). On hard ones it helps (28.3% to 73.1%). So the goal was to teach when to use it, not only how. LoRA SFT gave the gains: a 60-row cold start, rounds of the model's own clean correct rollouts, then program demonstrations. Context distillation and GRPO did not help.
+4. [Training](training/README.md). On easy problems the machine hurts (88.7% without it, 75.6% with the full card). On hard ones it helps (28.3% to 73.1%). So the goal was to teach when to use it, not only how. LoRA SFT gave the gains: a 60-row cold start, rounds of the model's own clean correct rollouts, then program demonstrations, then the model's own programs. Context distillation and GRPO did not help.
 5. [Demos](demos/README.md). Real transcripts: stock against trained, the kernel in the weights, errors and recovery, one problem per family.
 
 ## What is next

@@ -70,8 +70,9 @@ An adapter is a LoRA trained on stock Lightning. "s2a" means stage 2a, expert it
 | GRPO `r1b` | 20 steps of 8 x 8 rollouts | Frozen x4 (card v2, think 8000 / turn 16000) vs a zero-adapter control: +0.1 [-1.2, +1.4] | Bought nothing, dropped |
 | `s2a_r3` | 8214 clean on-policy rows, weak families weighted up, few re-runs | Dev x2 vs `s2a_r1`: +5.0 [+2.7, +7.5]. Frozen x2: +1.4 [-0.2, +3.1], hard +5.2 [+1.3, +9.0] | Promoted |
 | `s2a_r4` | + 342 weak-cell rows at a 12k budget, a MATH guard | Dev x4 vs `s2a_r3`: +0.5 [-1.3, +2.2] | Tie, not promoted |
-| `s2a_r5` | + 1177 program demonstrations (16% of rows) | Dev x4: +1.4 [-0.3, +3.0]. Code-heavy dev x2: +11.0 [+5.5, +16.5]. Frozen x2 vs `s2a_r3`: +2.0 [+0.1, +4.0] (89.0% to 91.0%) | Promoted, current best |
+| `s2a_r5` | + 1177 program demonstrations (16% of rows) | Dev x4: +1.4 [-0.3, +3.0]. Code-heavy dev x2: +11.0 [+5.5, +16.5]. Frozen x2 vs `s2a_r3`: +2.0 [+0.1, +4.0] (89.0% to 91.0%) | Promoted |
 | `s2a_r6` | + 550 more demonstrations (stack forms, recovery) | Dev x4 vs `s2a_r5`: -0.1 [-1.7, +1.4] | Tie, not promoted |
+| `s2a_r7` | + 1820 rows from `s2a_r5`'s own correct, short, machine-backed rollouts on 1850 fresh problems (weak-cell program rows x2) | Dev x4 vs `s2a_r5`: +1.2 [-0.1, +2.6]. Code-heavy dev x2: +5.0 [-0.2, +10.2]. Frozen x2: +0.9 [-1.0, +2.8] (91.2% to 92.1%); vs stock +13.0 [+10.2, +15.8] | Promoted, current best: positive on every set, fewer cut-off answers |
 
 Settings for the frozen-test lines: `s2a_r1` vs stock used card v2, think 12000 / turn 24000, grader of 2026-11-05 (commit `6e5947e`). `s2a_r3` vs `s2a_r1` used card v3, regraded with the euclid / roots fix. `s2a_r5` vs `s2a_r3` used card v4, grader of 2026-11-06. Each line compares two arms under one setting. We did not yet measure stock Lightning against `s2a_r5` under one setting.
 
@@ -105,6 +106,10 @@ So [`r5_demos.py`](r5_demos.py) writes demonstrations: a short plan, one compact
 The gains were in the targets: recurrence hard 12% to 50%, `numbers.is_prime` 40% to 69%, `euclid_trace` near 50% to near 75% (dev x4). On the code-heavy set: +11.0 [+5.5, +16.5]. On the frozen test: +2.0 [+0.1, +4.0], with `euclid_trace` +28.6 and `is_prime` +15.9 to +21.4 points. Median tokens fell from 966 to 850.
 
 A demonstration teaches a habit that the model's own rollouts do not yet show.
+
+### Round 7: the model's own programs
+
+Round 4 failed because the round-3 model rarely wrote a working program on the weak families, so its own correct rows were mostly hand arithmetic. After round 5 it wrote programs about half the time. Round 7 kept only its correct rollouts that read the answer from a machine output, stayed under 6,000 tokens and had at most one error. That gave 728 rows from 597 weak-cell problems. Most of them were the round-5 template in the model's own output. Training on them made the habit stronger: positive on every set, cut-off answers 37 to 22, code memory full 21 to 14 on the frozen test. The lesson: demonstrations start a habit; the model's own rows then make it stick.
 
 ### Fixing the card and the budget
 
