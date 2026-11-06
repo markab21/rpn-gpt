@@ -85,7 +85,7 @@ The ledger of rounds is in [training](training/README.md#the-rounds).
 
 Run the CPU tests with `uv sync` and `uv run --group dev pytest -q`. We ran the GPU parts on machines with 8 RTX PRO 6000 GPUs. We did not run them again for this repository.
 
-The training rows, rollouts and adapters are private and not published here. The held-out evaluation sets are in [`training/data/`](training/data/).
+Model and data (release pending): the round-7 adapter is [markab/rpn-gpt-lightning](https://huggingface.co/markab/rpn-gpt-lightning), and its training rows and evaluation sets are [markab/rpn-gpt-data](https://huggingface.co/datasets/markab/rpn-gpt-data). The rollouts and the other adapters stay private. The held-out evaluation sets are also in [`training/data/`](training/data/).
 
 ## Credits and license
 
