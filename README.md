@@ -87,7 +87,7 @@ The ledger of rounds is in [training](training/README.md#the-rounds).
 
 Run the CPU tests with `uv sync` and `uv run --group dev pytest -q`. We ran the GPU parts on machines with 8 RTX PRO 6000 GPUs. For this repository we ran the deployment paths again on a fresh machine, one GPU each: [Deploy and test](playbooks/deploy.md). We did not run the training steps again.
 
-Model and data (release pending): the round-7 model is [markab/rpn-gpt-lightning](https://huggingface.co/markab/rpn-gpt-lightning) (merged BF16; the page lists the LoRA, NVFP4, GGUF / Ollama, MLX and kernel-in-the-weights versions), and its training rows and evaluation sets are [markab/rpn-gpt-data](https://huggingface.co/datasets/markab/rpn-gpt-data). The rollouts and the other adapters stay private. The held-out evaluation sets are also in [`training/data/`](training/data/).
+Model and data ([the rpn-gpt collection](https://huggingface.co/collections/markab/rpn-gpt-6aee2a080aedf1d6e4694814)): the round-7 model is [markab/rpn-gpt-lightning](https://huggingface.co/markab/rpn-gpt-lightning) (merged BF16; the page lists the LoRA, NVFP4, GGUF / Ollama, MLX and kernel-in-the-weights versions), and its training rows and evaluation sets are [markab/rpn-gpt-data](https://huggingface.co/datasets/markab/rpn-gpt-data). The rollouts and the other adapters stay private. The held-out evaluation sets are also in [`training/data/`](training/data/).
 
 ## Credits and license
 
