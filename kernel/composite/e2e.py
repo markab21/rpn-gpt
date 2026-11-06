@@ -23,7 +23,7 @@ OWNED = 2.0**16
 PICK = {"training/data/dm_frontier.json": {"arithmetic.mul": 2, "arithmetic.add_sub_multiple": 2,
                                        "polynomials.evaluate": 3, "numbers.div_remainder": 2,
                                        "arithmetic.mul_div_multiple": 1},
-        "training/data/demo_pool.json": {"DMbig.mul": 3, "DMbig.div_remainder": 2}}
+        "training/data/demo_set.json": {"DMbig.div_remainder": 3, "DMbig.lcm": 2}}
 
 
 def problems():
