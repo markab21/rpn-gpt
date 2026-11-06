@@ -77,12 +77,12 @@ An adapter is a LoRA trained on stock Lightning. "s2a" means stage 2a, expert it
 | Adapter | Training data | Result | Verdict |
 |---|---|---|---|
 | `s1_cold` | 60 clean rows: 30 hard (machine), 30 easy (direct answers) | Hard demo set x4 50.3% to 65.0%. Easy x2 81.7% to 85.8%. | The cold start works |
-| `s2a_r1` | 562 rows from its own correct rollouts | Frozen test x2 vs stock: **+6.4 [+4.1, +8.8]** (81.0% to 87.4%) | Promoted |
+| `s2a_r1` | 562 rows from its own correct rollouts | Frozen test x2 vs stock: +6.4 [+4.1, +8.8] (81.0% to 87.4%) | Promoted |
 | `s2a_r2` | 1025 rows, same kind | Demo set x4: 67.8% vs 70.6% for `s2a_r1` | Plateau, not promoted |
 | GRPO `r1b` | 20 steps of 8 x 8 rollouts | Frozen x4 vs a zero-adapter control: +0.1 [-1.2, +1.4] | Bought nothing, dropped |
 | `s2a_r3` | 8214 clean on-policy rows, weak families weighted up, few re-runs | Dev x2 vs `s2a_r1`: +5.0 [+2.7, +7.5]. Frozen x2: +1.4 [-0.2, +3.1], hard +5.2 [+1.3, +9.0] | Promoted |
 | `s2a_r4` | + 342 weak-cell rows at a 12k budget, a MATH guard | Dev x4 vs `s2a_r3`: +0.5 [-1.3, +2.2] | Tie, not promoted |
-| `s2a_r5` | + 1177 program demonstrations (16% of rows) | Dev x4: +1.4 [-0.3, +3.0]. Code-heavy dev x2: **+11.0 [+5.5, +16.5]**. Frozen x2 vs `s2a_r3`: **+2.0 [+0.1, +4.0]** (89.0% to 91.0%) | Promoted, current best |
+| `s2a_r5` | + 1177 program demonstrations (16% of rows) | Dev x4: +1.4 [-0.3, +3.0]. Code-heavy dev x2: +11.0 [+5.5, +16.5]. Frozen x2 vs `s2a_r3`: +2.0 [+0.1, +4.0] (89.0% to 91.0%) | Promoted, current best |
 | `s2a_r6` | + 550 more demonstrations (stack forms, recovery) | Dev x4 vs `s2a_r5`: -0.1 [-1.7, +1.4] | Tie, not promoted |
 
 Settings for the frozen-test lines: `s2a_r1` vs stock used card v2, think 12000 / turn 24000, grader of 2026-11-05 (commit `6e5947e`). `s2a_r3` vs `s2a_r1` used card v3, regraded with the euclid / roots fix. `s2a_r5` vs `s2a_r3` used card v4, grader of 2026-11-06. Each line compares two arms under one setting. Stock Lightning against `s2a_r5` under one setting is not measured yet.

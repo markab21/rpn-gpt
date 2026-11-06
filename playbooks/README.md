@@ -129,7 +129,7 @@ Use the defaults that the ledger settled: think 12000, turn 24000, the model car
 The exact grader runs inside `loop_sim.py`. To regrade after a grader change, or to grade MATH-style answers:
 
 ```sh
-uv run python training/math_grade.py runs/math500.json runs/math500.graded.json
+uv run --with math_verify python training/math_grade.py runs/math500.json runs/math500.graded.json
 uv run python training/mass_report.py PROBLEMS.json OUT_PREFIX runs/*.json   # pass rates per family and kind
 ```
 
