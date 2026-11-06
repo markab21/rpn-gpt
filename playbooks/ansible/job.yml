@@ -1,0 +1,50 @@
+# Run one repo command on given GPUs with the standard launch checks (GPUs free first, then tasks/launched.yml), for
+# steps that have no playbook of their own: rollouts, row builds, the composite server, in-weights evals.
+# The command runs from the repo copy ({{ work }}) with GPUS="0 1 ..." and /etc/environment in its env.
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/job.yml -e tag=NAME -e gpus=0,1 \
+#     -e "cmd='venv-kernel/bin/python training/some_tool.py ARGS'" [-e "inputs='runs/x.json'"]
+# -e gpus=none: a client job that uses no GPU itself (training/loop_sim.py against a running server).
+# Stop: stop.yml -e dir=runs/job_TAG. Status: status.yml.
+- name: GPU job
+  hosts: gpu
+  gather_facts: false
+  vars:
+    work: /srv/nemo
+  tasks:
+    - name: GPU list is comma-separated indices (a space-split -e gpus= silently drops GPUs)
+      ansible.builtin.assert:
+        that: gpus is match('^([0-9]+(,[0-9]+)*|none)$')
+
+    - name: Requested GPUs are free
+      ansible.builtin.include_tasks: tasks/gpus_free.yml
+      when: gpus != 'none'
+
+    - name: Every declared input exists (-e "inputs='a.json b.jsonl'", paths relative to {{ work }})
+      ansible.builtin.shell: for f in {{ inputs | default('') }}; do test -s "$f" || { echo "missing $f"; exit 1; }; done
+      args:
+        chdir: "{{ work }}"
+      changed_when: false
+
+    - name: Run it (async; RUNNING marker = this job's pid, for status.yml / stop.yml -e dir=runs/job_TAG)
+      ansible.builtin.shell: |
+        set -a; . /etc/environment; set +a
+        mkdir -p runs/job_{{ tag }}
+        if [ -f runs/job_{{ tag }}/RUNNING ] && kill -0 "$(cat runs/job_{{ tag }}/RUNNING)" 2>/dev/null; then
+          echo "job {{ tag }} already running"; exit 1
+        fi
+        echo $$ > runs/job_{{ tag }}/RUNNING
+        {{ cmd }} > runs/job_{{ tag }}/out.log 2>&1
+        rc=$?; rm -f runs/job_{{ tag }}/RUNNING; exit $rc
+      args:
+        chdir: "{{ work }}"
+        executable: /bin/bash
+      environment:
+        GPUS: "{{ '' if gpus == 'none' else gpus | replace(',', ' ') }}"
+        CUDA_VISIBLE_DEVICES: "{{ '' if gpus == 'none' else gpus }}"
+        PYTHONPATH: "{{ work }}/kernel/composite"
+      async: "{{ timeout | default(21600) }}"  # -e timeout=SECONDS for runs longer than 6 h
+      poll: 0
+      register: job
+
+    - name: Verify the launch and wait
+      ansible.builtin.include_tasks: tasks/launched.yml

@@ -1,0 +1,54 @@
+# Assume a launch failed until the machine shows otherwise. Include right after an async (poll: 0) launch registered as
+# `job`, with `gpus` (comma list). Fails unless, within 15 min, every listed GPU holds > 10 GB while the job is still
+# running (a job that ends inside the window fails it at once); then reports idle GPUs and waits for the job.
+- name: Every requested GPU ({{ gpus }}) holds the job, and the job is alive
+  ansible.builtin.shell: |
+    # the async status file says "finished": false while the job runs and is replaced by the result when it ends
+    grep -q '"finished": false' {{ ansible_async_dir | default('~/.ansible_async') }}/{{ job.ansible_job_id }} 2>/dev/null || { echo "job already ended"; exit 2; }
+    for g in {{ '' if gpus == 'none' else gpus | replace(',', ' ') }}; do
+      used=$(nvidia-smi -i "$g" --query-gpu=memory.used --format=csv,noheader,nounits)
+      [ "$used" -gt 10000 ] || { echo "GPU $g: ${used} MiB"; exit 1; }
+    done
+  args:
+    executable: /bin/bash
+  register: busy
+  until: busy.rc != 1  # 0 = all busy, 2 = the job ended (failed launch, or a job shorter than the window)
+  retries: 60
+  delay: 15
+  changed_when: false
+  failed_when: false
+
+- name: Job state after the launch window
+  ansible.builtin.async_status:
+    jid: "{{ job.ansible_job_id }}"
+  register: job_state
+  failed_when: false
+
+- name: The launch took
+  ansible.builtin.assert:
+    that:
+      # a GPU-less client job (gpus=none) may also finish cleanly inside the window
+      - busy.rc == 0 or (gpus == 'none' and job_state.finished and job_state.rc | default(1) == 0)
+      - not job_state.finished or job_state.rc | default(1) == 0
+    fail_msg: >-
+      launch failed: {{ busy.stdout | default('') }} {{ (job_state.stderr | default(''))[-600:] }}
+      {{ (job_state.stdout | default(''))[-600:] }}
+
+- name: GPUs idle on the machine
+  ansible.builtin.shell: >-
+    nvidia-smi --query-gpu=index,memory.used,utilization.gpu --format=csv,noheader,nounits
+    | awk -F', ' '$2 < 10000 {printf "%s ", $1}'
+  register: idle
+  changed_when: false
+
+- name: Report idle GPUs
+  ansible.builtin.debug:
+    msg: "{{ ('IDLE GPUs: ' ~ idle.stdout) if idle.stdout | trim else 'all GPUs in use' }}"
+
+- name: Wait for the job (polls every minute)
+  ansible.builtin.async_status:
+    jid: "{{ job.ansible_job_id }}"
+  register: done
+  until: done.finished
+  retries: 1440
+  delay: 60

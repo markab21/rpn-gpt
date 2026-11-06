@@ -1,0 +1,17 @@
+# Copy to inventory.yml (git-ignored) and fill in your GPU machine. Every playbook runs on the group `gpu`.
+all:
+  children:
+    gpu:
+      hosts:
+        my-gpu-box:
+          ansible_host: gpu.example.com   # your machine's address
+          ansible_port: 22
+          gpu_count: 8                    # site.yml checks it
+      vars:
+        ansible_user: root
+        ansible_python_interpreter: /usr/bin/python3
+        ansible_ssh_private_key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+        # Builds run for an hour or more over one ssh session: keepalives stop idle NATs from dropping it.
+        ansible_ssh_common_args: -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=60
+        ansible_ssh_retries: 5
+# The repo copy, envs, checkpoints and models live in /srv/nemo on the machine. Change it with -e work=/path.

@@ -1,0 +1,30 @@
+# Build the composite checkpoint (stock Lightning by path + the compiled kernel + the modeling code) on the machine,
+# then link an NVFP4 variant (same kernel, base pointed at the NVFP4 checkpoint) for serving. CPU is enough for the
+# build. Needs site.yml. Rebuild after a kernel change: remove forth-lightning/ first (creates: guards).
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/composite.yml
+# Prove it next: kernel_test.yml (the kernel alone), then job.yml with kernel/composite/vllm_kernel_check.py (in vLLM).
+- name: Build the composite
+  hosts: gpu
+  gather_facts: false
+  vars:
+    work: /srv/nemo
+    py: "{{ work }}/venv-kernel/bin/python"
+    comp: "{{ work }}/forth-lightning"
+  tasks:
+    - name: Build the composite (kernel/composite/build.py OUT BASE)
+      ansible.builtin.command:
+        argv: ["{{ py }}", kernel/composite/build.py, "{{ comp }}", "{{ work }}/lightning-bf16"]
+        chdir: "{{ work }}"
+        creates: "{{ comp }}/config.json"
+      environment:
+        SP_LIGHTNING: "{{ work }}/lightning-bf16"  # the kernel takes Lightning's config + tokenizer from here
+
+    - name: Read the build info (ids the kernel emits, parameter counts, bytes on disk)
+      ansible.builtin.command:
+        argv: [cat, "{{ comp }}/build_info.json"]
+      changed_when: false
+      register: info
+
+    - name: Report
+      ansible.builtin.debug:
+        msg: "{{ info.stdout }}"

@@ -1,0 +1,33 @@
+# Stop ONE job by its tag: the pid in its RUNNING file (training/run_stage.sh, job.yml and serve.yml all write one), that process tree only,
+# then any engine left on the job's GPUs that belongs to that tree; wait until those GPUs are free. Never pkill -f.
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/stop.yml -e dir=runs/job_TAG
+#   (training: -e dir=checkpoints/NAME.lock)
+- name: Stop a job
+  hosts: gpu
+  gather_facts: false
+  vars:
+    work: /srv/nemo
+  tasks:
+    - name: Kill the job's process tree (by pid; children first), and report its GPUs
+      ansible.builtin.shell: |
+        f={{ work }}/{{ dir }}/RUNNING
+        [ -f "$f" ] || { echo "no RUNNING file in {{ dir }}: nothing to stop"; exit 0; }
+        P=$(cat "$f")
+        kill -0 "$P" 2>/dev/null || { echo "pid $P already gone; clearing marker"; rm -f "$f"; exit 0; }
+        tree() { echo "$1"; for c in $(pgrep -P "$1"); do tree "$c"; done; }
+        PIDS=$(tree "$P")
+        GPUS=$(for p in $PIDS; do nvidia-smi --query-compute-apps=pid,gpu_uuid --format=csv,noheader | awk -F', ' -v p=$p '$1==p {print $2}'; done | sort -u)
+        kill $(echo "$PIDS" | tac) 2>/dev/null; sleep 10
+        for p in $PIDS; do kill -0 $p 2>/dev/null && kill -9 $p; done
+        for u in $GPUS; do for i in $(seq 30); do
+          used=$(nvidia-smi --id=$u --query-gpu=memory.used --format=csv,noheader,nounits); [ "$used" -lt 2000 ] && break; sleep 2
+        done; echo "gpu $u: $(nvidia-smi --id=$u --query-gpu=index,memory.used --format=csv,noheader)"; done
+        rm -f "$f"; echo "stopped pid $P ($(echo $PIDS | wc -w) processes)"
+      args:
+        executable: /bin/bash
+      register: out
+      changed_when: "'stopped' in out.stdout"
+
+    - name: Report
+      ansible.builtin.debug:
+        msg: "{{ out.stdout_lines }}"

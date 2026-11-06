@@ -1,0 +1,83 @@
+# Text-mode parity of the compiled kernel (kernel/sp_test.py OUT text [programs.json]): build sp_kernel, then at every
+# position of every case the kernel's argmax must be text_vm's kernel-owned token and its max logit < 0.5 where the
+# model writes (prefill + cached decode). Prints a one-line verdict per case and fetches the JSON.
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/kernel_test.yml -e gpu=7 \
+#     [-e progs=kernel/tests/kernel_turns_2d.json] [-e tag=2b] [-e prefill_max=70000 -e cached_max=7000]
+- name: Kernel text-mode parity
+  hosts: gpu
+  gather_facts: false
+  vars:
+    work: /srv/nemo
+    gpus: "{{ gpu }}"  # for tasks/gpus_free.yml
+    tag: text
+    progs: ""
+    out: "{{ work }}/kernel_runs/{{ tag }}"
+  tasks:
+    - name: One GPU index
+      ansible.builtin.assert:
+        that: gpu | string is match("^[0-9]+$")
+
+    # -e shared=true: the GPU also holds a vLLM server of ours capped at about 55% of memory (a kernel build needs ~15 GB)
+    - name: The GPU is free
+      ansible.builtin.include_tasks: tasks/gpus_free.yml
+      when: not (shared | default(false) | bool)
+
+    - name: Build and check (sp_test.py writes OUT/sp_text_<transformers>.json)
+      ansible.builtin.shell: >-
+        mkdir -p {{ out }} && rm -f {{ out }}/sp_text_*.json &&
+        {{ work }}/venv-kernel/bin/python sp_test.py {{ out }} text {{ (work ~ '/' ~ progs) if progs else '' }}
+        > {{ out }}/log.txt 2>&1
+      args:
+        chdir: "{{ work }}/kernel"
+      environment:
+        CUDA_VISIBLE_DEVICES: "{{ gpu }}"
+        SP_CHECKS: build,prefill,cached
+        SP_PREFILL_MAX: "{{ prefill_max | default(7000) }}"  # -e prefill_max=70000 cached_max=7000: long programs
+        SP_CACHED_MAX: "{{ cached_max | default(1000000000) }}"  # get one-shot prefill only above cached_max
+        SP_ONLY: "{{ only | default('') }}"  # -e only=t2d_59,t2d_60: just these cases (name prefixes)
+      async: "{{ async_s | default(7200) }}"  # -e async_s=21600: long sets (the re-send set on one GPU)
+      poll: 15
+      register: run
+      failed_when: false
+
+    - name: Verdict per case (wrong kernel tokens / loud model positions)
+      ansible.builtin.shell: |
+        tail -5 {{ out }}/log.txt | grep -i -E "error|Traceback" && exit 1
+        python3 - <<'EOF'
+        import glob, json
+        R = json.load(open(glob.glob("{{ out }}/sp_text_*.json")[0]))
+        bad = 0
+        for k, r in R.items():
+            if isinstance(r, dict) and "tokens" in r:
+                w = sum(v for f, v in r.items() if f.endswith("_wrong") or f.endswith("_loud_model_positions"))
+                bad += w > 0
+                if w:
+                    print("FAIL", k, {f: v for f, v in r.items() if "first" in f or f.endswith(("_wrong", "_positions"))})
+        n = sum(isinstance(r, dict) and "tokens" in r for r in R.values())
+        print(f"{n - bad}/{n} cases exact; residual dims {R.get('residual_dims')}")
+        EOF
+      register: verdict
+      changed_when: false
+      failed_when: false
+
+    - name: Report
+      ansible.builtin.debug:
+        msg: "{{ (verdict.stdout_lines + verdict.stderr_lines)[-30:] }}"
+
+    - name: Fetch the result
+      ansible.builtin.shell: ls {{ out }}/sp_text_*.json {{ out }}/log.txt
+      register: files
+      changed_when: false
+      failed_when: false
+
+    - name: Copy result and log home
+      ansible.builtin.fetch:
+        src: "{{ item }}"
+        dest: "{{ playbook_dir }}/../../kernel/results/kernel_{{ tag }}/"
+        flat: true
+      loop: "{{ files.stdout_lines }}"
+
+    - name: Passed
+      ansible.builtin.assert:
+        that: run.rc | default(1) == 0 and verdict.rc == 0 and 'cases exact' in verdict.stdout and
+              verdict.stdout_lines[-1].split('/')[0] == verdict.stdout_lines[-1].split('/')[1].split()[0]

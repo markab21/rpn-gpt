@@ -1,0 +1,20 @@
+# Before a launch: every requested GPU ({{ gpus }}) is free (< 2 GB used). A busy GPU means another job is on it:
+# launching anyway fails engine init (or worse, double-runs a job), so fail here and say who holds it.
+- name: Requested GPUs ({{ gpus }}) are free
+  ansible.builtin.shell: |
+    rc=0
+    for g in {{ gpus | replace(',', ' ') }}; do
+      used=$(nvidia-smi -i "$g" --query-gpu=memory.used --format=csv,noheader,nounits)
+      if [ "$used" -ge 2000 ]; then
+        rc=1; uuid=$(nvidia-smi -i "$g" --query-gpu=uuid --format=csv,noheader)
+        for p in $(nvidia-smi --query-compute-apps=pid,gpu_uuid --format=csv,noheader | grep "$uuid" | cut -d, -f1); do
+          echo "GPU $g busy (${used} MiB): pid $p $(ps -o cmd= -p $p | cut -c1-100)"
+        done
+      fi
+    done
+    exit $rc
+  args:
+    executable: /bin/bash
+  register: free
+  changed_when: false
+  failed_when: free.rc != 0

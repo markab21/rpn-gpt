@@ -1,0 +1,191 @@
+# Set up a GPU machine from "just created" to "ready": the repo copy, three uv envs built from NeMo RL's lock, the
+# pinned Lightning checkpoints. Idempotent: every slow step is guarded (creates:, a probe), so a rerun on a ready
+# machine changes nothing and touches no running process. Tested on NGC PyTorch containers with 8 RTX PRO 6000 GPUs
+# (sm_120; other GPUs: change build_env).
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/site.yml [--check --diff]
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/site.yml --tags verify
+# Secrets stay in the machine's /etc/environment: HF_TOKEN (opt in below), VLLM_API_KEY (made on the machine).
+# Never run `uv cache prune` / `uv cache clean` there, and never `uv sync` in RL/ without UV_PROJECT_ENVIRONMENT.
+---
+- name: Set up the GPU machine
+  hosts: gpu
+  gather_facts: false
+  vars:
+    repo: "{{ playbook_dir }}/../.."
+    work: /srv/nemo
+    build_env:  # source builds (DeepEP, Transformer Engine, flash-attn) for sm_120 only
+      CPATH: /usr/local/cuda/include/cccl
+      TORCH_CUDA_ARCH_LIST: "12.0"
+      NVTE_CUDA_ARCHS: "120"
+      MAX_JOBS: "64"
+      UV_LOCK_TIMEOUT: "7200"  # parallel syncs share uv's cache; one may hold a wheel lock for a long build
+  tasks:
+    - name: Install base packages
+      ansible.builtin.apt:
+        name: [rsync, git, nvtop]
+        update_cache: true
+        cache_valid_time: 86400
+
+    - name: Install uv and the hf CLI
+      ansible.builtin.pip:
+        name: [uv, "huggingface_hub[hf_xet]"]
+        break_system_packages: true
+
+    - name: VLLM_API_KEY in /etc/environment (a random one, made on the machine and never printed)
+      ansible.builtin.shell: >-
+        grep -q '^VLLM_API_KEY=' /etc/environment && echo kept ||
+        echo "VLLM_API_KEY=$(python3 -c 'import secrets; print(secrets.token_hex(16))')" >> /etc/environment
+      register: api_key
+      changed_when: api_key.stdout != 'kept'
+
+    # Opt in with a dedicated variable, so an inherited (for example read-only) HF_TOKEN is never overwritten:
+    #   HF_WRITE_TOKEN=... ansible-playbook ...   (skipped when unset)
+    - name: HF_TOKEN in /etc/environment from HF_WRITE_TOKEN
+      ansible.builtin.lineinfile:
+        path: /etc/environment
+        regexp: '^HF_TOKEN='
+        line: "HF_TOKEN={{ lookup('env', 'HF_WRITE_TOKEN') }}"
+      when: lookup('env', 'HF_WRITE_TOKEN') | length > 0
+      no_log: true
+
+    - name: Push the repo to {{ work }} (the local repo is the source of truth; the machine is disposable)
+      ansible.builtin.command:
+        argv: "{{ ['rsync', '-az', '--itemize-changes', '--exclude', '__pycache__', '--exclude', '.venv', '--exclude', '.git',
+                   '-e', 'ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -p ' ~ (ansible_port | default(22))]
+                  + (['--dry-run'] if ansible_check_mode else [])
+                  + [repo ~ '/', ansible_user ~ '@' ~ ansible_host ~ ':' ~ work ~ '/'] }}"
+      delegate_to: localhost
+      check_mode: false
+      register: sync
+      changed_when: sync.stdout_lines | select('match', '^[<>ch]') | list | length > 0
+
+    - name: Clone pinned NeMo RL (into .tmp first, so a failed clone is retried, never half-kept)
+      ansible.builtin.shell: >-
+        rm -rf {{ item.dest }}.tmp && git clone -q {{ item.url }} {{ item.dest }}.tmp && cd {{ item.dest }}.tmp &&
+        git checkout -q {{ item.rev }} && git submodule update -q --init --recursive && mv {{ item.dest }}.tmp {{ item.dest }}
+      args:
+        creates: "{{ item.dest }}"
+      loop:
+        - {url: https://github.com/NVIDIA-NeMo/RL.git, rev: 6e68b17911b83becacc0c0afaf4be15c43c17873, dest: "{{ work }}/RL"}
+
+    # NeMo RL pins flash-attn's build to MAX_JOBS=4 and 4 GPU generations for its CI (~2 h).
+    - name: Build flash-attn for sm_120 only, with more jobs
+      ansible.builtin.replace:
+        path: "{{ work }}/RL/pyproject.toml"
+        regexp: '^flash-attn = \{ MAX_JOBS = "4" \}$'
+        replace: 'flash-attn = { MAX_JOBS = "24", FLASH_ATTN_CUDA_ARCHS = "120" }'
+
+    - name: Look for a uv sync already in progress
+      ansible.builtin.command: pgrep -f "^([^ ]*/)?uv sync"
+      register: uv_busy
+      changed_when: false
+      failed_when: false
+      check_mode: false
+
+    # Downloads (network) and env builds (CPU) overlap. hf download skips verified files, so a rerun finishes a partial one.
+    - name: Start the pinned model downloads (async)
+      ansible.builtin.shell: >-
+        for attempt in 1 2 3 4; do
+        hf download {{ item.name }} --revision {{ item.rev }} --local-dir {{ item.dir }} && exit 0; sleep 15;
+        done; exit 1
+      environment:
+        HF_HUB_DOWNLOAD_TIMEOUT: "120"
+      async: 7200
+      poll: 0
+      register: downloads
+      loop:
+        - {name: nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16, rev: a9904d24bcc1d289a1950fa9d2b978c47cf903b9,
+           dir: "{{ work }}/lightning-bf16"}
+        - {name: nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4, rev: bee7596271d1495f6992ae224aefde4410e816b8,
+           dir: "{{ work }}/lightning-nvfp4"}
+
+    # The .synced marker is written only after uv sync succeeds. The automodel and vllm extras conflict: separate envs.
+    - name: Start the three NeMo RL env builds from the lock (async)
+      ansible.builtin.shell: uv sync --frozen --extra {{ item.extra }} && touch {{ item.env }}/.synced
+      args:
+        chdir: "{{ work }}/RL"
+        creates: "{{ item.env }}/.synced"
+      # the lock's own NCCL headers first: Transformer Engine fails against an image's older nccl.h
+      environment: "{{ build_env | combine({'UV_PROJECT_ENVIRONMENT': item.env, 'CPATH': item.env ~
+                    '/lib/python3.13/site-packages/nvidia/nccl/include:' ~ build_env.CPATH}) }}"
+      when: uv_busy.rc != 0
+      async: 7200
+      poll: 0
+      register: env_builds
+      loop:
+        - {env: "{{ work }}/venv-kernel", extra: vllm}       # kernel builds, parity tests, vLLM serving, rollouts
+        - {env: "{{ work }}/venv-automodel", extra: automodel}  # LoRA SFT
+        - {env: "{{ work }}/venv-rl-driver", extra: vllm}    # the GRPO driver
+
+    - name: Wait for every parallel job to finish
+      ansible.builtin.async_status:
+        jid: "{{ item.ansible_job_id }}"
+      register: job
+      until: job.finished
+      retries: 240
+      delay: 30
+      loop: "{{ (downloads.results + env_builds.results) | selectattr('ansible_job_id', 'defined') | list }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+    # The lock's transformers 5.12.1 has a NemotronH chunked-scan bug (wrong past 128 tokens without mamba_ssm). 5.16.1
+    # fixes it, and the kernel was verified on it. --no-deps: resolving these deps downgrades the lock's nvidia libs.
+    - name: Pin venv-kernel to transformers 5.16.1, then add peft and the fused Mamba kernels
+      ansible.builtin.command:
+        argv: "{{ ['uv', 'pip', 'install', '--python', work ~ '/venv-kernel/bin/python'] + item }}"
+      environment: "{{ build_env }}"
+      register: pin
+      changed_when: "'+ ' in pin.stderr"
+      when: uv_busy.rc != 0
+      loop:
+        - [transformers==5.16.1]
+        - [--no-build-isolation, --no-deps, peft==0.21.2,
+           "causal-conv1d @ git+https://github.com/Dao-AILab/causal-conv1d@4f6ae4e26ae5fe8af9372f8d312ab25cc4595223",
+           "mamba-ssm @ git+https://github.com/state-spaces/mamba.git@a14b1dff0454a3bc27d9eb31355dc01e4b2490ec"]
+
+    - name: Verify (safe anytime; alone with --tags verify)
+      tags: [verify]
+      block:
+        - name: Import each env
+          ansible.builtin.command:
+            argv: ["{{ work }}/{{ item.env }}/bin/python", -c, "{{ item.code }}"]
+          loop:
+            - {env: venv-kernel, code: "import vllm, transformers; print(vllm.__version__, transformers.__version__)"}
+            - {env: venv-automodel, code: "import nemo_automodel, mamba_ssm; print('nemo_automodel')"}
+            - {env: venv-rl-driver, code: "import vllm; print(vllm.__version__)"}
+          register: imports
+          changed_when: false
+          failed_when: false
+          check_mode: false
+
+        - name: Read free disk (GB) and GPU count
+          ansible.builtin.shell: df --output=avail -BG {{ work }} | tail -1 | tr -dc 0-9; echo; nvidia-smi -L | wc -l
+          register: hw
+          changed_when: false
+          check_mode: false
+
+        - name: Check
+          ansible.builtin.assert:
+            that: item.ok | bool
+            fail_msg: "{{ item.got | string }}"
+            success_msg: "{{ item.got | string }}"
+          loop_control:
+            label: "{{ item.what }}"
+          loop:
+            # vLLM stays 0.29.0: 0.32.0's compiled mode emitted wrong kernel tokens (only enforce_eager was exact).
+            # Qualify a newer vLLM with kernel/composite/vllm_kernel_check.py before changing this pin.
+            - what: venv-kernel is vLLM 0.29.0 + transformers 5.16.1
+              got: "{{ imports.results[0].stdout or imports.results[0].stderr[-300:] }}"
+              ok: "{{ imports.results[0].rc == 0 and imports.results[0].stdout.split() == ['0.29.0', '5.16.1'] }}"
+            - what: venv-automodel imports nemo_automodel
+              got: "{{ imports.results[1].stdout or imports.results[1].stderr[-300:] }}"
+              ok: "{{ imports.results[1].rc == 0 }}"
+            - what: venv-rl-driver imports vllm
+              got: "{{ imports.results[2].stdout or imports.results[2].stderr[-300:] }}"
+              ok: "{{ imports.results[2].rc == 0 }}"
+            - what: free disk >= 60 GB
+              got: "{{ hw.stdout_lines[0] }} GB free"
+              ok: "{{ hw.stdout_lines[0] | int >= 60 }}"
+            - what: "{{ gpu_count | default(8) }} GPUs"
+              got: "{{ hw.stdout_lines[1] }} GPUs"
+              ok: "{{ hw.stdout_lines[1] | int == gpu_count | default(8) | int }}"

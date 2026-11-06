@@ -2,12 +2,12 @@
 a problem set, loop_sim's visible-only think budget (Budget, as e2e_demo.Budget), the card's sampling, every kernel-owned
 position checked against text_vm (e2e.check: 'exact', 'bad_runs'). All problems run concurrently (one request each,
 seed = its position in IDX; IDX may repeat or be 'all'). In-process engine (Budget's per-request notes).
-One command (NVFP4 base + any LoRA, the base reads only the visible stream), from a dir with kernel/composite/, kernel/, data/
+One command (NVFP4 base + any LoRA, the base reads only the visible stream), from the repo copy on the machine
 and the composite checkpoint (kernel/composite/build.py OUT nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16; NVFP4 dir as in serve_forth.sh):
   FORTH_VISIBLE=1 CUDA_VISIBLE_DEVICES=0 VLLM_ENABLE_V1_MULTIPROCESSING=0 VLLM_DISABLE_COMPILE_CACHE=1 \
-  PYTHONPATH=composite:kernel PROBLEMS=training/data/demo10.json SYSTEM=training/data/cards/reference.txt \
+  PYTHONPATH=kernel/composite:kernel PROBLEMS=training/data/demo10.json SYSTEM=training/data/cards/reference.txt \
   VLLM_KW='{"moe_backend": "marlin", "compilation_config": {"cudagraph_mode": "FULL_DECODE_ONLY"}}' \
-      /srv/nemo/venv-kernel/bin/python kernel/composite/e2e_vllm.py forth-lightning-nvfp4 OUT.json all ADAPTER_DIR \
+      venv-kernel/bin/python kernel/composite/e2e_vllm.py forth-lightning-nvfp4 OUT.json all ADAPTER_DIR \
       [MAX_ALL=200000]
   -> OUT.json: total {n, correct, exact, tokens, wall_s} + per problem got / ok / tokens / visible / hidden / turn_cut.
 kernel/ must be the source the checkpoint's kernel was built from (the text_vm reference). Budgets: env THINK / GRACE /

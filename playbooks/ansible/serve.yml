@@ -1,0 +1,111 @@
+# One plain vLLM server on ONE GPU for rollouts and evals (the external machine: training/loop_sim.py talks to it):
+# Lightning BF16 or NVFP4, with optional LoRA adapters served by name. OpenAI API on localhost:PORT, key = the
+# machine's VLLM_API_KEY. Then prove it: process alive, GPU holds it, /v1/models lists it, a real completion returns tokens.
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/serve.yml -e model=lightning-nvfp4 -e gpu=1 -e port=8201
+#   ... -e model=lightning -e gpu=3 -e port=8203 [-e "loras='s2a_r5=/srv/nemo/adapters/s2a_r5'"] [-e seqs=64]
+#   ... -e "extra='--gpu-memory-utilization 0.55'"
+# A/B of adapters: serve both on one --enable-lora engine and compare with a zero adapter (training/zero_adapter.py),
+# never with the base name. Stop: stop.yml -e dir=runs/job_MODEL_srv_PORT.
+- name: Serve a model
+  hosts: gpu
+  gather_facts: false
+  vars:
+    work: /srv/nemo
+    presets:
+      lightning:
+        dir: lightning-bf16
+        flags: ""
+        seqs: 64
+      lightning-nvfp4:
+        dir: lightning-nvfp4
+        # KV in bf16, not the checkpoint's FP8: the hybrid cache block is one Mamba state's bytes / KV bytes per token,
+        # so FP8 KV makes it 4176 tokens and bf16 2096; on the loop workload bf16 hit 71% of prompt tokens vs 45%.
+        flags: --enable-prefix-caching --mamba-cache-mode align --kv-cache-dtype bfloat16 --async-scheduling
+        seqs: 512  # one GPU: 6.7k output tok/s at 256 streams, 8.0k at 512
+    p: "{{ presets[model] }}"
+    srv_dir: "runs/job_{{ model }}_srv_{{ port }}"
+    max_len: 65536
+    loras: ""  # "name=/path name2=/path2"
+    lora_rank: 16
+    gpus: "{{ gpu }}"  # for tasks/gpus_free.yml
+    extra: ""
+  tasks:
+    - name: Known model, one GPU index, a port
+      ansible.builtin.assert:
+        that:
+          - model in presets
+          - gpu | string is match('^[0-9]+$')
+          - port | int > 1024
+
+    - name: The GPU is free
+      ansible.builtin.include_tasks: tasks/gpus_free.yml
+      when: not (shared | default(false) | bool)
+
+    - name: Port {{ port }} is free
+      ansible.builtin.wait_for:
+        port: "{{ port }}"
+        state: stopped
+        timeout: 5
+
+    - name: Every LoRA adapter dir has its files
+      ansible.builtin.shell: |
+        for kv in {{ loras }}; do d=${kv#*=}; test -s "$d/adapter_config.json" -a -s "$d/adapter_model.safetensors" || { echo "bad adapter $d"; exit 1; }; done
+      changed_when: false
+
+    - name: Start the server (RUNNING = vLLM's pid, for stop.yml / status.yml)
+      ansible.builtin.shell: |
+        set -a; . /etc/environment; set +a
+        mkdir -p {{ srv_dir }}
+        CUDA_VISIBLE_DEVICES={{ gpu }} setsid nohup venv-kernel/bin/vllm serve {{ work }}/{{ p.dir }} --served-model-name {{ model }} \
+          --host localhost --port {{ port }} --max-model-len {{ max_len }} --gpu-memory-utilization 0.92 \
+          --max-num-seqs {{ seqs | default(p.seqs) }} --no-enable-flashinfer-autotune {{ p.flags }} \
+          {{ ('--enable-lora --max-lora-rank ' ~ lora_rank ~ ' --lora-modules ' ~ loras) if loras else '' }} {{ extra }} \
+          > {{ srv_dir }}/out.log 2>&1 < /dev/null &
+        echo $! > {{ srv_dir }}/RUNNING
+      args:
+        chdir: "{{ work }}"
+        executable: /bin/bash
+
+    - name: Alive and listing "{{ model }}" (fails at once if the process dies)
+      ansible.builtin.shell: |
+        set -a; . /etc/environment; set +a
+        p=$(cat {{ srv_dir }}/RUNNING)
+        kill -0 $p 2>/dev/null || { echo "server pid $p died:"; tail -30 {{ srv_dir }}/out.log; exit 2; }
+        curl -sf -H "Authorization: Bearer $VLLM_API_KEY" http://localhost:{{ port }}/v1/models | grep -q '"{{ model }}"'
+      args:
+        chdir: "{{ work }}"
+        executable: /bin/bash
+      register: up
+      until: up.rc != 1
+      retries: 120
+      delay: 15
+      changed_when: false
+      failed_when: up.rc != 0
+
+    - name: The GPU holds the model
+      ansible.builtin.shell: test "$(nvidia-smi -i {{ gpu }} --query-gpu=memory.used --format=csv,noheader,nounits)" -gt 20000
+      changed_when: false
+
+    - name: A real completion returns tokens (and its speed), from the base and from each adapter
+      ansible.builtin.shell: |
+        set -a; . /etc/environment; set +a
+        python3 - <<'PY'
+        import json, os, time, urllib.request
+        for name in ["{{ model }}"] + [kv.split("=")[0] for kv in "{{ loras }}".split()]:
+            body = {"model": name, "prompt": "Write a short Forth word that squares a number, then explain it.",
+                    "max_tokens": 512, "temperature": 0, "ignore_eos": True}
+            req = urllib.request.Request("http://localhost:{{ port }}/v1/completions", json.dumps(body).encode(),
+                                         {"Content-Type": "application/json", "Authorization": "Bearer " + os.environ["VLLM_API_KEY"]})
+            t = time.time(); r = json.load(urllib.request.urlopen(req, timeout=600)); dt = time.time() - t
+            n = r["usage"]["completion_tokens"]
+            assert n > 100, r
+            print(f"{name}: {n} tokens in {dt:.1f} s = {n / dt:.1f} tok/s (one stream)")
+        PY
+      args:
+        executable: /bin/bash
+      register: probe
+      changed_when: false
+
+    - name: Report
+      ansible.builtin.debug:
+        msg: "{{ probe.stdout_lines }}"

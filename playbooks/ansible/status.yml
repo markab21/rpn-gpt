@@ -1,0 +1,33 @@
+# Read-only view of the machine: every GPU (memory AND utilization, with the job holding it), every RUNNING marker (alive or
+# stale), and each live job's last progress line and age. Use instead of ad-hoc nvidia-smi one-liners.
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/status.yml
+- name: Machine status
+  hosts: gpu
+  gather_facts: false
+  vars:
+    work: /srv/nemo
+  tasks:
+    - name: Collect
+      ansible.builtin.shell: |
+        echo "== GPUs (index, MiB used, util %, holder)"
+        nvidia-smi --query-gpu=index,uuid,memory.used,utilization.gpu --format=csv,noheader,nounits | while IFS=', ' read i u m g; do
+          p=$(nvidia-smi --query-compute-apps=pid,gpu_uuid --format=csv,noheader | awk -F', ' -v u=$u '$2==u {print $1; exit}')
+          h=""; [ -n "$p" ] && { pp=$(ps -o ppid= -p $p | tr -d ' '); h=$(ps -o args= -p ${pp:-$p} | cut -c1-70); }
+          printf "  %s  %6s MiB  %3s%%  %s\n" "$i" "$m" "$g" "$h"
+        done
+        echo "== jobs (RUNNING markers)"
+        for f in $(ls {{ work }}/runs/*/RUNNING {{ work }}/checkpoints/*.lock/RUNNING 2>/dev/null); do
+          d=$(dirname $f); p=$(cat $f)
+          if kill -0 $p 2>/dev/null; then st="alive $(ps -o etime= -p $p | tr -d ' ')"; else st="STALE (pid gone)"; fi
+          last=$(ls -t $d/*.log {{ work }}/checkpoints/$(basename $d .lock).log 2>/dev/null | head -1)
+          prog=$( [ -n "$last" ] && tail -c 3000 "$last" | tr '\r' '\n' | grep -a -o -E "Processed prompts: *[0-9]+%[^,]*|Training: *[0-9]+%[^,]*|\| step [0-9]+ \|" | tail -1)
+          echo "  ${d#{{ work }}/}: pid $p $st | ${prog:-no progress line yet}"
+        done
+      args:
+        executable: /bin/bash
+      register: st
+      changed_when: false
+
+    - name: Show
+      ansible.builtin.debug:
+        msg: "{{ st.stdout_lines }}"

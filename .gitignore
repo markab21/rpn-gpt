@@ -4,3 +4,5 @@ __pycache__/
 *.safetensors
 *.pt
 *.partial.jsonl
+playbooks/ansible/inventory.yml
+runs/

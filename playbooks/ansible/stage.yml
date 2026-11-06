@@ -1,0 +1,69 @@
+# Train one LoRA round (training/run_stage.sh) with NeMo AutoModel, then fetch its log.
+#   ansible-playbook -i playbooks/ansible/inventory.yml playbooks/ansible/stage.yml \
+#     -e name=s2a_r5 -e data=stage2a/r5/rows/train.jsonl -e data_rev=COMMIT -e data_repo=YOU/YOUR-DATA \
+#     -e init=none -e steps=465 -e gpus=0,1 [-e val=stage2a/r5/rows/val.jsonl]
+#   sweeps: -e "overrides='--optimizer.lr 2e-4 --peft.dim 8 --peft.alpha 16'" (AutoModel CLI overrides)
+# Rows are read from a Hugging Face dataset at a pinned commit (data_rev), never from files pushed to the machine, so
+# the run is reproducible from (code commit, data_rev). Rerun-safe: a finished round (checkpoints/NAME/DONE) is skipped.
+- name: Train a LoRA round
+  hosts: gpu
+  gather_facts: false
+  vars:
+    work: /srv/nemo
+    gpus: "0,1"
+    hfdata: "{{ work }}/hf/data@{{ data_rev }}"
+  tasks:
+    - name: GPU list is comma-separated indices, and the data is pinned
+      ansible.builtin.assert:
+        that:
+          - gpus is match('^[0-9]+(,[0-9]+)*$')
+          - data_repo is defined and data_rev is defined
+        fail_msg: "use -e gpus=0,1 -e data_repo=... -e data_rev=COMMIT"
+
+    - name: Fetch the training rows (and validation rows) at the pinned commit
+      ansible.builtin.shell: |
+        set -a; . /etc/environment; set +a
+        hf download {{ data_repo }} {{ data }} {{ val | default('') }} --repo-type dataset --revision {{ data_rev }} --local-dir {{ hfdata }}
+      args:
+        executable: /bin/bash
+        creates: "{{ hfdata }}/{{ data }}"
+
+    - name: Requested GPUs are free
+      ansible.builtin.include_tasks: tasks/gpus_free.yml
+
+    - name: training/run_stage.sh parses (bash -n) before it is trusted with GPUs
+      ansible.builtin.command:
+        argv: [bash, -n, training/run_stage.sh]
+        chdir: "{{ work }}"
+      changed_when: false
+
+    - name: Run the round (hours; async so a dropped ssh session does not kill it)
+      ansible.builtin.command:
+        argv: >-
+          {{ ['bash', 'training/run_stage.sh', name, hfdata ~ '/' ~ data, 'none' if init == 'none' else work ~ '/' ~ init,
+              steps | string]
+             + (['--validation_dataset.path_or_dataset_id', hfdata ~ '/' ~ val] if val is defined else [])
+             + (overrides | default('')).split() }}
+        chdir: "{{ work }}"
+        creates: "{{ work }}/checkpoints/{{ name }}/DONE"
+      environment:
+        WORK: "{{ work }}"
+        GPUS: "{{ gpus | replace(',', ' ') }}"
+        LBS: "{{ lbs | default(1) }}"
+        GBS: "{{ gbs | default(16) }}"
+        MODEL: "{{ model | default(work ~ '/lightning-bf16') }}"
+        CONFIG: "{{ config | default('training/configs/sft_text.yaml') }}"
+        PET_MASTER_PORT: "{{ master_port | default(29500) }}"  # one per run sharing a machine
+      async: 43200
+      poll: 0
+      register: job
+
+    - name: Verify the launch and wait
+      ansible.builtin.include_tasks: tasks/launched.yml
+      when: job.ansible_job_id is defined  # skipped by creates: = already done
+
+    - name: Fetch the training log
+      ansible.builtin.fetch:
+        src: "{{ work }}/checkpoints/{{ name }}.log"
+        dest: "{{ playbook_dir }}/../../runs/{{ name }}.log"
+        flat: true
