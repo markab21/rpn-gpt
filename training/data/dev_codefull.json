@@ -1,0 +1,1202 @@
+[
+{
+"q": "A random number generator starts at 65752 and repeatedly replaces x with (49x + 78799) mod 849049. What is the value after 99 steps?",
+"a": "307425",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 26736 and x_(k+1) = (50499 * x_k + 89723) mod 454170. What is x_97?",
+"a": "359957",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 94626 and repeatedly replaces x with (59773x + 44743) mod 149578. What is the value after 134 steps?",
+"a": "90622",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 85646 and repeatedly replaces x with (27990x + 73288) mod 79496. What is the value after 128 steps?",
+"a": "14976",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 62165 and x_(k+1) = (8501 * x_k + 62749) mod 256843. What is x_122?",
+"a": "90805",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 37622 and x_(k+1) = (49570 * x_k + 84321) mod 992263. What is x_104?",
+"a": "254580",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 22236 and x_(k+1) = (66607 * x_k + 59706) mod 902305. What is x_146?",
+"a": "18432",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 46382 and x_(k+1) = (84883 * x_k + 50675) mod 66450. What is x_76?",
+"a": "56842",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 83976 and repeatedly replaces x with (78467x + 30509) mod 737796. What is the value after 138 steps?",
+"a": "69012",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 74200 and repeatedly replaces x with (14184x + 91127) mod 559236. What is the value after 91 steps?",
+"a": "75419",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 53891 and x_(k+1) = (60576 * x_k + 83474) mod 226264. What is x_127?",
+"a": "80578",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 55823 and repeatedly replaces x with (49585x + 41619) mod 615725. What is the value after 94 steps?",
+"a": "161484",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 19089 and repeatedly replaces x with (36550x + 51633) mod 721640. What is the value after 71 steps?",
+"a": "365563",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 69090 and x_(k+1) = (4067 * x_k + 56532) mod 688693. What is x_117?",
+"a": "15379",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 12210 and repeatedly replaces x with (8809x + 16631) mod 406938. What is the value after 101 steps?",
+"a": "82657",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 75278 and repeatedly replaces x with (64561x + 6756) mod 26331. What is the value after 116 steps?",
+"a": "13304",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 14587 and x_(k+1) = (77824 * x_k + 47645) mod 905864. What is x_147?",
+"a": "881533",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 55190 and repeatedly replaces x with (9246x + 29975) mod 73548. What is the value after 82 steps?",
+"a": "10721",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 86490 and x_(k+1) = (99619 * x_k + 38916) mod 500371. What is x_157?",
+"a": "399312",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 44301 and repeatedly replaces x with (3136x + 63122) mod 465066. What is the value after 89 steps?",
+"a": "71158",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 16943 and x_(k+1) = (13730 * x_k + 56453) mod 942157. What is x_82?",
+"a": "157785",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 53161 and repeatedly replaces x with (71309x + 3413) mod 422083. What is the value after 135 steps?",
+"a": "204815",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 22140 and x_(k+1) = (57730 * x_k + 39445) mod 260991. What is x_117?",
+"a": "72396",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "A random number generator starts at 82253 and repeatedly replaces x with (23163x + 51232) mod 272375. What is the value after 67 steps?",
+"a": "156952",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "Let x_0 = 75185 and x_(k+1) = (31992 * x_k + 96313) mod 894115. What is x_76?",
+"a": "120615",
+"family": "L6.lcg",
+"kind": "hard"
+},
+{
+"q": "a_0 = 959, a_1 = 375, and a_(n+2) = (a_(n+1) + 7 * a_n) mod 200267. What is a_134?",
+"a": "151253",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 669, a_1 = 527, and a_(n+2) = (a_(n+1) + 8 * a_n) mod 756518. What is a_163?",
+"a": "337359",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 223, a_1 = 317, and a_(n+2) = (a_(n+1) + 3 * a_n) mod 507685. What is a_99?",
+"a": "63497",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 582, a_1 = 813, and a_(n+2) = (a_(n+1) + 4 * a_n) mod 380029. What is a_113?",
+"a": "16891",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 833, a_1 = 826, and a_(n+2) = (a_(n+1) + 6 * a_n) mod 775468. What is a_180?",
+"a": "370944",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 421, a_1 = 359, and a_(n+2) = (a_(n+1) + 4 * a_n) mod 225253. What is a_68?",
+"a": "22077",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 885, a_1 = 976, and a_(n+2) = (a_(n+1) + 8 * a_n) mod 673618. What is a_166?",
+"a": "443578",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 530, a_1 = 294, and a_(n+2) = (a_(n+1) + 4 * a_n) mod 348184. What is a_194?",
+"a": "312542",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 565, a_1 = 503, and a_(n+2) = (a_(n+1) + 4 * a_n) mod 975409. What is a_143?",
+"a": "784595",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 114, a_1 = 852, and a_(n+2) = (a_(n+1) + 5 * a_n) mod 829421. What is a_81?",
+"a": "217718",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 102, a_1 = 378, and a_(n+2) = (a_(n+1) + 5 * a_n) mod 670045. What is a_173?",
+"a": "126193",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 257, a_1 = 883, and a_(n+2) = (a_(n+1) + 9 * a_n) mod 513599. What is a_144?",
+"a": "216017",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "A sequence starts 157, 648; each next term is (previous + 9 x the one before it) mod 192587. What is term number 162 (the first term is number 0)?",
+"a": "111077",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "A sequence starts 95, 69; each next term is (previous + 8 x the one before it) mod 751888. What is term number 191 (the first term is number 0)?",
+"a": "450613",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "A sequence starts 516, 890; each next term is (previous + 6 x the one before it) mod 786955. What is term number 129 (the first term is number 0)?",
+"a": "324651",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 362, a_1 = 894, and a_(n+2) = (a_(n+1) + 4 * a_n) mod 572757. What is a_92?",
+"a": "568456",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "A sequence starts 960, 830; each next term is (previous + 2 x the one before it) mod 650382. What is term number 71 (the first term is number 0)?",
+"a": "370660",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 678, a_1 = 631, and a_(n+2) = (a_(n+1) + 2 * a_n) mod 353065. What is a_126?",
+"a": "287242",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 602, a_1 = 472, and a_(n+2) = (a_(n+1) + 2 * a_n) mod 907431. What is a_158?",
+"a": "849509",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "A sequence starts 532, 945; each next term is (previous + 4 x the one before it) mod 783317. What is term number 114 (the first term is number 0)?",
+"a": "773854",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 964, a_1 = 655, and a_(n+2) = (a_(n+1) + 8 * a_n) mod 153142. What is a_169?",
+"a": "122649",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "A sequence starts 592, 871; each next term is (previous + 5 x the one before it) mod 667313. What is term number 136 (the first term is number 0)?",
+"a": "113903",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 885, a_1 = 536, and a_(n+2) = (a_(n+1) + 9 * a_n) mod 722921. What is a_119?",
+"a": "244463",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "a_0 = 469, a_1 = 775, and a_(n+2) = (a_(n+1) + 5 * a_n) mod 560893. What is a_139?",
+"a": "215674",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "A sequence starts 96, 638; each next term is (previous + 4 x the one before it) mod 376734. What is term number 190 (the first term is number 0)?",
+"a": "234178",
+"family": "L6.recurrence",
+"kind": "hard"
+},
+{
+"q": "An account holds $46534. Each year it earns 3% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 57 years?",
+"a": "250826",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 69286 grows by 4% per year (fractional individuals dropped each year). What is it after 55 years?",
+"a": "598979",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 37672 grows by 6% per year (fractional individuals dropped each year). What is it after 24 years?",
+"a": "152505",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 17415 grows by 9% per year (fractional individuals dropped each year). What is it after 47 years?",
+"a": "999628",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 98869 grows by 1% per year (fractional individuals dropped each year). What is it after 57 years?",
+"a": "174293",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 39062 grows by 2% per year (fractional individuals dropped each year). What is it after 41 years?",
+"a": "87943",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 99259 grows by 4% per year (fractional individuals dropped each year). What is it after 32 years?",
+"a": "348178",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 66485 grows by 5% per year (fractional individuals dropped each year). What is it after 31 years?",
+"a": "301676",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $7237. Each year it earns 7% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 26 years?",
+"a": "41994",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 95078 grows by 2% per year (fractional individuals dropped each year). What is it after 37 years?",
+"a": "197800",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $55097. Each year it earns 1% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 33 years?",
+"a": "76491",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $65074. Each year it earns 2% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 30 years?",
+"a": "117853",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 86454 grows by 4% per year (fractional individuals dropped each year). What is it after 29 years?",
+"a": "269594",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $56938. Each year it earns 6% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 54 years?",
+"a": "1323907",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $40168. Each year it earns 4% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 42 years?",
+"a": "208529",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $47524. Each year it earns 3% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 58 years?",
+"a": "263842",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $34221. Each year it earns 4% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 57 years?",
+"a": "319940",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $49111. Each year it earns 5% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 49 years?",
+"a": "536262",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 75578 grows by 1% per year (fractional individuals dropped each year). What is it after 39 years?",
+"a": "111387",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 46143 grows by 7% per year (fractional individuals dropped each year). What is it after 58 years?",
+"a": "2335123",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "An account holds $81370. Each year it earns 4% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 49 years?",
+"a": "555955",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 72859 grows by 4% per year (fractional individuals dropped each year). What is it after 34 years?",
+"a": "276418",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 39693 grows by 1% per year (fractional individuals dropped each year). What is it after 24 years?",
+"a": "50385",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 69292 grows by 7% per year (fractional individuals dropped each year). What is it after 47 years?",
+"a": "1665981",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "A population of 63645 grows by 8% per year (fractional individuals dropped each year). What is it after 48 years?",
+"a": "2558919",
+"family": "L6.compound",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (9399316605, 6350046911): print 6350046911, then every nonzero remainder as it appears, then the gcd.",
+"a": "6350046911 3049269694 251507523 31179418 2072179 96733 40786 15161 10464 4697 1070 417 236 181 55 16 7 2 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 7010246700 and 1525901094: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "1525901094 906642324 619258770 287383554 44491662 20433582 3624498 2311092 1313406 997686 315720 50526 12564 270 144 126 18 18",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 3681418372 and 1605007893: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "1605007893 471402586 190800135 89802316 11195503 238292 234071 4221 1916 389 360 29 12 5 2 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (9415323689, 3963381236): print 3963381236, then every nonzero remainder as it appears, then the gcd.",
+"a": "3963381236 1488561217 986258802 502302415 483956387 18346028 6959659 4426710 2532949 1893761 639188 615385 23803 20310 3493 2845 648 253 142 111 31 18 13 5 3 2 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (1545772744, 137384064): print 137384064, then every nonzero remainder as it appears, then the gcd.",
+"a": "137384064 34548040 33739944 808096 608008 200088 7744 6488 1256 208 8 8",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (1226842882, 2505200017): print 2505200017, then every nonzero remainder as it appears, then the gcd.",
+"a": "2505200017 1226842882 51514253 42015063 9499190 4018303 1462584 1093135 369449 354237 15212 4361 2129 103 69 34 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (7766314748, 2036260458): print 2036260458, then every nonzero remainder as it appears, then the gcd.",
+"a": "2036260458 1657533374 378727084 142625038 93477008 49148030 44328978 4819052 957510 31502 12450 6602 5848 754 570 184 18 4 2 2",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (7687889068, 5632591834): print 5632591834, then every nonzero remainder as it appears, then the gcd.",
+"a": "5632591834 2055297234 1521997366 533299868 455397630 77902238 65886440 12015798 5807450 400898 194878 11142 5464 214 114 100 14 2 2",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (6660509411, 1143721857): print 1143721857, then every nonzero remainder as it appears, then the gcd.",
+"a": "1143721857 941900126 201821731 134613202 67208529 196144 127281 68863 58418 10445 6193 4252 1941 370 91 6 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 5577089801 and 5911932255: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "5911932255 5577089801 334842454 219610537 115231917 104378620 10853297 6698947 4154350 2544597 1609753 934844 674909 259935 155039 104896 50143 4610 4043 567 74 49 25 24 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 8595051427 and 4752785013: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "4752785013 3842266414 910518599 200192018 109750527 90441491 19309036 13205347 6103689 997969 115875 70969 44906 26063 18843 7220 4403 2817 1586 1231 355 166 23 5 3 2 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 4459190649 and 9097292154: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "9097292154 4459190649 178910856 165330105 13580751 2361093 1775286 585807 17865 14127 3738 2913 825 438 387 51 30 21 9 3 3",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 5039652246 and 8452649307: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "8452649307 5039652246 3412997061 1626655185 159686691 29788275 10745316 8297643 2447673 954624 538425 416199 122226 49521 23184 3153 1113 927 186 183 3 3",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 5315791762 and 7794596338: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "7794596338 5315791762 2478804576 358182610 329708916 28473694 16498282 11975412 4522870 2929672 1593198 1336474 256724 52854 45308 7546 32 26 6 2 2",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 7936945548 and 5615634452: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "5615634452 2321311096 973012260 375286576 222439108 152847468 69591640 13664188 1270700 957188 313512 16652 13776 2876 2272 604 460 144 28 4 4",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 1544838498 and 1007594216: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "1007594216 537244282 470349934 66894348 2089498 30412 21482 8930 3622 1686 250 186 64 58 6 4 2 2",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (8698054626, 7259282188): print 7259282188, then every nonzero remainder as it appears, then the gcd.",
+"a": "7259282188 1438772438 65419998 64952480 467518 434996 32522 12210 8102 4108 3994 114 4 2 2",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 832753080 and 6594397768: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "6594397768 832753080 765126208 67626872 21230616 3935024 1555496 824032 731464 92568 83488 9080 1768 240 88 64 24 16 8 8",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (6092828134, 8036448675): print 8036448675, then every nonzero remainder as it appears, then the gcd.",
+"a": "8036448675 6092828134 1943620541 261966511 109854964 42256583 25341798 16914785 8427013 60759 42271 18488 5295 2603 89 22 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (6503101427, 5535417412): print 5535417412, then every nonzero remainder as it appears, then the gcd.",
+"a": "5535417412 967684015 696997337 270686678 155623981 115062697 40561284 33940129 6621155 834354 780677 53677 29199 24478 4721 873 356 161 34 25 9 7 2 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 5219743256 and 8214589426: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "8214589426 5219743256 2994846170 2224897086 769949084 684998918 84950166 5397590 3986316 1411274 1163768 247506 173744 73762 26220 21322 4898 1730 1438 292 270 22 6 4 2 2",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (2095346951, 8533805619): print 8533805619, then every nonzero remainder as it appears, then the gcd.",
+"a": "8533805619 2095346951 152417815 113915356 38502459 36910438 1592021 293955 122246 49463 23320 2823 736 615 121 10 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (4299937486, 6893513765): print 6893513765, then every nonzero remainder as it appears, then the gcd.",
+"a": "6893513765 4299937486 2593576279 1706361207 887215072 819146135 68068937 2318891 821098 676695 144403 99083 45320 8443 3105 2233 872 489 383 106 65 41 24 17 7 3 1 1",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Run Euclid's algorithm on (8431568601, 2083326780): print 2083326780, then every nonzero remainder as it appears, then the gcd.",
+"a": "2083326780 98261481 19835679 18918765 916914 580485 336429 244056 92373 59310 33063 26247 6816 5799 1017 714 303 108 87 21 3 3",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Euclid on 8299035038 and 4234715980: print the second number, each nonzero remainder in order, and finally the gcd.",
+"a": "4234715980 4064319058 170396922 145189852 25207070 19154502 6052568 996798 71780 63658 8122 6804 1318 214 34 10 4 2 2",
+"family": "L6.euclid_trace",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 61906985314612994 is divided by 1548989.",
+"a": "1017793",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 54938585239610280 is divided by 9055146.",
+"a": "548754",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 727633077466746745 is divided by 866349228.",
+"a": "671792377",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 1922867474827219809 is divided by 14217578.",
+"a": "10221251",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 516737268216715259 is divided by 8960240.",
+"a": "5824059",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 494266332514706375 is divided by 9815684.",
+"a": "5169511",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 63528637426772090 is divided by 9803425.",
+"a": "1518240",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 26034544612126512 is divided by 24447319.",
+"a": "1333794",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 195354298061489630 is divided by 630051857.",
+"a": "295584725",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 756858128780293660 is divided by 36958159.",
+"a": "6721345",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 168314888457318792 is divided by 63272223.",
+"a": "17741892",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 74809613286528127 is divided by 8987930.",
+"a": "1812727",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 547205375598563781 is divided by 82561164.",
+"a": "64304493",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 1262183654908223066 is divided by 3942455.",
+"a": "2225946",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 891724659167574145 is divided by 2507205.",
+"a": "130120",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 3036178201614544484 is divided by 97637982.",
+"a": "33234686",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the remainder when 1888480242888480015 is divided by 8229986.",
+"a": "7764383",
+"family": "DMbig.div_remainder",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 22508136 and 16166151.",
+"a": "1092702478392",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 2701367982 and 425140731.",
+"a": "11688819258114",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 6225426000 and 482308650.",
+"a": "61214613858000",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 4513851016 and 3626595380.",
+"a": "62674821357160",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 1694628956 and 436972908.",
+"a": "144743343018828",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 5287070822 and 6841666337.",
+"a": "5227977231422506",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 5753756850 and 6237856200.",
+"a": "4514604759756600",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 2586403116 and 445099158.",
+"a": "52123781996748",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 87558307 and 314979032.",
+"a": "7788486524264",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 11421978 and 114172143.",
+"a": "5502412259742",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 9041882 and 6781739.",
+"a": "468089189258",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 8276395440 and 6602717732.",
+"a": "549478169657040",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 1063774740 and 217747140.",
+"a": "36080047856580",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 98288049 and 98518118.",
+"a": "6776174674158",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 422923179 and 220719058.",
+"a": "118011638021802",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 655186320 and 2105935200.",
+"a": "70976334045600",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "Calculate the lowest common multiple of 164223889 and 17343772.",
+"a": "7436714589476",
+"family": "DMbig.lcm",
+"kind": "hard"
+},
+{
+"q": "What is -150652074163 times 991846?",
+"a": "-149423657150274898",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is -197954190327 times 946269?",
+"a": "-187317913726539963",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is 5124545071668 times 2899463?",
+"a": "14858428827133714284",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is 1122882559197 times 572779?",
+"a": "643163549374298463",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is -9777016922937 times 630493?",
+"a": "-6164340730793317941",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is 9289023525964 times 4014249?",
+"a": "37288453400077461036",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is -5411573197669 times 7844357?",
+"a": "-42450312094147203833",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is -440054546018 times 554573?",
+"a": "-244042369748840314",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is 5293736980263 times 977803?",
+"a": "5176231900512102189",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is 9893472848528 times 8419746?",
+"a": "83300528442502233888",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is -928812261192 times 346071?",
+"a": "-321434988042976632",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is -980905793167 times 7522250?",
+"a": "-7378618602650465750",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is 7219983197872 times 6356974?",
+"a": "45897245469309159328",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is 3399108732133 times 4949955?",
+"a": "16825435264165404015",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is 8502017862911 times 889672?",
+"a": "7564007236131755192",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is -6903879183173 times 531472?",
+"a": "-3669218477239320656",
+"family": "DMbig.mul",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 694108199948883360 and 3921837120?",
+"a": "9120",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 2216605459766268 and 194523996?",
+"a": "394572",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 2209101076553808 and 321057552?",
+"a": "80688",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 68021675139725640 and 4259040870?",
+"a": "25170",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 4472064721058566 and 276055971?",
+"a": "107123",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 2983107105644384 and 1714737296?",
+"a": "2384",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 33689203694988026 and 5940955812?",
+"a": "6718",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 1528985990713220 and 4134973410?",
+"a": "659170",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 329246828786819610 and 248202225?",
+"a": "7695",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 762448860806678520 and 8171450859?",
+"a": "3007527",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 4257954809730710 and 599973946?",
+"a": "5962",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 12401928947060568 and 79389450?",
+"a": "453654",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 155551799920504576 and 57337344?",
+"a": "5888",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 90804027254764712 and 267291136?",
+"a": "39032",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 58080816624167685 and 425394885?",
+"a": "28905",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "What is the highest common factor of 271293119502154376 and 4845097356?",
+"a": "5764",
+"family": "DMbig.gcd",
+"kind": "hard"
+},
+{
+"q": "Is 1745977 a prime number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1432703 a composite number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 2726179 a prime number?",
+"a": "True",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1612903 a prime number?",
+"a": "True",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 2419033 a composite number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1252087 a prime number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 2285183 a composite number?",
+"a": "True",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 2924983 a composite number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1583357 a prime number?",
+"a": "True",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1676383 a composite number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1781023 a composite number?",
+"a": "True",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 2455679 a composite number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1274851 a composite number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1634657 a composite number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 2077697 a composite number?",
+"a": "True",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 1452613 a prime number?",
+"a": "True",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "Is 2072951 a prime number?",
+"a": "False",
+"family": "DMbig.is_prime",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 4897502876750561 to the nearest integer?",
+"a": "69982161",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the cube root of 28894725831475720 to the nearest integer?",
+"a": "306859",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 9686352649153171 to the nearest integer?",
+"a": "98419270",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 3540968214930652200 to the nearest integer?",
+"a": "1881746055",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 224294438606832744 to the nearest integer?",
+"a": "473597338",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 921143419656276616 to the nearest integer?",
+"a": "959762168",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 78267982839551850 to the nearest integer?",
+"a": "279764156",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the cube root of 894982031502007533 to the nearest integer?",
+"a": "963692",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 5870718599165264444 to the nearest integer?",
+"a": "2422956582",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the cube root of 8448901419868648 to the nearest integer?",
+"a": "203673",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 5139263633869699365 to the nearest integer?",
+"a": "2266994405",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 3531644012098636242 to the nearest integer?",
+"a": "1879266882",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 1298008183988078 to the nearest integer?",
+"a": "36027881",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 287752111249006436 to the nearest integer?",
+"a": "536425308",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the square root of 10359277981950037 to the nearest integer?",
+"a": "101780538",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the cube root of 188872483860374 to the nearest integer?",
+"a": "57375",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+},
+{
+"q": "What is the cube root of 791382833743448 to the nearest integer?",
+"a": "92497",
+"family": "DMbig.nearest_integer_root",
+"kind": "hard"
+}
+]

@@ -1,0 +1,3602 @@
+[
+ {
+  "q": "An account holds $32340. Each year it earns 4% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 28 years?",
+  "a": "96956",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "An account holds $51240. Each year it earns 3% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 48 years?",
+  "a": "211685",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "A population of 13102 grows by 1% per year (fractional individuals dropped each year). What is it after 30 years?",
+  "a": "17643",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "A population of 98908 grows by 9% per year (fractional individuals dropped each year). What is it after 32 years?",
+  "a": "1559022",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "A population of 52271 grows by 3% per year (fractional individuals dropped each year). What is it after 36 years?",
+  "a": "151465",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "An account holds $50638. Each year it earns 8% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 28 years?",
+  "a": "436826",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "A population of 8788 grows by 2% per year (fractional individuals dropped each year). What is it after 46 years?",
+  "a": "21813",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "A population of 34565 grows by 5% per year (fractional individuals dropped each year). What is it after 50 years?",
+  "a": "396261",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "An account holds $33051. Each year it earns 3% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 48 years?",
+  "a": "136520",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "A population of 2251 grows by 3% per year (fractional individuals dropped each year). What is it after 54 years?",
+  "a": "11033",
+  "family": "L6.compound",
+  "kind": "hard"
+ },
+ {
+  "q": "A population of 92337 grows by 7% per year (fractional individuals dropped each year). What is it after 6 years?",
+  "a": "138571",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "A population of 67516 grows by 6% per year (fractional individuals dropped each year). What is it after 5 years?",
+  "a": "90348",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "An account holds $31802. Each year it earns 8% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 14 years?",
+  "a": "93400",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "A population of 64337 grows by 1% per year (fractional individuals dropped each year). What is it after 9 years?",
+  "a": "70359",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "An account holds $42032. Each year it earns 2% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 11 years?",
+  "a": "52255",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "An account holds $57676. Each year it earns 6% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 5 years?",
+  "a": "77181",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "A population of 79546 grows by 4% per year (fractional individuals dropped each year). What is it after 12 years?",
+  "a": "127349",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "A population of 94365 grows by 4% per year (fractional individuals dropped each year). What is it after 9 years?",
+  "a": "134304",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "A population of 89553 grows by 4% per year (fractional individuals dropped each year). What is it after 3 years?",
+  "a": "100734",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "A population of 90454 grows by 9% per year (fractional individuals dropped each year). What is it after 10 years?",
+  "a": "214130",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "A population of 73630 grows by 1% per year (fractional individuals dropped each year). What is it after 3 years?",
+  "a": "75860",
+  "family": "L6.compound",
+  "kind": "small"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 94 whose decimal digits add up to a multiple of 4.",
+  "a": "23",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 114 whose decimal digits add up to a multiple of 6.",
+  "a": "17",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 147 whose decimal digits add up to a multiple of 11.",
+  "a": "12",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers from 1 to 130 have a digit sum divisible by 6?",
+  "a": "19",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 167 whose decimal digits add up to a multiple of 12.",
+  "a": "12",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 117 whose decimal digits add up to a multiple of 9.",
+  "a": "13",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 113 whose decimal digits add up to a multiple of 8.",
+  "a": "13",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers from 1 to 130 have a digit sum divisible by 10?",
+  "a": "12",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 133 whose decimal digits add up to a multiple of 9.",
+  "a": "14",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 159 whose decimal digits add up to a multiple of 10.",
+  "a": "15",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers from 1 to 89 have a digit sum divisible by 5?",
+  "a": "17",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 109 whose decimal digits add up to a multiple of 10.",
+  "a": "10",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers from 1 to 134 have a digit sum divisible by 8?",
+  "a": "16",
+  "family": "L6.count_digitsum",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers from 1 to 35 have a digit sum divisible by 13?",
+  "a": "0",
+  "family": "L6.count_digitsum",
+  "kind": "small"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 17 whose decimal digits add up to a multiple of 13.",
+  "a": "0",
+  "family": "L6.count_digitsum",
+  "kind": "small"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 21 whose decimal digits add up to a multiple of 10.",
+  "a": "1",
+  "family": "L6.count_digitsum",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers from 1 to 29 have a digit sum divisible by 9?",
+  "a": "3",
+  "family": "L6.count_digitsum",
+  "kind": "small"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 20 whose decimal digits add up to a multiple of 10.",
+  "a": "1",
+  "family": "L6.count_digitsum",
+  "kind": "small"
+ },
+ {
+  "q": "Count the numbers n with 1 <= n <= 21 whose decimal digits add up to a multiple of 11.",
+  "a": "0",
+  "family": "L6.count_digitsum",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers from 1 to 31 have a digit sum divisible by 6?",
+  "a": "3",
+  "family": "L6.count_digitsum",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers from 1 to 26 have a digit sum divisible by 4?",
+  "a": "6",
+  "family": "L6.count_digitsum",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers n from 1 to 333 satisfy n^2 mod 58 = 1?",
+  "a": "11",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "For how many n in 1..328 does n squared leave remainder 1 when divided by 57?",
+  "a": "23",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "For how many n in 1..141 does n squared leave remainder 1 when divided by 93?",
+  "a": "6",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers n from 1 to 195 satisfy n^2 mod 86 = 1?",
+  "a": "5",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers n from 1 to 265 satisfy n^2 mod 31 = 1?",
+  "a": "17",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "For how many n in 1..245 does n squared leave remainder 1 when divided by 31?",
+  "a": "15",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "For how many n in 1..138 does n squared leave remainder 1 when divided by 62?",
+  "a": "5",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "For how many n in 1..152 does n squared leave remainder 1 when divided by 74?",
+  "a": "5",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers n from 1 to 307 satisfy n^2 mod 96 = 1?",
+  "a": "26",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "For how many n in 1..147 does n squared leave remainder 1 when divided by 58?",
+  "a": "5",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers n from 1 to 286 satisfy n^2 mod 9 = 1?",
+  "a": "63",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers n from 1 to 326 satisfy n^2 mod 72 = 1?",
+  "a": "37",
+  "family": "L6.count_quadres",
+  "kind": "hard"
+ },
+ {
+  "q": "How many integers n from 1 to 36 satisfy n^2 mod 42 = 1?",
+  "a": "3",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers n from 1 to 10 satisfy n^2 mod 90 = 1?",
+  "a": "1",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers n from 1 to 10 satisfy n^2 mod 54 = 1?",
+  "a": "1",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers n from 1 to 19 satisfy n^2 mod 30 = 1?",
+  "a": "3",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers n from 1 to 53 satisfy n^2 mod 77 = 1?",
+  "a": "3",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers n from 1 to 45 satisfy n^2 mod 34 = 1?",
+  "a": "3",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "For how many n in 1..52 does n squared leave remainder 1 when divided by 51?",
+  "a": "5",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "For how many n in 1..28 does n squared leave remainder 1 when divided by 87?",
+  "a": "2",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "How many integers n from 1 to 23 satisfy n^2 mod 31 = 1?",
+  "a": "1",
+  "family": "L6.count_quadres",
+  "kind": "small"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 38 = 24 and n mod 19 = 5?",
+  "a": "24",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 30 = 7 and n mod 18 = 7?",
+  "a": "7",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 27 = 7 and n mod 22 = 4?",
+  "a": "466",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 19 on division by 40 and remainder 3 on division by 34.",
+  "a": "139",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 18 = 10 and n mod 39 = 31?",
+  "a": "226",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 5 on division by 11 and remainder 3 on division by 34.",
+  "a": "71",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 19 on division by 26 and remainder 25 on division by 40.",
+  "a": "305",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 33 = 31 and n mod 32 = 28?",
+  "a": "988",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 26 = 16 and n mod 12 = 0?",
+  "a": "120",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 29 on division by 31 and remainder 1 on division by 19.",
+  "a": "153",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 36 = 17 and n mod 14 = 1?",
+  "a": "197",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 26 = 17 and n mod 27 = 21?",
+  "a": "615",
+  "family": "L6.crt_search",
+  "kind": "hard"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 2 on division by 8 and remainder 2 on division by 3.",
+  "a": "2",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 11 = 0 and n mod 7 = 1?",
+  "a": "22",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 11 = 4 and n mod 11 = 4?",
+  "a": "4",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 6 on division by 7 and remainder 5 on division by 8.",
+  "a": "13",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 1 on division by 12 and remainder 1 on division by 3.",
+  "a": "1",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 2 on division by 8 and remainder 4 on division by 10.",
+  "a": "34",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 8 on division by 10 and remainder 10 on division by 12.",
+  "a": "58",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "Find the least n >= 0 that leaves remainder 4 on division by 8 and remainder 8 on division by 12.",
+  "a": "20",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "What is the smallest non-negative integer n with n mod 3 = 2 and n mod 7 = 5?",
+  "a": "5",
+  "family": "L6.crt_search",
+  "kind": "small"
+ },
+ {
+  "q": "Euclid on 4538633344 and 1000658061: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "1000658061 536001100 464656961 71344139 36592127 34752012 1840115 1629942 210173 158731 51442 4405 2987 1418 151 59 33 26 7 5 2 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Euclid on 3084880416 and 9892600377: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "9892600377 3084880416 637959129 533043900 104915229 8467755 3302169 1863417 1438752 424665 164757 95151 69606 25545 18516 7029 4458 2571 1887 684 519 165 24 21 3 3",
+  "family": "L6.euclid_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Run Euclid's algorithm on (8048368359, 8874493674): print 8874493674, then every nonzero remainder as it appears, then the gcd.",
+  "a": "8874493674 8048368359 826125315 613240524 212884791 187470942 25413849 9573999 6265851 3308148 2957703 350445 154143 42159 27666 14493 13173 1320 1293 27 24 3 3",
+  "family": "L6.euclid_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Euclid on 7102943394 and 7340354568: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "7340354568 7102943394 237411174 218019348 19391826 4709262 554778 271038 12702 4296 4110 186 18 6 6",
+  "family": "L6.euclid_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Euclid on 4749853823 and 4348232161: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "4348232161 401621662 332015541 69606121 53591057 16015064 5545865 4923334 622531 565617 56914 53391 3523 546 247 52 39 13 13",
+  "family": "L6.euclid_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Euclid on 2480898662 and 4664933270: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "4664933270 2480898662 2184034608 296864054 105986230 84891594 21094636 513050 59586 36362 23224 13138 10086 3052 930 262 144 118 26 14 12 2 2",
+  "family": "L6.euclid_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Run Euclid's algorithm on (5990368404, 4754134320): print 4754134320, then every nonzero remainder as it appears, then the gcd.",
+  "a": "4754134320 1236234084 1045432068 190802016 91421988 7958040 3883548 190944 64668 61608 3060 408 204 204",
+  "family": "L6.euclid_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Euclid on 2873682814 and 9079641147: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "9079641147 2873682814 458592705 122126584 92212953 29913631 2472060 248911 231861 17050 10211 6839 3372 95 47 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Run Euclid's algorithm on (4947074459, 6932392399): print 6932392399, then every nonzero remainder as it appears, then the gcd.",
+  "a": "6932392399 4947074459 1985317940 976438579 32440782 3215119 289592 29607 23129 6478 3695 2783 912 47 19 9 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Euclid on 2426035688 and 4967564154: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "4967564154 2426035688 115492778 687350 17978 4186 1234 484 266 218 48 26 22 4 2 2",
+  "family": "L6.euclid_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Run Euclid's algorithm on (3535724968, 691089201): print 691089201, then every nonzero remainder as it appears, then the gcd.",
+  "a": "691089201 80278963 48857497 31421466 17436031 13985435 3450596 183051 155678 27373 18813 8560 1693 95 78 17 10 7 3 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Euclid on 3004875702 and 3399833150: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "3399833150 3004875702 394957448 240173566 154783882 85389684 69394198 15995486 5412254 5170978 241276 104182 32912 5446 236 18 2 2",
+  "family": "L6.euclid_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Run Euclid's algorithm on (528616, 761244): print 761244, then every nonzero remainder as it appears, then the gcd.",
+  "a": "761244 528616 232628 63360 42548 20812 924 484 440 44 44",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "Run Euclid's algorithm on (390932, 210402): print 210402, then every nonzero remainder as it appears, then the gcd.",
+  "a": "210402 180530 29872 1298 18 2 2",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "Run Euclid's algorithm on (621826, 252517): print 252517, then every nonzero remainder as it appears, then the gcd.",
+  "a": "252517 116792 18933 3194 2963 231 191 40 31 9 4 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "Euclid on 173133 and 329538: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "329538 173133 156405 16728 5853 5022 831 36 3 3",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "Run Euclid's algorithm on (160924, 96045): print 96045, then every nonzero remainder as it appears, then the gcd.",
+  "a": "96045 64879 31166 2547 602 139 46 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "Run Euclid's algorithm on (641149, 764818): print 764818, then every nonzero remainder as it appears, then the gcd.",
+  "a": "764818 641149 123669 22804 9649 3506 2637 869 30 29 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "Euclid on 758253 and 883517: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "883517 758253 125264 6669 5222 1447 881 566 315 251 64 59 5 4 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "Euclid on 999038 and 643100: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "643100 355938 287162 68776 12058 8486 3572 1342 888 454 434 20 14 6 2 2",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "Euclid on 69020 and 584217: print the second number, each nonzero remainder in order, and finally the gcd.",
+  "a": "584217 69020 32057 4906 2621 2285 336 269 67 1 1",
+  "family": "L6.euclid_trace",
+  "kind": "variant"
+ },
+ {
+  "q": "A random number generator starts at 12446 and repeatedly replaces x with (36300x + 34008) mod 890711. What is the value after 152 steps?",
+  "a": "500773",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "Let x_0 = 28550 and x_(k+1) = (26882 * x_k + 86152) mod 790307. What is x_121?",
+  "a": "598952",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 31939 and repeatedly replaces x with (63697x + 61177) mod 594929. What is the value after 115 steps?",
+  "a": "488059",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 29265 and repeatedly replaces x with (33173x + 59326) mod 922195. What is the value after 128 steps?",
+  "a": "666710",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 8194 and repeatedly replaces x with (38330x + 70658) mod 375972. What is the value after 116 steps?",
+  "a": "314386",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "Let x_0 = 45988 and x_(k+1) = (46380 * x_k + 21631) mod 720662. What is x_81?",
+  "a": "355105",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "Let x_0 = 47392 and x_(k+1) = (82723 * x_k + 1966) mod 467218. What is x_103?",
+  "a": "266896",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 2894 and repeatedly replaces x with (88788x + 49580) mod 170898. What is the value after 101 steps?",
+  "a": "92672",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 95553 and repeatedly replaces x with (65341x + 83023) mod 751825. What is the value after 70 steps?",
+  "a": "139488",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 41976 and repeatedly replaces x with (97439x + 48670) mod 232188. What is the value after 100 steps?",
+  "a": "37692",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 39972 and repeatedly replaces x with (1904x + 50657) mod 904715. What is the value after 104 steps?",
+  "a": "817507",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "Let x_0 = 27506 and x_(k+1) = (86756 * x_k + 99314) mod 127181. What is x_123?",
+  "a": "17405",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 18118 and repeatedly replaces x with (23619x + 76729) mod 549830. What is the value after 62 steps?",
+  "a": "497438",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "Let x_0 = 46455 and x_(k+1) = (26179 * x_k + 23558) mod 582027. What is x_78?",
+  "a": "379794",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "Let x_0 = 62933 and x_(k+1) = (90503 * x_k + 40317) mod 455411. What is x_134?",
+  "a": "398868",
+  "family": "L6.lcg",
+  "kind": "hard"
+ },
+ {
+  "q": "A random number generator starts at 12330 and repeatedly replaces x with (67918x + 28263) mod 488046. What is the value after 13 steps?",
+  "a": "297633",
+  "family": "L6.lcg",
+  "kind": "small"
+ },
+ {
+  "q": "A random number generator starts at 74995 and repeatedly replaces x with (70063x + 41038) mod 533181. What is the value after 3 steps?",
+  "a": "242977",
+  "family": "L6.lcg",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 72193 and x_(k+1) = (34115 * x_k + 6924) mod 54325. What is x_17?",
+  "a": "16084",
+  "family": "L6.lcg",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 42486 and x_(k+1) = (3094 * x_k + 66749) mod 185330. What is x_11?",
+  "a": "99383",
+  "family": "L6.lcg",
+  "kind": "small"
+ },
+ {
+  "q": "A random number generator starts at 34490 and repeatedly replaces x with (34377x + 1296) mod 985853. What is the value after 19 steps?",
+  "a": "968768",
+  "family": "L6.lcg",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 3491 and x_(k+1) = (22649 * x_k + 45652) mod 110516. What is x_18?",
+  "a": "50503",
+  "family": "L6.lcg",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 59764 and x_(k+1) = (84303 * x_k + 48573) mod 204317. Print x_1 through x_37, in order.",
+  "a": "80162 160884 81331 25980 166590 152031 116873 14401 44462 133194 52986 149077 148234 183121 118667 59403 90012 201146 174713 74716 147045 62184 185056 200006 98283 137338 22548 151566 144842 66828 12499 89001 171002 35610 48722 74688 34048",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Let x_0 = 63950 and x_(k+1) = (34902 * x_k + 57906) mod 298896. Print x_1 through x_23, in order.",
+  "a": "184374 147270 259830 139926 93414 35766 173142 279558 30198 121206 114630 151206 141942 215286 23334 268470 107142 40134 188118 202806 236742 146166 285606",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Starting from 62004, apply x -> (15273x + 26520) mod 260596 27 times and print every value produced.",
+  "a": "7748 51140 81528 75976 234576 31960 55292 170196 245524 198728 37652 210740 37344 197384 97824 95604 67024 62984 121316 48228 168468 173976 125152 1356 149624 67548 248156",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Starting from 66909, apply x -> (43116x + 97014) mod 945174 21 times and print every value produced.",
+  "a": "274410 815616 52626 702030 570318 281118 814500 139044 824610 316590 933720 572352 77880 713046 113652 534630 300582 709812 562260 676422 419022",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Starting from 73890, apply x -> (16182x + 75580) mod 589671 34 times and print every value produced.",
+  "a": "500443 292363 163213 51937 238939 113731 107431 173914 441916 220075 306061 107953 365524 584818 560248 406762 390562 56086 155563 90547 564370 476143 380320 17593 544084 65167 276226 258532 514330 347146 386206 327814 81412 159550",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Starting from 16826, apply x -> (76819x + 21496) mod 725817 25 times and print every value produced.",
+  "a": "623730 252928 302255 62511 48733 603554 697896 673249 246092 659079 446362 57260 226416 319429 542528 67788 416710 559835 603294 322015 322604 568341 64591 152513 505446",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Starting from 71423, apply x -> (31189x + 7133) mod 54368 21 times and print every value produced.",
+  "a": "53384 35077 30790 14459 40692 37697 30866 46999 43296 28061 39966 11571 268 47481 16458 27407 30360 32085 8790 34987 50916",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Starting from 81049, apply x -> (57924x + 76462) mod 261048 24 times and print every value produced.",
+  "a": "71506 202438 80062 70030 69310 131710 118702 27838 71278 48166 223870 223990 126574 215758 230902 49630 184006 111214 154702 40414 199582 153550 140254 74350",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Starting from 82693, apply x -> (54546x + 35355) mod 268581 26 times and print every value produced.",
+  "a": "58419 113145 188307 85794 268116 186660 223167 5874 21426 142020 245073 242262 4626 167592 85671 4902 181752 18075 262035 189969 229449 223071 141078 161712 40905 137118",
+  "family": "L6.lcg_trace",
+  "kind": "hard"
+ },
+ {
+  "q": "Starting from 32219, apply x -> (59363x + 69789) mod 829066 3 times and print every value produced.",
+  "a": "31024 391915 69842",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 11142 and x_(k+1) = (23680 * x_k + 99484) mod 611164. Print x_1 through x_8, in order.",
+  "a": "530360 215248 64364 607152 436908 296732 160736 609736",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 98630 and x_(k+1) = (94369 * x_k + 49487) mod 288541. Print x_1 through x_8, in order.",
+  "a": "196920 286944 249137 249819 264834 190518 52919 183511",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 72922 and x_(k+1) = (73004 * x_k + 74331) mod 855570. Print x_1 through x_9, in order.",
+  "a": "315479 214417 719849 254617 19979 729967 552179 313927 703019",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Starting from 27567, apply x -> (45565x + 64089) mod 694843 7 times and print every value produced.",
+  "a": "573143 345572 215046 653936 400403 628976 555994",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 24416 and x_(k+1) = (21970 * x_k + 66384) mod 482365. Print x_1 through x_9, in order.",
+  "a": "96024 331519 309679 438054 448649 238504 68269 263529 453784",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 60297 and x_(k+1) = (81714 * x_k + 75087) mod 197663. Print x_1 through x_8, in order.",
+  "a": "38544 97261 26537 156395 32515 19751 89906 113250",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 25403 and x_(k+1) = (55217 * x_k + 43271) mod 137248. Print x_1 through x_4, in order.",
+  "a": "46162 569 31952 13815",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Starting from 19007, apply x -> (12440x + 47488) mod 203019 11 times and print every value produced.",
+  "a": "180452 89285 35939 80810 176819 168002 114782 102941 192695 127955 138728",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Let x_0 = 75632 and x_(k+1) = (65585 * x_k + 51323) mod 225728. Print x_1 through x_5, in order.",
+  "a": "3243 107702 206417 99196 114295",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Starting from 51907, apply x -> (12086x + 60387) mod 290398 8 times and print every value produced.",
+  "a": "148709 84139 280943 204069 88107 32123 36839 116407",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "Starting from 43786, apply x -> (93000x + 93728) mod 247957 4 times and print every value produced.",
+  "a": "241874 212602 236505 33043",
+  "family": "L6.lcg_trace",
+  "kind": "small"
+ },
+ {
+  "q": "A sequence starts 479, 195; each next term is (previous + 5 x the one before it) mod 40438. What is term number 139 (the first term is number 0)?",
+  "a": "22969",
+  "family": "L6.recurrence",
+  "kind": "hard"
+ },
+ {
+  "q": "a_0 = 994, a_1 = 707, and a_(n+2) = (a_(n+1) + 6 * a_n) mod 984296. What is a_102?",
+  "a": "342539",
+  "family": "L6.recurrence",
+  "kind": "hard"
+ },
+ {
+  "q": "A sequence starts 750, 463; each next term is (previous + 3 x the one before it) mod 696298. What is term number 71 (the first term is number 0)?",
+  "a": "319093",
+  "family": "L6.recurrence",
+  "kind": "hard"
+ },
+ {
+  "q": "a_0 = 58, a_1 = 849, and a_(n+2) = (a_(n+1) + 5 * a_n) mod 462461. What is a_116?",
+  "a": "365568",
+  "family": "L6.recurrence",
+  "kind": "hard"
+ },
+ {
+  "q": "A sequence starts 889, 550; each next term is (previous + 6 x the one before it) mod 781233. What is term number 84 (the first term is number 0)?",
+  "a": "569479",
+  "family": "L6.recurrence",
+  "kind": "hard"
+ },
+ {
+  "q": "a_0 = 855, a_1 = 475, and a_(n+2) = (a_(n+1) + 9 * a_n) mod 973118. What is a_11?",
+  "a": "186258",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "A sequence starts 502, 859; each next term is (previous + 6 x the one before it) mod 238215. What is term number 25 (the first term is number 0)?",
+  "a": "175996",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "a_0 = 710, a_1 = 408, and a_(n+2) = (a_(n+1) + 8 * a_n) mod 287339. What is a_9?",
+  "a": "182172",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "a_0 = 897, a_1 = 338, and a_(n+2) = (a_(n+1) + 4 * a_n) mod 526206. What is a_4?",
+  "a": "20982",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "a_0 = 955, a_1 = 174, and a_(n+2) = (a_(n+1) + 7 * a_n) mod 270503. What is a_14?",
+  "a": "263032",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "a_0 = 745, a_1 = 408, and a_(n+2) = (a_(n+1) + 4 * a_n) mod 414330. What is a_22?",
+  "a": "255392",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "a_0 = 915, a_1 = 869, and a_(n+2) = (a_(n+1) + 6 * a_n) mod 672062. What is a_4?",
+  "a": "49727",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "A sequence starts 966, 494; each next term is (previous + 9 x the one before it) mod 981131. What is term number 7 (the first term is number 0)?",
+  "a": "113861",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "A sequence starts 802, 712; each next term is (previous + 6 x the one before it) mod 780154. What is term number 12 (the first term is number 0)?",
+  "a": "242378",
+  "family": "L6.recurrence",
+  "kind": "small"
+ },
+ {
+  "q": "a_0 = 42, a_1 = 85, and a_(n+2) = (a_(n+1) + 9 * a_n) mod 5226. What is a_23?",
+  "a": "2497",
+  "family": "L6.recurrence",
+  "kind": "variant"
+ },
+ {
+  "q": "A sequence starts 94, 34; each next term is (previous + 8 x the one before it) mod 9924. What is term number 19 (the first term is number 0)?",
+  "a": "1330",
+  "family": "L6.recurrence",
+  "kind": "variant"
+ },
+ {
+  "q": "A sequence starts 99, 26; each next term is (previous + 5 x the one before it) mod 2931. What is term number 9 (the first term is number 0)?",
+  "a": "519",
+  "family": "L6.recurrence",
+  "kind": "variant"
+ },
+ {
+  "q": "A sequence starts 61, 45; each next term is (previous + 5 x the one before it) mod 4115. What is term number 12 (the first term is number 0)?",
+  "a": "1070",
+  "family": "L6.recurrence",
+  "kind": "variant"
+ },
+ {
+  "q": "A sequence starts 75, 8; each next term is (previous + 9 x the one before it) mod 7652. What is term number 8 (the first term is number 0)?",
+  "a": "1443",
+  "family": "L6.recurrence",
+  "kind": "variant"
+ },
+ {
+  "q": "A sequence starts 5, 92; each next term is (previous + 8 x the one before it) mod 1637. What is term number 21 (the first term is number 0)?",
+  "a": "944",
+  "family": "L6.recurrence",
+  "kind": "variant"
+ },
+ {
+  "q": "A sequence starts 71, 13; each next term is (previous + 5 x the one before it) mod 2878. What is term number 27 (the first term is number 0)?",
+  "a": "989",
+  "family": "L6.recurrence",
+  "kind": "variant"
+ },
+ {
+  "q": "What is 934374135442 times 2759848?",
+  "a": "2578730588951332816",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 134220287804 times 7239667?",
+  "a": "971710188345121268",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 926084932167062084 is divided by 77260069.",
+  "a": "64287736",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 335334338678112937 is divided by 41205656.",
+  "a": "12912161",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 1542343033934550 and 2127486020?",
+  "a": "1585310",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 4937334348146330 and 8311598360?",
+  "a": "908570",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 232674927758774076 and 2197721967?",
+  "a": "3441",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 8425847255 and 7275793728.",
+  "a": "6492081606588480",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 662669910 and 64826055.",
+  "a": "45458493156090",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the square root of 5843507821061184305 to the nearest integer?",
+  "a": "2417334859",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the square root of 3486079034680336157 to the nearest integer?",
+  "a": "1867104452",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the cube root of 882768776354135 to the nearest integer?",
+  "a": "95929",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 1201741 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 1501139 a composite number?",
+  "a": "False",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "What is -170759856295 times 147582?",
+  "a": "-25201081111728690",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 134717864783 times 8218259?",
+  "a": "1107146304713672797",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is -9038138522533 times 480636?",
+  "a": "-4344054746916170988",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 3481824684705478461 is divided by 29316238.",
+  "a": "19829425",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 4035017431166080621 is divided by 1690605.",
+  "a": "1260661",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 9530134474743108 and 2729860578?",
+  "a": "8892054",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 5805161585094856 and 8304922393?",
+  "a": "881533",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 8843826140401925 and 3921992625?",
+  "a": "94975",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 90486272 and 50820160.",
+  "a": "2317805857280",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 61984176 and 840593232.",
+  "a": "29337544390032",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 144161037 and 1776305430.",
+  "a": "57948412042890",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the cube root of 22450697959868533 to the nearest integer?",
+  "a": "282104",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 2585663 a prime number?",
+  "a": "False",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 296136639265 times 819546?",
+  "a": "242697598163073690",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 2269475991106107 and 938220864?",
+  "a": "4053",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 24418469278370040 and 3424393080?",
+  "a": "3480",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 123310656 and 6958304.",
+  "a": "1577266600896",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 285870200 and 6021657432.",
+  "a": "31463160082200",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the cube root of 10854385361730190 to the nearest integer?",
+  "a": "221412",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 2876717 a composite number?",
+  "a": "False",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 2555611 a prime number?",
+  "a": "False",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 1421339 a prime number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 5145736621916 times 140231?",
+  "a": "721591792227902596",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is -200397193337 times 929854?",
+  "a": "-186340131813182798",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 91735026193641162 is divided by 175508352.",
+  "a": "116522058",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 77487372552732176 is divided by 295213759.",
+  "a": "158028641",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 15566878892220705 is divided by 5155911.",
+  "a": "2603367",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 20546783818522765 is divided by 877556314.",
+  "a": "590581375",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 382010832764465559 is divided by 392786404.",
+  "a": "173929027",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 17449601366282400 and 144204480?",
+  "a": "3134880",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 300887517151404971 and 819745121?",
+  "a": "4451",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the square root of 63089896347656865 to the nearest integer?",
+  "a": "251177022",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 1490207 a composite number?",
+  "a": "False",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 2955149 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 2305427 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 2344437709195 times 7833499?",
+  "a": "18365150450541323305",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is -491078934436 times 835907?",
+  "a": "-410496318847593452",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 8238803380551 times 540107?",
+  "a": "4449835377459258957",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 7315118409836 times 4735469?",
+  "a": "34640516461107673084",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 817043371824980489 is divided by 2997574.",
+  "a": "210521",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 6337578198218655516 is divided by 4541664.",
+  "a": "3005724",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 87354099040097676 is divided by 5325696.",
+  "a": "3878796",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 14612038489418656 and 305047850?",
+  "a": "530518",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 195254942858818983 and 3986946873?",
+  "a": "37233",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 7880241762840730 and 190681074?",
+  "a": "371698",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 7366181065 and 7253220044.",
+  "a": "675891309800140",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 393158240 and 4831157760.",
+  "a": "223986967226880",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 8997059370 and 2660974945.",
+  "a": "1976141111204910",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 1061130 and 57499680.",
+  "a": "290545883040",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the cube root of 642216427084045899 to the nearest integer?",
+  "a": "862768",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 2727649 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 2551481 a prime number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 2011673 a composite number?",
+  "a": "False",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "What is -295642790895 times 2620996?",
+  "a": "-774878572364631420",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 528783203353971046 is divided by 2812243.",
+  "a": "2771445",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 9867663844491227069 is divided by 513674028.",
+  "a": "4868921",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 894393455524312658 is divided by 7170140.",
+  "a": "1839498",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 118670668855026113 is divided by 3224299.",
+  "a": "1575152",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 1634196380458671 and 120521448?",
+  "a": "2637",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 7561534639025544 and 156775968?",
+  "a": "178968",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 482567760 and 397375596.",
+  "a": "3743278114320",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 1704318138 and 47935044.",
+  "a": "16998869108412",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 3134833940 and 5468414644.",
+  "a": "2561651497908580",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the cube root of 736785710518698 to the nearest integer?",
+  "a": "90319",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the cube root of 873434028029291 to the nearest integer?",
+  "a": "95589",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 1660759 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 1234273 a prime number?",
+  "a": "False",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "Is 1134761 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "hard"
+ },
+ {
+  "q": "What is -551182323647 times 9730403?",
+  "a": "-5363226135561739741",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 427835591201 times 672790?",
+  "a": "287843507404120790",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 611696839172 times 939158?",
+  "a": "574479980083097176",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 1314747122282142369 is divided by 202774909.",
+  "a": "42348566",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 1392742253259490 and 46574146?",
+  "a": "638002",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 232608967799600 and 1458242300?",
+  "a": "202900",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 5324620 and 48476960.",
+  "a": "1843724219680",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 482886573 and 8986575.",
+  "a": "8559164506425",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 74411437995816760 and 772764384?",
+  "a": "1112",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 439523712 and 3011412096.",
+  "a": "67585121670528",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is -1027225223767 times 5332210?",
+  "a": "-5477380610422635070",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 369844135615848194 is divided by 5204584.",
+  "a": "1588426",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 51538630 and 7065370.",
+  "a": "121785782690",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 345159463 and 78906468.",
+  "a": "74210665182852",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 8547697375662846615 is divided by 603841638.",
+  "a": "162265269",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 6528103825566428943 is divided by 766485877.",
+  "a": "756913956",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 7441735415652960 and 443140584?",
+  "a": "160152",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 1980225959344870 and 2954728525?",
+  "a": "16615",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 901918761221 times 8579391?",
+  "a": "7737913702750596411",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is -9350707935504 times 5129849?",
+  "a": "-47967719752237258896",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 5088029997085 times 1668838?",
+  "a": "8491097804275337230",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 95585690801617397 is divided by 24007173.",
+  "a": "20046734",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 549149557782643776 and 337392948?",
+  "a": "18156",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the highest common factor of 2034505451083252 and 295474102?",
+  "a": "2338",
+  "family": "DMbig.gcd",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 288282690 and 190458630.",
+  "a": "26524602024210",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 585939370589 times 676582?",
+  "a": "396436031231846798",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "What is 4387566141282 times 8154662?",
+  "a": "35779118884798956684",
+  "family": "DMbig.mul",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the remainder when 8191249343249617212 is divided by 3423811.",
+  "a": "2599017",
+  "family": "DMbig.div_remainder",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 115625580 and 183068760.",
+  "a": "50398646559240",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 148277892 and 160279238.",
+  "a": "23254273524468",
+  "family": "DMbig.lcm",
+  "kind": "hard"
+ },
+ {
+  "q": "What is the cube root of 16866862511 to the nearest integer?",
+  "a": "2565",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the cube root of 3920182472 to the nearest integer?",
+  "a": "1577",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the cube root of 3951490950496 to the nearest integer?",
+  "a": "15810",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the square root of 393209215533 to the nearest integer?",
+  "a": "627064",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "Is 299513 a composite number?",
+  "a": "False",
+  "family": "DMbig.is_prime",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the cube root of 4286364864563 to the nearest integer?",
+  "a": "16244",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the cube root of 89088745684 to the nearest integer?",
+  "a": "4466",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "Is 245459 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the square root of 820684169 to the nearest integer?",
+  "a": "28648",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the cube root of 8484467145 to the nearest integer?",
+  "a": "2040",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the square root of 837246937 to the nearest integer?",
+  "a": "28935",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the square root of 86537937223 to the nearest integer?",
+  "a": "294173",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "Is 339611 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "variant"
+ },
+ {
+  "q": "Is 324851 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "variant"
+ },
+ {
+  "q": "Is 191657 a prime number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "variant"
+ },
+ {
+  "q": "Is 268607 a prime number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the cube root of 40243147183877 to the nearest integer?",
+  "a": "34269",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the square root of 976811026195 to the nearest integer?",
+  "a": "988338",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "What is the cube root of 794296654782 to the nearest integer?",
+  "a": "9261",
+  "family": "DMbig.nearest_integer_root",
+  "kind": "variant"
+ },
+ {
+  "q": "Is 299347 a composite number?",
+  "a": "True",
+  "family": "DMbig.is_prime",
+  "kind": "variant"
+ },
+ {
+  "q": "Solve -533179*y + 533111*y - 3808 = 0 for y.",
+  "a": "-56",
+  "family": "algebra.linear_1d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve 65775*f = 65889*f - 2052 for f.",
+  "a": "18",
+  "family": "algebra.linear_1d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -111452*r + 111216*r - 2360 = 0 for r.",
+  "a": "-10",
+  "family": "algebra.linear_1d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -2356*y - 31421 = -8483*y - 599072 - 136954 for y.",
+  "a": "-115",
+  "family": "algebra.linear_1d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -1008*s + 323*s = 31510 for s.",
+  "a": "-46",
+  "family": "algebra.linear_1d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve 1423 + 12497 = 171*z + 177*z for z.",
+  "a": "40",
+  "family": "algebra.linear_1d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -82*b = 178*b - 45*b + 430 for b.",
+  "a": "-2",
+  "family": "algebra.linear_1d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -977*d = 1526*d + 10012 for d.",
+  "a": "-4",
+  "family": "algebra.linear_1d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -4*i + 77 = 5*t, -3*t - 2*i = -7*i + 39258 - 39171 for t.",
+  "a": "1",
+  "family": "algebra.linear_2d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve 135 = 3*y + 2*m + 2*m, 2*m + 6 - 30 = 48 for y.",
+  "a": "-3",
+  "family": "algebra.linear_2d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -2*g + 3*g + 35 = 3*q + 2*g + 3*g, -2*q - 20*g - 398 = -70*g for q.",
+  "a": "1",
+  "family": "algebra.linear_2d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -q - 5*u + 24 = 0, 2839414 = 4*q - 3*u + 2839410 for q.",
+  "a": "4",
+  "family": "algebra.linear_2d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve 0 = 5*g - 7249*h + 7253*h - 174, -4*h = 2*g - 60 for g.",
+  "a": "38",
+  "family": "algebra.linear_2d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -5*k + 95 = -3*o - 2*o, -40*k + 36 + 15 = -4*o - 45*k - 52 for o.",
+  "a": "-22",
+  "family": "algebra.linear_2d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve -3*u = j - 24, 3*j - 36*u - 58 = -17*u - 21*u for j.",
+  "a": "18",
+  "family": "algebra.linear_2d",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve 5*u + 4*t + 40 + 82 = 2*u, -4*t = -264 + 272 for u.",
+  "a": "-38",
+  "family": "algebra.linear_2d",
+  "kind": "easy"
+ },
+ {
+  "q": "Find g, given that -96*g**5 - 13612*g**4 - 205412*g**3 - 491256*g**2 - 282224*g - 28000 = 0.",
+  "a": "-125, -14, -2, -2/3, -1/8",
+  "family": "algebra.polynomial_roots",
+  "kind": "easy"
+ },
+ {
+  "q": "What is n in -15*n**5 + 9786*n**4 + 345258*n**3 - 7044168*n**2 - 4482075*n + 2897550 = 0?",
+  "a": "-47, -1, 2/5, 15, 685",
+  "family": "algebra.polynomial_roots",
+  "kind": "easy"
+ },
+ {
+  "q": "Find r such that 2*r**5 - 37802*r**4 + 177809424*r**3 + 7696116064*r**2 + 93262069760*r + 215325081600 = 0.",
+  "a": "-20, -3, 9472",
+  "family": "algebra.polynomial_roots",
+  "kind": "easy"
+ },
+ {
+  "q": "Suppose t**4/4 - 1065*t**3/4 - 287673*t**2/4 + 578537*t/4 - 72450 = 0. Calculate t.",
+  "a": "-225, 1, 1288",
+  "family": "algebra.polynomial_roots",
+  "kind": "easy"
+ },
+ {
+  "q": "Find c, given that 3888*c**3 - 264486168*c**2 + 73468155*c - 5101950 = 0.",
+  "a": "5/36, 68026",
+  "family": "algebra.polynomial_roots",
+  "kind": "easy"
+ },
+ {
+  "q": "Determine m, given that -3*m**3 + 26601*m**2 - 52989540*m - 106085508 = 0.",
+  "a": "-2, 3026, 5843",
+  "family": "algebra.polynomial_roots",
+  "kind": "easy"
+ },
+ {
+  "q": "Find t, given that -2*t**3/17 - 22396*t**2/17 - 424870*t/17 - 44716 = 0.",
+  "a": "-11179, -17, -2",
+  "family": "algebra.polynomial_roots",
+  "kind": "easy"
+ },
+ {
+  "q": "Find u such that 2*u**4 + 15414*u**3 - 123486*u**2 - 354830*u + 462900 = 0.",
+  "a": "-7715, -3, 1, 10",
+  "family": "algebra.polynomial_roots",
+  "kind": "easy"
+ },
+ {
+  "q": "What is next in 13529, 34299, 55069, 75839, 96609, 117379?",
+  "a": "138149",
+  "family": "algebra.sequence_next_term",
+  "kind": "easy"
+ },
+ {
+  "q": "What is next in -99, -730, -2529, -6108, -12079, -21054, -33645, -50464?",
+  "a": "-72123",
+  "family": "algebra.sequence_next_term",
+  "kind": "easy"
+ },
+ {
+  "q": "What is next in -86227, -86310, -86455, -86662, -86931, -87262, -87655?",
+  "a": "-88110",
+  "family": "algebra.sequence_next_term",
+  "kind": "easy"
+ },
+ {
+  "q": "What comes next: 3864, 29100, 96182, 225582, 437772, 753224?",
+  "a": "1192410",
+  "family": "algebra.sequence_next_term",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the next term in -11052, -23434, -35816, -48198?",
+  "a": "-60580",
+  "family": "algebra.sequence_next_term",
+  "kind": "easy"
+ },
+ {
+  "q": "What is next in -1108, -4960, -11404, -20446, -32092, -46348, -63220?",
+  "a": "-82714",
+  "family": "algebra.sequence_next_term",
+  "kind": "easy"
+ },
+ {
+  "q": "What comes next: 1417824, 5671305, 12760440, 22685229?",
+  "a": "35445672",
+  "family": "algebra.sequence_next_term",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the next term in -70931435, -70931437, -70931439, -70931441, -70931443?",
+  "a": "-70931445",
+  "family": "algebra.sequence_next_term",
+  "kind": "easy"
+ },
+ {
+  "q": "-1192607 - -117839.5",
+  "a": "-1074767.5",
+  "family": "arithmetic.add_or_sub",
+  "kind": "easy"
+ },
+ {
+  "q": "-92337541878.78+3.3",
+  "a": "-92337541875.48",
+  "family": "arithmetic.add_or_sub",
+  "kind": "easy"
+ },
+ {
+  "q": "Sum 200 and -1635590912.",
+  "a": "-1635590712",
+  "family": "arithmetic.add_or_sub",
+  "kind": "easy"
+ },
+ {
+  "q": "What is -3600685334804 take away -0.242?",
+  "a": "-3600685334803.758",
+  "family": "arithmetic.add_or_sub",
+  "kind": "easy"
+ },
+ {
+  "q": "0.4 + 0.03957399032846",
+  "a": "0.43957399032846",
+  "family": "arithmetic.add_or_sub",
+  "kind": "easy"
+ },
+ {
+  "q": "Work out 1429467 - -48064.18.",
+  "a": "1477531.18",
+  "family": "arithmetic.add_or_sub",
+  "kind": "easy"
+ },
+ {
+  "q": "What is -0.0983 plus 0.155107897943?",
+  "a": "0.056807897943",
+  "family": "arithmetic.add_or_sub",
+  "kind": "easy"
+ },
+ {
+  "q": "What is -476364 less than -501084?",
+  "a": "-24720",
+  "family": "arithmetic.add_or_sub",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the value of 83 - 105 - (-40 + -17)?",
+  "a": "35",
+  "family": "arithmetic.add_sub_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "Evaluate 4 - -2 - ((-1 - 12) + 7 + 42).",
+  "a": "-30",
+  "family": "arithmetic.add_sub_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "(8 - (-17 + 18)) + 38 + (10 - (0 + 1))",
+  "a": "54",
+  "family": "arithmetic.add_sub_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "52 + (60 - (157 - 81))",
+  "a": "36",
+  "family": "arithmetic.add_sub_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "Evaluate 47 - (-13 - ((-12 - 23) + 45 + -23 + 1)).",
+  "a": "48",
+  "family": "arithmetic.add_sub_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "What is (23 - (13 - (-25 + 9)) - (1 - 6)) + -44?",
+  "a": "-45",
+  "family": "arithmetic.add_sub_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "91 + (69 - 40) + -74",
+  "a": "46",
+  "family": "arithmetic.add_sub_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "6 + -13 + 3 + (9 - 14 - 8) + 9",
+  "a": "-8",
+  "family": "arithmetic.add_sub_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "Divide -629 by -17824.",
+  "a": "629/17824",
+  "family": "arithmetic.div",
+  "kind": "easy"
+ },
+ {
+  "q": "What is -1477592815 divided by -5?",
+  "a": "295518563",
+  "family": "arithmetic.div",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate -1610308 divided by -3.",
+  "a": "1610308/3",
+  "family": "arithmetic.div",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 40 divided by 20974538?",
+  "a": "20/10487269",
+  "family": "arithmetic.div",
+  "kind": "easy"
+ },
+ {
+  "q": "Divide -32282700 by -430436.",
+  "a": "75",
+  "family": "arithmetic.div",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate -200982980 divided by 10405.",
+  "a": "-19316",
+  "family": "arithmetic.div",
+  "kind": "easy"
+ },
+ {
+  "q": "-442560065 divided by -4658527",
+  "a": "95",
+  "family": "arithmetic.div",
+  "kind": "easy"
+ },
+ {
+  "q": "Divide -266948570 by 53389714.",
+  "a": "-5",
+  "family": "arithmetic.div",
+  "kind": "easy"
+ },
+ {
+  "q": "Evaluate -3 - ((-2)/(-1) - ((-9)/(-6) + (-35860)/(-440))).",
+  "a": "78",
+  "family": "arithmetic.mixed",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate (43/172)/(5/60)*(-445)/15.",
+  "a": "-89",
+  "family": "arithmetic.mixed",
+  "kind": "easy"
+ },
+ {
+  "q": "9/(243/18)*1690/676",
+  "a": "5/3",
+  "family": "arithmetic.mixed",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate 7/(-1) + 493*306/20706 + (-134)/175.",
+  "a": "-12/25",
+  "family": "arithmetic.mixed",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate (-17674)/(-53022) + (112/6 - 1).",
+  "a": "18",
+  "family": "arithmetic.mixed",
+  "kind": "easy"
+ },
+ {
+  "q": "Evaluate -3*(-2)/69 + (-650676)/(-1343062).",
+  "a": "4/7",
+  "family": "arithmetic.mixed",
+  "kind": "easy"
+ },
+ {
+  "q": "(-7)/((-658)/748) - (-12)/4794*17",
+  "a": "8",
+  "family": "arithmetic.mixed",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 139 + 340092/(-2444) + (-984)/26?",
+  "a": "-38",
+  "family": "arithmetic.mixed",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the product of 1.71 and -1.108612?",
+  "a": "-1.89572652",
+  "family": "arithmetic.mul",
+  "kind": "easy"
+ },
+ {
+  "q": "0 times 78960793",
+  "a": "0",
+  "family": "arithmetic.mul",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the product of -1154686.8 and 0.4?",
+  "a": "-461874.72",
+  "family": "arithmetic.mul",
+  "kind": "easy"
+ },
+ {
+  "q": "-4282426*0.09",
+  "a": "-385418.34",
+  "family": "arithmetic.mul",
+  "kind": "easy"
+ },
+ {
+  "q": "290.3 * -1236.1",
+  "a": "-358839.83",
+  "family": "arithmetic.mul",
+  "kind": "easy"
+ },
+ {
+  "q": "Product of 199290298 and -2.",
+  "a": "-398580596",
+  "family": "arithmetic.mul",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate 3378.9602*-0.4.",
+  "a": "-1351.58408",
+  "family": "arithmetic.mul",
+  "kind": "easy"
+ },
+ {
+  "q": "What is (67/((-3216)/736))/(3/(-54)*-6)?",
+  "a": "-46",
+  "family": "arithmetic.mul_div_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "Evaluate (10/12)/((-150)/(-120))*9/(-18).",
+  "a": "-1/3",
+  "family": "arithmetic.mul_div_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 175/14*(240/(-70))/(8/(560/(-75)))?",
+  "a": "40",
+  "family": "arithmetic.mul_div_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate ((-6)/(-2)*30/(-1875))/((-171)/(-24510)*43).",
+  "a": "-4/25",
+  "family": "arithmetic.mul_div_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the value of (-7308)/(-3480)*(-270)/(-63)?",
+  "a": "9",
+  "family": "arithmetic.mul_div_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "What is ((-18117)/(-20130))/((-14)/10)?",
+  "a": "-9/14",
+  "family": "arithmetic.mul_div_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate (210/225)/(2/5)*(-3336)/139.",
+  "a": "-56",
+  "family": "arithmetic.mul_div_multiple",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 265043797 to the power of 1/3, to the nearest integer?",
+  "a": "642",
+  "family": "arithmetic.nearest_integer_root",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 1372892128 to the power of 1/3, to the nearest integer?",
+  "a": "1111",
+  "family": "arithmetic.nearest_integer_root",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the sixth root of 4738813988 to the nearest integer?",
+  "a": "41",
+  "family": "arithmetic.nearest_integer_root",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the seventh root of 1626587947 to the nearest integer?",
+  "a": "21",
+  "family": "arithmetic.nearest_integer_root",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the third root of 1566218999 to the nearest integer?",
+  "a": "1161",
+  "family": "arithmetic.nearest_integer_root",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the square root of 1468714462 to the nearest integer?",
+  "a": "38324",
+  "family": "arithmetic.nearest_integer_root",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the eighth root of 2347284972 to the nearest integer?",
+  "a": "15",
+  "family": "arithmetic.nearest_integer_root",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the nearest to -2/3 in -2/5, 0.0255, -53, -0.5?",
+  "a": "-0.5",
+  "family": "comparison.closest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the closest to -2 in -29119, 0, -0.4, -19?",
+  "a": "-0.4",
+  "family": "comparison.closest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the closest to -1/6 in 7/9, 17, 0.19, -17?",
+  "a": "0.19",
+  "family": "comparison.closest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the nearest to -3 in 1/4, -2, -2/21, 54?",
+  "a": "-2",
+  "family": "comparison.closest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the nearest to 0.1117 in 5, -5, 26.4?",
+  "a": "5",
+  "family": "comparison.closest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the nearest to 5 in -2, 1509, 2.1, -1/9?",
+  "a": "2.1",
+  "family": "comparison.closest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the nearest to -0.1 in -1.761, 4, 3/2, -2/49?",
+  "a": "-2/49",
+  "family": "comparison.closest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the biggest value in 12, -0.4, 15113, -2.38?",
+  "a": "15113",
+  "family": "comparison.kth_biggest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the fifth smallest value in 2, 2/15, 0.3, 115, -2/7, 0.114, -4?",
+  "a": "0.3",
+  "family": "comparison.kth_biggest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the second biggest value in -2.8, -864956, 0.4?",
+  "a": "-2.8",
+  "family": "comparison.kth_biggest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the fourth smallest value in 4/7, 0.18, 1, -4, 2/643, 0.1?",
+  "a": "0.18",
+  "family": "comparison.kth_biggest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the fourth biggest value in -162, -3/8, -4, -3, 4, -2/17, -3/5?",
+  "a": "-3/5",
+  "family": "comparison.kth_biggest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the fourth smallest value in -2/15, -2129, 4, 4/29?",
+  "a": "4",
+  "family": "comparison.kth_biggest",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the second biggest value in -9, 0.5, -825083?",
+  "a": "-9",
+  "family": "comparison.kth_biggest",
+  "kind": "easy"
+ },
+ {
+  "q": "Which is bigger: 32 or -63310.8?",
+  "a": "32",
+  "family": "comparison.pair",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 224560409 less than or equal to 224560410?",
+  "a": "True",
+  "family": "comparison.pair",
+  "kind": "easy"
+ },
+ {
+  "q": "Do 0 and 131/105823 have the same value?",
+  "a": "False",
+  "family": "comparison.pair",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 2/2583835803 greater than 0?",
+  "a": "True",
+  "family": "comparison.pair",
+  "kind": "easy"
+ },
+ {
+  "q": "Do -232 and -499493 have the same value?",
+  "a": "False",
+  "family": "comparison.pair",
+  "kind": "easy"
+ },
+ {
+  "q": "Which is smaller: -180555266 or -180555265?",
+  "a": "-180555266",
+  "family": "comparison.pair",
+  "kind": "easy"
+ },
+ {
+  "q": "Is -3602621910 greater than or equal to -3602621911?",
+  "a": "True",
+  "family": "comparison.pair",
+  "kind": "easy"
+ },
+ {
+  "q": "Sort 0.4, -3/2, 2/55, 120, 2094 in decreasing order.",
+  "a": "2094, 120, 0.4, 2/55, -3/2",
+  "family": "comparison.sort",
+  "kind": "easy"
+ },
+ {
+  "q": "Put 3, -5, -539891, -4 in increasing order.",
+  "a": "-539891, -5, -4, 3",
+  "family": "comparison.sort",
+  "kind": "easy"
+ },
+ {
+  "q": "Sort 14, -1225.64, -5 in descending order.",
+  "a": "14, -5, -1225.64",
+  "family": "comparison.sort",
+  "kind": "easy"
+ },
+ {
+  "q": "Sort -13944, 27, -34 in decreasing order.",
+  "a": "27, -34, -13944",
+  "family": "comparison.sort",
+  "kind": "easy"
+ },
+ {
+  "q": "Put -113, 0.2, -38272 in descending order.",
+  "a": "0.2, -113, -38272",
+  "family": "comparison.sort",
+  "kind": "easy"
+ },
+ {
+  "q": "Put 41, 13, 624, 4, -3 in descending order.",
+  "a": "624, 41, 13, 4, -3",
+  "family": "comparison.sort",
+  "kind": "easy"
+ },
+ {
+  "q": "Sort 1, 2, 4, 20707, 5, -2.",
+  "a": "-2, 1, 2, 4, 5, 20707",
+  "family": "comparison.sort",
+  "kind": "easy"
+ },
+ {
+  "q": "How many micrograms are there in 31/2 of a milligram?",
+  "a": "15500",
+  "family": "measurement.conversion",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 21/4 of a millennium in decades?",
+  "a": "525",
+  "family": "measurement.conversion",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 945006.5 millilitres in litres?",
+  "a": "945.0065",
+  "family": "measurement.conversion",
+  "kind": "easy"
+ },
+ {
+  "q": "How many millilitres are there in 32/5 of a litre?",
+  "a": "6400",
+  "family": "measurement.conversion",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 42/5 of a micrometer in nanometers?",
+  "a": "8400",
+  "family": "measurement.conversion",
+  "kind": "easy"
+ },
+ {
+  "q": "How many years are there in five quarters of a millennium?",
+  "a": "1250",
+  "family": "measurement.conversion",
+  "kind": "easy"
+ },
+ {
+  "q": "What is one tenth of a microgram in nanograms?",
+  "a": "100",
+  "family": "measurement.conversion",
+  "kind": "easy"
+ },
+ {
+  "q": "How many minutes are there between 11:27 AM and 4:25 PM?",
+  "a": "298",
+  "family": "measurement.time",
+  "kind": "easy"
+ },
+ {
+  "q": "How many minutes are there between 6:41 PM and 12:23 AM?",
+  "a": "342",
+  "family": "measurement.time",
+  "kind": "easy"
+ },
+ {
+  "q": "How many minutes are there between 6:27 AM and 5:42 PM?",
+  "a": "675",
+  "family": "measurement.time",
+  "kind": "easy"
+ },
+ {
+  "q": "How many minutes are there between 12:08 AM and 12:10 AM?",
+  "a": "2",
+  "family": "measurement.time",
+  "kind": "easy"
+ },
+ {
+  "q": "How many minutes are there between 6:57 PM and 3:08 AM?",
+  "a": "491",
+  "family": "measurement.time",
+  "kind": "easy"
+ },
+ {
+  "q": "How many minutes are there between 6:33 AM and 1:21 PM?",
+  "a": "408",
+  "family": "measurement.time",
+  "kind": "easy"
+ },
+ {
+  "q": "How many minutes are there between 2:13 PM and 9:16 PM?",
+  "a": "423",
+  "family": "measurement.time",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the remainder when 37961 is divided by 411?",
+  "a": "149",
+  "family": "numbers.div_remainder",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate the remainder when 21655555 is divided by 21655541.",
+  "a": "14",
+  "family": "numbers.div_remainder",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the remainder when 71197 is divided by 1700?",
+  "a": "1497",
+  "family": "numbers.div_remainder",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the remainder when 3007470 is divided by 131?",
+  "a": "103",
+  "family": "numbers.div_remainder",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate the remainder when 24625729 is divided by 19016.",
+  "a": "9",
+  "family": "numbers.div_remainder",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate the remainder when 1596362 is divided by 159620.",
+  "a": "162",
+  "family": "numbers.div_remainder",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the remainder when 5122457 is divided by 3545?",
+  "a": "3477",
+  "family": "numbers.div_remainder",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the highest common factor of 125820 and 1807614?",
+  "a": "4194",
+  "family": "numbers.gcd",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate the greatest common divisor of 32019030 and 1485.",
+  "a": "135",
+  "family": "numbers.gcd",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the highest common factor of 160270 and 76046?",
+  "a": "94",
+  "family": "numbers.gcd",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the highest common factor of 3960 and 47652264?",
+  "a": "792",
+  "family": "numbers.gcd",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate the greatest common factor of 25704 and 241104.",
+  "a": "24",
+  "family": "numbers.gcd",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate the greatest common factor of 104782940 and 30.",
+  "a": "10",
+  "family": "numbers.gcd",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate the highest common divisor of 26246869 and 11.",
+  "a": "11",
+  "family": "numbers.gcd",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 1303401151 a composite number?",
+  "a": "True",
+  "family": "numbers.is_prime",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 7016659291 a prime number?",
+  "a": "True",
+  "family": "numbers.is_prime",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 2943118913 a composite number?",
+  "a": "True",
+  "family": "numbers.is_prime",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 8734142591 composite?",
+  "a": "False",
+  "family": "numbers.is_prime",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 22038599197 composite?",
+  "a": "False",
+  "family": "numbers.is_prime",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 59247853 a prime number?",
+  "a": "False",
+  "family": "numbers.is_prime",
+  "kind": "easy"
+ },
+ {
+  "q": "Is 92509528271 prime?",
+  "a": "True",
+  "family": "numbers.is_prime",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the lowest common multiple of 517 and 25567971?",
+  "a": "1201694637",
+  "family": "numbers.lcm",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the common denominator of 53/879780 and 203/171600?",
+  "a": "228742800",
+  "family": "numbers.lcm",
+  "kind": "easy"
+ },
+ {
+  "q": "Find the common denominator of -41/559930 and -87/24300962.",
+  "a": "121504810",
+  "family": "numbers.lcm",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the smallest common multiple of 20946168 and 16291464?",
+  "a": "146623176",
+  "family": "numbers.lcm",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the common denominator of -61/531 and -193/7050?",
+  "a": "1247850",
+  "family": "numbers.lcm",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the common denominator of 107/163560 and -133/135024?",
+  "a": "31730640",
+  "family": "numbers.lcm",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 10547484 and 91411528.",
+  "a": "274234584",
+  "family": "numbers.lcm",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the hundreds digit of 2293953579?",
+  "a": "5",
+  "family": "numbers.place_value",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the millions digit of 4001354?",
+  "a": "4",
+  "family": "numbers.place_value",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the hundred thousands digit of 217730473?",
+  "a": "7",
+  "family": "numbers.place_value",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the hundreds digit of 321616342?",
+  "a": "3",
+  "family": "numbers.place_value",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the ten millions digit of 51860631?",
+  "a": "5",
+  "family": "numbers.place_value",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the hundred millions digit of 195027575?",
+  "a": "1",
+  "family": "numbers.place_value",
+  "kind": "easy"
+ },
+ {
+  "q": "What is the ten thousands digit of 31577585?",
+  "a": "7",
+  "family": "numbers.place_value",
+  "kind": "easy"
+ },
+ {
+  "q": "Round 61241640.71 to the nearest one thousand.",
+  "a": "61242000",
+  "family": "numbers.round_number",
+  "kind": "easy"
+ },
+ {
+  "q": "What is -9307923.2 rounded to the nearest one million?",
+  "a": "-9000000",
+  "family": "numbers.round_number",
+  "kind": "easy"
+ },
+ {
+  "q": "Round -0.00496608033 to five decimal places.",
+  "a": "-0.00497",
+  "family": "numbers.round_number",
+  "kind": "easy"
+ },
+ {
+  "q": "Round -665.28842 to the nearest ten.",
+  "a": "-670",
+  "family": "numbers.round_number",
+  "kind": "easy"
+ },
+ {
+  "q": "What is -0.00076181287 rounded to seven decimal places?",
+  "a": "-0.0007618",
+  "family": "numbers.round_number",
+  "kind": "easy"
+ },
+ {
+  "q": "What is -0.0499059592 rounded to 6 dps?",
+  "a": "-0.049906",
+  "family": "numbers.round_number",
+  "kind": "easy"
+ },
+ {
+  "q": "What is 21533.1433 rounded to the nearest integer?",
+  "a": "21533",
+  "family": "numbers.round_number",
+  "kind": "easy"
+ },
+ {
+  "q": "Let b(r) = -r**3 - 77*r**2 - 678*r - 226. Give b(-67).",
+  "a": "310",
+  "family": "polynomials.evaluate",
+  "kind": "easy"
+ },
+ {
+  "q": "Let n(y) = 3702*y - 4138908. What is n(1118)?",
+  "a": "-72",
+  "family": "polynomials.evaluate",
+  "kind": "easy"
+ },
+ {
+  "q": "Let h(z) = -16249*z**2 - 97483*z + 49. Calculate h(-6).",
+  "a": "-17",
+  "family": "polynomials.evaluate",
+  "kind": "easy"
+ },
+ {
+  "q": "Let d(w) = 7392 - 329*w. Give d(21).",
+  "a": "483",
+  "family": "polynomials.evaluate",
+  "kind": "easy"
+ },
+ {
+  "q": "Let q(b) = -11*b**2 - 2*b + 7780. What is q(-29)?",
+  "a": "-1413",
+  "family": "polynomials.evaluate",
+  "kind": "easy"
+ },
+ {
+  "q": "Let l(q) = 10*q**2 + 1114*q + 14796. Determine l(-96).",
+  "a": "12",
+  "family": "polynomials.evaluate",
+  "kind": "easy"
+ },
+ {
+  "q": "Let s(w) = 472096 - 472049*w. Calculate s(1).",
+  "a": "47",
+  "family": "polynomials.evaluate",
+  "kind": "easy"
+ },
+ {
+  "q": "Four letters picked without replacement from {z: 1, p: 1, u: 3, j: 7, b: 1}. Give prob of picking 4 j.",
+  "a": "7/143",
+  "family": "probability.swr_p_level_set",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate prob of picking 2 w and 1 n when three letters picked without replacement from nwnwwwn.",
+  "a": "18/35",
+  "family": "probability.swr_p_level_set",
+  "kind": "easy"
+ },
+ {
+  "q": "What is prob of picking 3 s and 1 f when four letters picked without replacement from ftngffsfnfnnfngnf?",
+  "a": "0",
+  "family": "probability.swr_p_level_set",
+  "kind": "easy"
+ },
+ {
+  "q": "Three letters picked without replacement from {x: 1, c: 5, z: 1, w: 3, l: 1}. Give prob of picking 2 w and 1 l.",
+  "a": "1/55",
+  "family": "probability.swr_p_level_set",
+  "kind": "easy"
+ },
+ {
+  "q": "Two letters picked without replacement from oooyyyy. What is prob of picking 1 o and 1 y?",
+  "a": "4/7",
+  "family": "probability.swr_p_level_set",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate prob of picking 1 j and 2 y when three letters picked without replacement from {j: 1, a: 2, w: 1, z: 1, y: 2}.",
+  "a": "1/35",
+  "family": "probability.swr_p_level_set",
+  "kind": "easy"
+ },
+ {
+  "q": "What is prob of picking 3 k when three letters picked without replacement from {a: 6, k: 7}?",
+  "a": "35/286",
+  "family": "probability.swr_p_level_set",
+  "kind": "easy"
+ },
+ {
+  "q": "What is prob of sequence hnff when four letters picked without replacement from nnnfhhhxnnhxhxhxhhx?",
+  "a": "0",
+  "family": "probability.swr_p_sequence",
+  "kind": "easy"
+ },
+ {
+  "q": "Four letters picked without replacement from {x: 6, y: 1, s: 3, w: 7}. Give prob of sequence swyx.",
+  "a": "3/1360",
+  "family": "probability.swr_p_sequence",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate prob of sequence nat when three letters picked without replacement from naata.",
+  "a": "1/20",
+  "family": "probability.swr_p_sequence",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate prob of sequence jjjk when four letters picked without replacement from jjkjkkjjkkjkjkkjjkk.",
+  "a": "35/646",
+  "family": "probability.swr_p_sequence",
+  "kind": "easy"
+ },
+ {
+  "q": "What is prob of sequence iig when three letters picked without replacement from iiiiiiiiiiigiiiigiii?",
+  "a": "17/190",
+  "family": "probability.swr_p_sequence",
+  "kind": "easy"
+ },
+ {
+  "q": "Calculate prob of sequence fdd when three letters picked without replacement from ddfdffdfddffd.",
+  "a": "21/143",
+  "family": "probability.swr_p_sequence",
+  "kind": "easy"
+ },
+ {
+  "q": "Four letters picked without replacement from zixxzxifzxxzxmi. What is prob of sequence zxii?",
+  "a": "2/455",
+  "family": "probability.swr_p_sequence",
+  "kind": "easy"
+ },
+ {
+  "q": "Solve 3*k**2 + 45484643844*k + 172404402134627258028 = 0 for k.",
+  "a": "-7580773974",
+  "family": "algebra.polynomial_roots_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is z in -160178*z**3/3 + 10286979250*z**2 - 495483978368768*z - 1486482796204232/3 = 0?",
+  "a": "-1, 27262454/283",
+  "family": "algebra.polynomial_roots_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Solve 4*i**5/5 - 12814*i**4/5 + 8475556*i**3/5 - 285538714*i**2/5 + 400844152*i/5 + 54573400 = 0 for i.",
+  "a": "-1/2, 2, 34, 875, 2293",
+  "family": "algebra.polynomial_roots_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Find v, given that 3*v**4/7 + 769830*v**3/7 - 25408335*v**2/7 - 174004890*v/7 - 240217848/7 = 0.",
+  "a": "-256643, -4, -2, 39",
+  "family": "algebra.polynomial_roots_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Solve -22*m**5/3 - 6164*m**4 + 68389202*m**3/3 + 251436464*m**2 + 685901720*m/3 = 0 for m.",
+  "a": "-24514/11, -10, -1, 0, 1399",
+  "family": "algebra.polynomial_roots_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Suppose z**4/4 - 15439*z**3/4 + 13631226*z**2 + 136636649*z + 218717512 = 0. Calculate z.",
+  "a": "-8, -2, 5491, 9958",
+  "family": "algebra.polynomial_roots_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Let 2*i**2 - 671182262*i + 10067733480 = 0. What is i?",
+  "a": "15, 335591116",
+  "family": "algebra.polynomial_roots_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Determine c so that 3*c**2/5 + 2545650324*c/5 + 15273901836/5 = 0.",
+  "a": "-848550102, -6",
+  "family": "algebra.polynomial_roots_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Subtract 203627506.02 from -388683.",
+  "a": "-204016189.02",
+  "family": "arithmetic.add_or_sub_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 71557.35293139125 + 3?",
+  "a": "71560.35293139125",
+  "family": "arithmetic.add_or_sub_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is -162028026141013 take away -415?",
+  "a": "-162028026140598",
+  "family": "arithmetic.add_or_sub_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "214610842563995+-182.7",
+  "a": "214610842563812.3",
+  "family": "arithmetic.add_or_sub_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "-31248806 + 166912965",
+  "a": "135664159",
+  "family": "arithmetic.add_or_sub_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the difference between 974734 and -0.00032007151?",
+  "a": "974734.00032007151",
+  "family": "arithmetic.add_or_sub_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is -13.681351191555 take away 39311?",
+  "a": "-39324.681351191555",
+  "family": "arithmetic.add_or_sub_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Work out -54720749.969 - 70209.",
+  "a": "-54790958.969",
+  "family": "arithmetic.add_or_sub_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is -81 + (-5 - -1 - (1 + -2)) - (6 + 11 + (-16 - (30 + -28)))?",
+  "a": "-83",
+  "family": "arithmetic.add_sub_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate -4 - -55 - ((-17 - -16) + -5 + -1) - (1 + -1 - (-1 - (-5 - -5))) - -2.",
+  "a": "59",
+  "family": "arithmetic.add_sub_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the value of 211 + (-12 - ((11 - 2) + -12 + 7 + (-5 + 1 - (-16 - -37 - 16))))?",
+  "a": "204",
+  "family": "arithmetic.add_sub_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 153 + (-4 - 1) + (-7 - (2 - 10)) + 0 + 19 + 21 + -32?",
+  "a": "157",
+  "family": "arithmetic.add_sub_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "211 + 4 + -9 + (-291 - -294 - (7 + 0 + -3 + -3 + -2 + (-2 - -3)))",
+  "a": "209",
+  "family": "arithmetic.add_sub_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the value of (8 - (-3 - -4) - (-8 - -11) - ((2 - (3 + 2)) + 12 + -15 - -73)) + -6?",
+  "a": "-69",
+  "family": "arithmetic.add_sub_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Evaluate 2 - 0 - (-3 - (-4 + (-12 - -37 - 17)) - (10 + (7 - 11) + -6)).",
+  "a": "9",
+  "family": "arithmetic.add_sub_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is (-5 + 1 - (-1 - 3)) + (-45 - 64) + (9 + 4 - (18 + -3))?",
+  "a": "-111",
+  "family": "arithmetic.add_sub_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Divide -15 by -832630621.",
+  "a": "15/832630621",
+  "family": "arithmetic.div_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Divide 4 by 154370807.",
+  "a": "4/154370807",
+  "family": "arithmetic.div_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 3129979 divided by -4334?",
+  "a": "-3129979/4334",
+  "family": "arithmetic.div_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "3171394986 divided by -3171394986",
+  "a": "-1",
+  "family": "arithmetic.div_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate 7997909934 divided by 2.",
+  "a": "3998954967",
+  "family": "arithmetic.div_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate -3022340790 divided by -14.",
+  "a": "215881485",
+  "family": "arithmetic.div_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Divide -2150 by -1476906.",
+  "a": "1075/738453",
+  "family": "arithmetic.div_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 23967778868 divided by 44?",
+  "a": "544722247",
+  "family": "arithmetic.div_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the value of (1095/20*(-2)/(-30) + (-16800)/27000 + (8/9)/4)/((-1)/8)?",
+  "a": "-26",
+  "family": "arithmetic.mixed_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is ((-3)/2)/((-9)/(-232)*2/3)*(-12 - -13)*(-226835)/90734?",
+  "a": "145",
+  "family": "arithmetic.mixed_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "((-14)/21*5)/((-80)/27 + (10791/(-10791) - ((-4)/3)/((-2)/(-6))))",
+  "a": "-90",
+  "family": "arithmetic.mixed_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate -2 + (-2)/(-8) + (-33 - 5474/136) + (34/(-5) - -6*(-8)/240).",
+  "a": "-82",
+  "family": "arithmetic.mixed_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "(2/(-6))/((-33)/10 - (-980)/18375*(-10)/(-4)) + (-153)/(162792/174608)",
+  "a": "-164",
+  "family": "arithmetic.mixed_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Evaluate ((-56)/3)/(-5 - (4 + -7))*(-10 - (185/370)/(2/(-43))) - 48.",
+  "a": "-41",
+  "family": "arithmetic.mixed_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "(7/(-15) - (4/6*(3 - 819/180) - -1)*4)/((-3835)/828360)",
+  "a": "72",
+  "family": "arithmetic.mixed_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate 58/3*(-90)/1*64/256*((-70)/315 + ((-10)/(-18) - 0)) - -4.",
+  "a": "-141",
+  "family": "arithmetic.mixed_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the product of -1.361894 and -0.28?",
+  "a": "0.38133032",
+  "family": "arithmetic.mul_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Multiply 20529665 and -16.7.",
+  "a": "-342845405.5",
+  "family": "arithmetic.mul_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate 2187509.7634*3.",
+  "a": "6562529.2902",
+  "family": "arithmetic.mul_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Work out 111592409 * 64.",
+  "a": "7141914176",
+  "family": "arithmetic.mul_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 10.1989 times -106940?",
+  "a": "-1090670.366",
+  "family": "arithmetic.mul_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "-0.39*75087022",
+  "a": "-29283938.58",
+  "family": "arithmetic.mul_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the product of 0.37343 and 407946?",
+  "a": "152339.27478",
+  "family": "arithmetic.mul_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the value of (((-24)/21)/(654/2289))/(((-33)/(99/(-2)))/(3/(-36)*382))?",
+  "a": "191",
+  "family": "arithmetic.mul_div_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate (-5)/10*((2/(-16))/(9/60)*-3*878*(-2)/40)/((-30476)/(-243808)).",
+  "a": "439",
+  "family": "arithmetic.mul_div_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the value of 5*66/(-15)*5/25*24/(360/(-75))*33/6?",
+  "a": "121",
+  "family": "arithmetic.mul_div_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate (41/2)/((9/(216/(-3))*3)/(((-54)/(-96))/(2/(72/27)))).",
+  "a": "-41",
+  "family": "arithmetic.mul_div_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the value of (-33)/5*(-140)/28*(2*((-748)/48)/(-17))/((-12)/48)?",
+  "a": "-242",
+  "family": "arithmetic.mul_div_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate 5*(-28)/(-280)*((-732)/(-324)*-6)/(1/(8*3))*(-18)/(-8).",
+  "a": "-366",
+  "family": "arithmetic.mul_div_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Evaluate 16/3*2/(-6)*-5*(2655/50)/(-9)*(-313200)/(-69600).",
+  "a": "-236",
+  "family": "arithmetic.mul_div_multiple_longer",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the nearest to 4/11 in 2/7, 2/11, -0.4, 460, 0.4, -1, -0.1, -2/11?",
+  "a": "0.4",
+  "family": "comparison.closest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the nearest to 1 in -4, -4/9, 107, 1, 23, -1/23, 5, 0.5?",
+  "a": "1",
+  "family": "comparison.closest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the nearest to -1/2 in -0.5, 0.4, -0.05, 2, 1.16, 5, -30/37, 0.048?",
+  "a": "-0.5",
+  "family": "comparison.closest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the closest to 0 in 75.7, 0.1, 1.7, 0, -6, 0.036, -4?",
+  "a": "0",
+  "family": "comparison.closest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the closest to 3/5 in 8, 5, 1.4, -0.3, -77, 1/5, -0.5, -4?",
+  "a": "1/5",
+  "family": "comparison.closest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the nearest to -1 in 0.6, -0.5, -0.039, -0.977, -2/3, 1/2, 23/19?",
+  "a": "-0.977",
+  "family": "comparison.closest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the nearest to 1/9 in -4, 5, -0.3, -31, 17/22, -0.5, 154?",
+  "a": "-0.3",
+  "family": "comparison.closest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the eighth smallest value in -0.4, 0.4, 3, 62492, 0.5, -24.64, -1, 5/2, 0?",
+  "a": "3",
+  "family": "comparison.kth_biggest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the ninth smallest value in -2/3, -0.2, -98, 6/5, 30, 5, -5/6, -1/2, -0.8, 4?",
+  "a": "5",
+  "family": "comparison.kth_biggest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the fifth smallest value in -1/4, 0.13, -12, -2/13, -2/19, -3/5, -5, 4, 3/19, -0.09?",
+  "a": "-2/13",
+  "family": "comparison.kth_biggest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the ninth biggest value in 0.17, 10, 5/6, 989, 3, -0.07, -2/19, -3/7, 0.1?",
+  "a": "-3/7",
+  "family": "comparison.kth_biggest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the sixth biggest value in 0.07, -0.5, 5, 0.1, -21, -4, -172, -1, 300?",
+  "a": "-1",
+  "family": "comparison.kth_biggest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the fifth biggest value in 286, -0.2, -4/9, -1/4, 7.088, -0.4, 0, -2/15, 1/5?",
+  "a": "-2/15",
+  "family": "comparison.kth_biggest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the second smallest value in 9, -6, 3/5, -1/5, -195, 1/4, -2/15, 0.13, -2?",
+  "a": "-6",
+  "family": "comparison.kth_biggest_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Sort -10, 3, 19, 12, -8, 299, 0, 6, -4, 4 in decreasing order.",
+  "a": "299, 19, 12, 6, 4, 3, 0, -4, -8, -10",
+  "family": "comparison.sort_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Sort -2/3, -19/10, 1/5, 1/11, 0.5, -44, -1, 0.4, 3 in ascending order.",
+  "a": "-44, -19/10, -1, -2/3, 1/11, 1/5, 0.4, 0.5, 3",
+  "family": "comparison.sort_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Sort -11, -17, 34, 129, -2, 3, 4, -3, -1, -5.",
+  "a": "-17, -11, -5, -3, -2, -1, 3, 4, 34, 129",
+  "family": "comparison.sort_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Put 1, -4, 4, 143, 584, 6, 0, 5, -5 in ascending order.",
+  "a": "-5, -4, 0, 1, 4, 5, 6, 143, 584",
+  "family": "comparison.sort_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Sort -5/6, -1/654, -4, -11, -152, -9, -0.4, -5, -3/7 in decreasing order.",
+  "a": "-1/654, -0.4, -3/7, -5/6, -4, -5, -9, -11, -152",
+  "family": "comparison.sort_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Put -1, -3, 2, 1, 0, -118, 3400, 3, -72 in ascending order.",
+  "a": "-118, -72, -3, -1, 0, 1, 2, 3, 3400",
+  "family": "comparison.sort_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Sort 155, 52, 2, -479, -3, 3, -1, 5, 10, -2.",
+  "a": "-479, -3, -2, -1, 2, 3, 5, 10, 52, 155",
+  "family": "comparison.sort_more",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Convert 52.0256695 millimeters to nanometers.",
+  "a": "52025669.5",
+  "family": "measurement.conversion_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 0.771483038cm in nanometers?",
+  "a": "7714830.38",
+  "family": "measurement.conversion_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 624350.633 litres in millilitres?",
+  "a": "624350633",
+  "family": "measurement.conversion_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "How many millilitres are there in 0.485300086l?",
+  "a": "485.300086",
+  "family": "measurement.conversion_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 71.5214038 kilograms in tonnes?",
+  "a": "0.0715214038",
+  "family": "measurement.conversion_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 364262.383nm in centimeters?",
+  "a": "0.0364262383",
+  "family": "measurement.conversion_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 49511309.4 decades in years?",
+  "a": "495113094",
+  "family": "measurement.conversion_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the billions digit of 771111490050?",
+  "a": "1",
+  "family": "numbers.place_value_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the hundred millions digit of 956481607670?",
+  "a": "4",
+  "family": "numbers.place_value_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the thousands digit of 526672411332?",
+  "a": "1",
+  "family": "numbers.place_value_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the ten billions digit of 78356673825?",
+  "a": "7",
+  "family": "numbers.place_value_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the units digit of 956325378149?",
+  "a": "9",
+  "family": "numbers.place_value_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the hundred thousands digit of 886400460531?",
+  "a": "4",
+  "family": "numbers.place_value_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is the millions digit of 817999848239?",
+  "a": "9",
+  "family": "numbers.place_value_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Round -3.06277045818 to 0 decimal places.",
+  "a": "-3",
+  "family": "numbers.round_number_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is -0.000000561857060316 rounded to seven dps?",
+  "a": "-0.0000006",
+  "family": "numbers.round_number_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Round 186194455365.6 to the nearest 100000.",
+  "a": "186194500000",
+  "family": "numbers.round_number_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Round -236729.6237361 to 1 decimal place.",
+  "a": "-236729.6",
+  "family": "numbers.round_number_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Round 167952.919534 to the nearest 100.",
+  "a": "168000",
+  "family": "numbers.round_number_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is 122.099584766 rounded to the nearest one hundred?",
+  "a": "100",
+  "family": "numbers.round_number_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is -554748.172587 rounded to the nearest 1000?",
+  "a": "-555000",
+  "family": "numbers.round_number_big",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Five letters picked without replacement from ctccwttccwtt. Give prob of picking 1 c and 4 t.",
+  "a": "25/792",
+  "family": "probability.swr_p_level_set_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Five letters picked without replacement from ccjcsjcjpscc. What is prob of picking 3 c and 2 s?",
+  "a": "5/198",
+  "family": "probability.swr_p_level_set_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Five letters picked without replacement from {j: 5, y: 2}. Give prob of picking 5 j.",
+  "a": "1/21",
+  "family": "probability.swr_p_level_set_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is prob of picking 5 x when five letters picked without replacement from {s: 1, x: 11, h: 1}?",
+  "a": "14/39",
+  "family": "probability.swr_p_level_set_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate prob of picking 2 v and 3 p when five letters picked without replacement from wwpffwvwvwpwpp.",
+  "a": "2/1001",
+  "family": "probability.swr_p_level_set_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate prob of picking 1 c, 1 f, 2 w and 1 y when five letters picked without replacement from wwjwhcwyhfwffw.",
+  "a": "45/2002",
+  "family": "probability.swr_p_level_set_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Calculate prob of picking 1 r, 1 u, 2 z and 1 o when five letters picked without replacement from ozzzuzzzzr.",
+  "a": "1/12",
+  "family": "probability.swr_p_level_set_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Five letters picked without replacement from ppaapaplpppppaaagpap. Give prob of sequence algpa.",
+  "a": "77/310080",
+  "family": "probability.swr_p_sequence_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Five letters picked without replacement from {i: 8, x: 1, y: 5, b: 5}. What is prob of sequence yyybb?",
+  "a": "5/5814",
+  "family": "probability.swr_p_sequence_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is prob of sequence ykcco when five letters picked without replacement from yokocyknyocooyyo?",
+  "a": "1/4368",
+  "family": "probability.swr_p_sequence_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Five letters picked without replacement from ssssssssss. Give prob of sequence sssss.",
+  "a": "1",
+  "family": "probability.swr_p_sequence_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is prob of sequence bneee when five letters picked without replacement from {x: 1, d: 1, e: 6, n: 7, b: 3, v: 1}?",
+  "a": "7/3876",
+  "family": "probability.swr_p_sequence_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "What is prob of sequence jvdzc when five letters picked without replacement from {j: 2, c: 1, z: 2, v: 2, d: 6}?",
+  "a": "2/6435",
+  "family": "probability.swr_p_sequence_more_samples",
+  "kind": "easy_big"
+ },
+ {
+  "q": "Five letters picked without replacement from {a: 13, d: 7}. Give prob of sequence dddad.",
+  "a": "91/15504",
+  "family": "probability.swr_p_sequence_more_samples",
+  "kind": "easy_big"
+ }
+]

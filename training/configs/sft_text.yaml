@@ -1,0 +1,74 @@
+# Distillation SFT (training/distill_rows.py rows): a FRESH small LoRA on stock Lightning bf16, trained only on the
+# teacher's verified text-mode kernel-loop turns for problems the student fails. Loss on what the model writes; the
+# prompt and the kernel's ```output blocks are masked (masked_chat.TextLoopDataset). Served by plain vLLM with
+# --enable-lora (ansible/serve_lm.yml loras=...), so no lm_head delta (vLLM's LoRA covers the layers).
+# Run via ansible/stage.yml -e init=none -e model=nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16 -e config=configs/sft_text.yaml
+recipe: TrainFinetuneRecipeForNextTokenPrediction
+
+dist_env:
+  backend: nccl
+  timeout_minutes: 30
+rng:
+  _target_: nemo_automodel.components.training.rng.StatefulRNG
+  seed: 1111
+  ranked: true
+model:
+  _target_: nemo_automodel.NeMoAutoModelForCausalLM.from_pretrained
+  pretrained_model_name_or_path: nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16
+  torch_dtype: auto
+  attn_implementation: sdpa
+  num_nextn_predict_layers: 0  # no MTP head / MTP aux loss
+  backend:
+    _target_: nemo_automodel.components.models.common.utils.BackendConfig
+    experts: torch_mm
+    dispatcher: torch
+distributed:
+  _target_: nemo_automodel.components.distributed.fsdp2.FSDP2Manager
+  dp_size: null
+  tp_size: 1
+  pp_size: 1
+  cp_size: 1
+  ep_size: 4
+  sequence_parallel: false
+step_scheduler:
+  global_batch_size: 16  # overridden by run_stage.sh (GBS, LBS)
+  local_batch_size: 1
+  max_steps: 40
+  num_epochs: 10
+  val_every_steps: 1000
+  ckpt_every_steps: 40
+optimizer:
+  _target_: torch.optim.Adam
+  lr: 1.0e-04
+  weight_decay: 0.0
+  betas: [0.9, 0.999]
+  eps: 1.0e-08
+checkpoint:
+  enabled: true
+  model_save_format: safetensors
+  checkpoint_dir: /srv/nemo/checkpoints/sft_text
+  save_consolidated: false
+dataset:
+  _target_: masked_chat.TextLoopDataset  # needs PYTHONPATH=/srv/nemo/training
+  path_or_dataset_id: /srv/nemo/lora_runs/rows.jsonl
+  split: train
+  seq_length: 16384
+  padding: do_not_pad
+  truncation: false
+dataloader:
+  _target_: torchdata.stateful_dataloader.StatefulDataLoader
+  collate_fn: nemo_automodel.components.datasets.utils.default_collater
+  shuffle: true
+peft:
+  _target_: nemo_automodel.components._peft.lora.PeftConfig
+  dim: 16
+  alpha: 32
+  dropout: 0.0
+  use_triton: true
+  exclude_modules: ['*out_proj*', '*mtp*', '*lm_head*']
+loss_fn:  # chunked: MaskedCrossEntropy's fp32 copy of 20k x 131k logits OOMs (no cut_cross_entropy for the fused loss)
+  _target_: nemo_automodel.components.loss.chunked_ce.ChunkedCrossEntropy
+  chunk_len: 1024
+parallelizer:
+  _target_: nemo_automodel.components.moe.parallelizer.parallelize_model
+  activation_checkpointing: true  # 16k-token rows

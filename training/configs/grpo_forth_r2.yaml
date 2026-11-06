@@ -1,0 +1,21 @@
+# Kept as run, for the record (training/README.md#grpo). spec_dir was a git archive of the research repo at that commit, in its old layout (train/, data/loop/).
+# GRPO arm C (round-2 shape): s2a_r1 merged + a fresh LoRA on the 1301-prompt pool (data/loop/grpo_pool.json, bca37c2;
+# HF 1c8e7011 grpo/problems/: mixed at 8k/16k), think 12000 / cap 24000, length cost 1e-5, 8 prompts x 8 per step
+# (~15 min a step on machines lost about hourly; one epoch = 163 steps), val every 10 on val_120 (no step-0 val), spec a62a6ed (R dropped, generic empty-output note,
+# .s / spaces / >r r> r@ dropped, as the kernel; card reference_v3.txt). 8 GPUs as arm B: 4 train (EP 4) + 4 vLLM. Checkpoints every step (inherited; mirror_ckpt.py); rerun resumes.
+defaults: grpo_forth_r1_12k.yaml
+grpo:
+  num_prompts_per_step: 8
+  max_num_steps: 163
+  val_at_start: false  # preempted machines: a 25-min val per relaunch; baseline = the eval agent's frozen-test arm (a62a6ed + v3)
+checkpointing:
+  checkpoint_dir: /srv/grpo/checkpoints/grpo_r2
+policy:
+  train_global_batch_size: 64
+env:
+  forth:
+    spec_dir: /srv/grpo/spec_a62a6ed
+    system_prompt: /srv/grpo/spec_a62a6ed/data/loop/ablation/reference_v3.txt
+    train: /srv/grpo/data/grpo_pool.json
+logger:
+  log_dir: /srv/grpo/logs/grpo_r2

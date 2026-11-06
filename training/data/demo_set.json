@@ -1,0 +1,452 @@
+[
+ {
+  "q": "An account holds $82920. Each year it earns 1% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 38 years?",
+  "a": "120999",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 83380 grows by 1% per year (fractional individuals dropped each year). What is it after 31 years?",
+  "a": "113489",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $98207. Each year it earns 6% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 55 years?",
+  "a": "2420610",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $62381. Each year it earns 6% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 49 years?",
+  "a": "1083893",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $49849. Each year it earns 6% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 52 years?",
+  "a": "1031555",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $93202. Each year it earns 4% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 24 years?",
+  "a": "238892",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $27761. Each year it earns 7% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 47 years?",
+  "a": "667400",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 58443 grows by 3% per year (fractional individuals dropped each year). What is it after 49 years?",
+  "a": "248696",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $85687. Each year it earns 9% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 55 years?",
+  "a": "9802585",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 29463 grows by 1% per year (fractional individuals dropped each year). What is it after 60 years?",
+  "a": "53478",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 84999 grows by 2% per year (fractional individuals dropped each year). What is it after 24 years?",
+  "a": "136697",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 8470 grows by 6% per year (fractional individuals dropped each year). What is it after 26 years?",
+  "a": "38504",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $45974. Each year it earns 8% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 42 years?",
+  "a": "1164778",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 27835 grows by 4% per year (fractional individuals dropped each year). What is it after 47 years?",
+  "a": "175794",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $41767. Each year it earns 9% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 45 years?",
+  "a": "2018288",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 44253 grows by 7% per year (fractional individuals dropped each year). What is it after 28 years?",
+  "a": "294186",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 82816 grows by 9% per year (fractional individuals dropped each year). What is it after 40 years?",
+  "a": "2601050",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $94765. Each year it earns 6% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 27 years?",
+  "a": "456960",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $56096. Each year it earns 9% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 54 years?",
+  "a": "5887358",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $12966. Each year it earns 7% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 23 years?",
+  "a": "61441",
+  "family": "L6.compound"
+ },
+ {
+  "q": "An account holds $20263. Each year it earns 8% interest, rounded down to a whole dollar, and the interest is added. How many dollars after 28 years?",
+  "a": "174768",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 77590 grows by 5% per year (fractional individuals dropped each year). What is it after 23 years?",
+  "a": "238298",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 20817 grows by 6% per year (fractional individuals dropped each year). What is it after 52 years?",
+  "a": "430680",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 24832 grows by 8% per year (fractional individuals dropped each year). What is it after 26 years?",
+  "a": "183628",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A population of 37381 grows by 3% per year (fractional individuals dropped each year). What is it after 41 years?",
+  "a": "125560",
+  "family": "L6.compound"
+ },
+ {
+  "q": "A random number generator starts at 76910 and repeatedly replaces x with (36934x + 79168) mod 503167. What is the value after 71 steps?",
+  "a": "481605",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 10496 and repeatedly replaces x with (54613x + 27867) mod 13297. What is the value after 134 steps?",
+  "a": "2375",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 19573 and repeatedly replaces x with (21938x + 5598) mod 627022. What is the value after 76 steps?",
+  "a": "50626",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 47264 and repeatedly replaces x with (97349x + 1476) mod 11016. What is the value after 137 steps?",
+  "a": "1540",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 81705 and repeatedly replaces x with (14321x + 99482) mod 153593. What is the value after 108 steps?",
+  "a": "87150",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 62590 and x_(k+1) = (24772 * x_k + 1797) mod 469828. What is x_130?",
+  "a": "39329",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 71797 and repeatedly replaces x with (69283x + 13709) mod 619514. What is the value after 117 steps?",
+  "a": "368520",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 46730 and x_(k+1) = (14599 * x_k + 83013) mod 413572. What is x_90?",
+  "a": "360538",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 10387 and x_(k+1) = (17173 * x_k + 94925) mod 841794. What is x_101?",
+  "a": "444752",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 55521 and repeatedly replaces x with (57296x + 80789) mod 839373. What is the value after 68 steps?",
+  "a": "396639",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 21693 and x_(k+1) = (40628 * x_k + 84832) mod 92748. What is x_110?",
+  "a": "9960",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 74853 and x_(k+1) = (86316 * x_k + 259) mod 797559. What is x_158?",
+  "a": "715738",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 54900 and repeatedly replaces x with (13573x + 4060) mod 23041. What is the value after 104 steps?",
+  "a": "15051",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 21751 and x_(k+1) = (48009 * x_k + 83870) mod 483550. What is x_112?",
+  "a": "881",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 43392 and repeatedly replaces x with (21066x + 36252) mod 161691. What is the value after 136 steps?",
+  "a": "12036",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 26798 and repeatedly replaces x with (68425x + 23203) mod 908531. What is the value after 148 steps?",
+  "a": "29544",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 46646 and x_(k+1) = (86460 * x_k + 89761) mod 568207. What is x_151?",
+  "a": "374076",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 43710 and x_(k+1) = (44900 * x_k + 77184) mod 547727. What is x_92?",
+  "a": "239570",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 80161 and repeatedly replaces x with (2771x + 90844) mod 964243. What is the value after 71 steps?",
+  "a": "187986",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 31451 and repeatedly replaces x with (27272x + 31986) mod 757249. What is the value after 76 steps?",
+  "a": "527371",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 7145 and x_(k+1) = (2436 * x_k + 41542) mod 59668. What is x_97?",
+  "a": "6906",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 80531 and x_(k+1) = (72159 * x_k + 47351) mod 223672. What is x_134?",
+  "a": "179491",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Let x_0 = 51174 and x_(k+1) = (94223 * x_k + 8920) mod 296902. What is x_115?",
+  "a": "295918",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 17821 and repeatedly replaces x with (83309x + 69918) mod 811798. What is the value after 89 steps?",
+  "a": "622863",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "A random number generator starts at 91968 and repeatedly replaces x with (55653x + 35363) mod 741854. What is the value after 112 steps?",
+  "a": "41120",
+  "family": "L6.lcg"
+ },
+ {
+  "q": "Calculate the remainder when 82225043186179281 is divided by 6469193.",
+  "a": "1290731",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 583088577943221230 is divided by 2021808.",
+  "a": "1649822",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 9279858007950595824 is divided by 98915866.",
+  "a": "59894110",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 9340665568497953815 is divided by 551646166.",
+  "a": "193339343",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 5905219524405080957 is divided by 9782983.",
+  "a": "2177021",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 9050210769528805261 is divided by 34576324.",
+  "a": "27794145",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 8157696082657523729 is divided by 3891498.",
+  "a": "1148435",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 99221891704149302 is divided by 229210455.",
+  "a": "117828602",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 4006654618463580618 is divided by 656572693.",
+  "a": "493037534",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 5450157214253019201 is divided by 1953324.",
+  "a": "956937",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 49907956467789912 is divided by 2639893.",
+  "a": "1096526",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 6181039117194087724 is divided by 2063152.",
+  "a": "1740316",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 806196567364430403 is divided by 750835376.",
+  "a": "507074483",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 7389315765543900835 is divided by 70712824.",
+  "a": "11472835",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 8446601423783290088 is divided by 78149300.",
+  "a": "30627588",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 85402457441628539 is divided by 85096671.",
+  "a": "64057139",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 74495616231356881 is divided by 7990009.",
+  "a": "7332575",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 73715931715665380 is divided by 19736972.",
+  "a": "10529232",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 4950726986814095481 is divided by 4568342.",
+  "a": "123059",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the remainder when 8230533562435567276 is divided by 3591184.",
+  "a": "1611868",
+  "family": "DMbig.div_remainder"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 17469360 and 323463600.",
+  "a": "413063017200",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 164169576 and 131482080.",
+  "a": "7312112915040",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 23603008 and 4218240.",
+  "a": "119667250560",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 523681424 and 4548352872.",
+  "a": "23460404113776",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 2767661352 and 796180536.",
+  "a": "15158481224904",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 154039080 and 152248330.",
+  "a": "9494814852120",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 308663936 and 8555638.",
+  "a": "6504475123328",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 429758712 and 143161944.",
+  "a": "6763972368168",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 8449156247 and 1787661183.",
+  "a": "178725002092791",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 13278136 and 29821704.",
+  "a": "697141974408",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 774707390 and 773011600.",
+  "a": "35667528235600",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 207099420 and 154890132.",
+  "a": "14933732076780",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 768195610 and 89299217.",
+  "a": "30914495933230",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 518583676 and 115018878.",
+  "a": "5225767703052",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 2013120190 and 2025298260.",
+  "a": "148314616878060",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 259228580 and 1065110550.",
+  "a": "104983686471300",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 33663362 and 47656718.",
+  "a": "2423391767018",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 71350488 and 151155972.",
+  "a": "27234980723016",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 87759423 and 126800586.",
+  "a": "835996263498",
+  "family": "DMbig.lcm"
+ },
+ {
+  "q": "Calculate the lowest common multiple of 1129822560 and 93853080.",
+  "a": "1182924220320",
+  "family": "DMbig.lcm"
+ }
+]

@@ -1,0 +1,34 @@
+# Kept as run, for the record (training/README.md#grpo). spec_dir was a git archive of the research repo at that commit, in its old layout (train/, data/loop/).
+# GRPO round 1: s2a_r1 merged + a fresh LoRA, 64 prompts (HF data 5365949f grpo/problems/grpo_train_64.json), 8 x 8 per
+# step, 20 steps; think 8000 / cap 16000 (the budget ladder: s2a_r1 70.3% at 4k/8k -> 76.9% at 8k/16k on demo_set),
+# reference_v2.txt; validation (no length cost) at step 0 and every 10 steps on val_120 (60 demo_set + 60 dm_frontier).
+# Checkpoints every 5 steps; rerunning the same command resumes from checkpoint_dir (spot machines are interruptible).
+defaults: grpo_forth.yaml
+grpo:
+  num_prompts_per_step: 8
+  max_num_steps: 20
+  val_period: 10
+  val_at_start: false  # step-0 val from the first start (grpo_r1/exp_001): hard 54/60, easy 54/60
+checkpointing:
+  enabled: true
+  checkpoint_dir: /srv/grpo/checkpoints/grpo_r1b  # (grpo_r1: the 1e-4 length-cost start, 1 step, abandoned)
+  save_period: 1  # every step (preemptions ~1 per machine per hour; mirror_ckpt.py uploads each): lose at most a step
+  metric_name: null
+  keep_top_k: null
+policy:
+  train_global_batch_size: 64
+  max_total_sequence_length: 17408
+  generation:
+    vllm_cfg:
+      max_model_len: 17408
+env:
+  forth:
+    spec_dir: /srv/grpo/spec_8ded0f3
+    system_prompt: /srv/grpo/spec_8ded0f3/data/loop/ablation/reference_v2.txt
+    train: /srv/grpo/data/grpo_train_64.json
+    val: /srv/grpo/data/grpo_val_120.json
+    think_budget: 8000
+    cap: 16000
+    length_cost: 1.0e-5  # 1e-4 at cap 16000 rivaled correctness (step 1: 0.72 correct - 0.71 cost); now a tie-breaker (max -0.16)
+logger:
+  log_dir: /srv/grpo/logs/grpo_r1b

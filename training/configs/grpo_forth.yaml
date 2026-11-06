@@ -1,0 +1,114 @@
+# Kept as run, for the record (training/README.md#grpo). spec_dir was a git archive of the research repo at that commit, in its old layout (train/, data/loop/).
+# GRPO on the text-mode Forth machine (train/grpo_forth.py: multi-turn env = loop_sim). Policy = a merged SFT checkpoint
+# (policy.model_name: a parameter; default s2a_r1 merged into BF16 Lightning) + a fresh LoRA; KL to that merged base.
+# 4 GPUs non-colocated: 2 train (EP 2) + 2 vLLM BF16 (TP 1 each). BF16 rollouts: native LoRA refit needs matching
+# trainer / rollout precision (NVFP4 is unsupported), and AutoModel vs vLLM BF16 is at the noise floor (TRAINING.md).
+# Smoke: 2 prompts x 8, 1-2 steps. Run (from /srv/nemo/RL), env.forth paths on the CLI:
+#   CUDA_VISIBLE_DEVICES=a,b,c,d PYTHONPATH=/srv/grpo/train uv run --extra vllm python /srv/grpo/train/grpo_forth.py \
+#     --config /srv/grpo/configs/grpo_forth.yaml
+defaults: /srv/nemo/RL/examples/configs/recipes/llm/grpo-nanov3-30BA3B-1n8g-automodel-ep8.v2.yaml
+grpo:
+  num_prompts_per_step: 2
+  num_generations_per_prompt: 8
+  max_num_steps: 2
+  max_num_epochs: 1000  # steps decide (an epoch of 2 prompts is one step)
+  max_rollout_turns: 512  # one turn = one generation chunk or one fence stop (any ``` in prose stops too); 64 cut 1% at cap 8000, 128 cut 9% at cap 16000
+  normalize_rewards: false  # std-normalizing would blow the length cost up into the whole signal in all-correct groups
+  use_leave_one_out_baseline: true
+  val_period: 0
+  val_at_start: false
+  max_val_samples: 120
+  val_batch_size: 120
+  val_num_generations_per_prompt: 1
+loss_fn:
+  reference_policy_kl_penalty: 0.01  # k3, to the merged base (the LoRA disabled)
+  ratio_clip_min: 0.2  # per-token clipped ratios (token_level_loss), never sequence-level
+  ratio_clip_max: 0.2
+  use_importance_sampling_correction: true  # vLLM sampler vs trainer, per token, truncated
+  truncated_importance_sampling_type: tis
+  truncated_importance_sampling_ratio: 2.0
+checkpointing:
+  enabled: false
+  checkpoint_dir: /srv/grpo/checkpoints/grpo_forth
+  save_period: 10
+  metric_name: val:accuracy
+policy:
+  model_name: /srv/nemo/lightning-s2a_r1-merged
+  tokenizer:
+    name: /srv/nemo/lightning-bf16
+    chat_template_kwargs: {enable_thinking: true}
+  train_global_batch_size: 16  # = prompts x generations: one optimizer step per GRPO step
+  train_micro_batch_size: 1
+  logprob_batch_size: 1
+  max_total_sequence_length: 9216  # prompt (~750) + cap 8000 + chunk slack
+  optimizer:
+    kwargs:
+      lr: 3.0e-5
+      weight_decay: 0.0
+  scheduler:
+    - name: torch.optim.lr_scheduler.LinearLR
+      kwargs: {start_factor: 0.1, end_factor: 1.0, total_iters: 3}
+    - name: torch.optim.lr_scheduler.ConstantLR
+      kwargs: {factor: 1.0, total_iters: 10000000000}
+    - milestones: [3]
+  automodel_cfg:
+    expert_parallel_size: 2
+    activation_checkpointing: true  # 2 train GPUs OOM without it at 8.5k tokens; NeMo RL #4470 (LoRA not refit with it
+    # on) is watched through the step-2+ generation KL error
+    lora_cfg:
+      enabled: true
+      dim: 8
+      alpha: 32
+      exclude_modules: ['*out_proj*', '*mtp*']  # vLLM skips the MTP head; out_proj has no grad with the mamba kernels
+      match_all_linear: false
+      use_triton: false
+    automodel_kwargs:
+      backend:
+        dispatcher: torch  # no NVLink
+        experts: torch_mm
+  generation:
+    max_new_tokens: 1024  # one chunk: the env closes the thinking / ends the turn between chunks
+    stop_strings: ['```\n', '```']  # loop_sim.STOPS; non-null also makes NeMo RL start vLLM WITH its tokenizer
+    # (skip_tokenizer_init: true otherwise, and vLLM then ignores every stop string)
+    temperature: 1.0
+    top_p: 1.0
+    # (val_top_p 0.95, the eval protocol, is only supported for NeMo-Gym rollouts: validation samples at top_p 1.0)
+    colocated:
+      enabled: false
+      resources:
+        gpus_per_node: 2
+        num_nodes: null
+    vllm_cfg:
+      tensor_parallel_size: 1
+      gpu_memory_utilization: 0.85
+      max_model_len: 9216
+      cap_max_tokens_to_context: true
+      # CUDA graphs on, as NVIDIA's own Lightning RLVR recipe (examples/nemo_gym/nemotron-3.5-lightning/rlvr.yaml:
+      # enforce_eager false, PIECEWISE): eager ran ~20 tok/s per stream; watch the generation KL error
+      enforce_eager: false
+    vllm_kwargs:
+      enable_flashinfer_autotune: false
+      max_num_seqs: 256
+      compilation_config:
+        cudagraph_mode: PIECEWISE
+        cudagraph_capture_sizes: [1, 2, 4, 8, 16, 32, 64, 128, 192, 256]
+env:
+  forth:
+    spec_dir: /srv/grpo/spec_9ceac43  # git archive of a commit (kernel/text_vm.py, train/loop_sim.py): never a working tree
+    tokenizer: /srv/nemo/lightning-bf16
+    system_prompt: /srv/grpo/spec_9ceac43/data/loop/ablation/reference.txt
+    train: /srv/grpo/data/grpo_smoke2.json
+    val: null
+    think_budget: 4000
+    cap: 8000
+    rounds: 12
+    length_cost: 1.0e-4  # per visible token (model text + output blocks)
+logger:
+  log_dir: /srv/grpo/logs
+  wandb_enabled: false
+  tensorboard_enabled: false
+  num_val_samples_to_print: 0
+  extra_backends: [grpo_forth.JsonlLogger]  # LOG_DIR/metrics.jsonl
+cluster:
+  gpus_per_node: 4
+  num_nodes: 1
