@@ -23,6 +23,8 @@ uv run python -m forth.run '82225043186179281 6469193 mod .'
 uv run python kernel/show_stream.py '2 3 + .'     # the hidden tokens of one block
 ```
 
+To run the released model (the adapter on Hugging Face) on one GPU or on a Mac, follow [Deploy and test](playbooks/deploy.md). Agents can start from [AGENT.md](AGENT.md).
+
 ## Why
 
 Language models are bad at long exact arithmetic. A model that must multiply two 12-digit numbers, or run a recurrence for 100 steps, usually computes by hand in its thinking, slowly and with errors. The usual fix is a tool call: the model writes Python, generation stops, and a host runs the code.
@@ -79,11 +81,11 @@ The ledger of rounds is in [training](training/README.md#the-rounds).
 | [`kernel/`](kernel/) | The spec, the weight builder, parity tests, the composite and the vLLM plugin |
 | [`forth/`](forth/) | The dialect and a command-line runner |
 | [`training/`](training/) | Held-out sets, cards, and the rollout, row, grading and GRPO tools |
-| [`playbooks/`](playbooks/) | Each GPU step as an Ansible playbook |
+| [`playbooks/`](playbooks/) | Each GPU step as an Ansible playbook, and the [deployment guide](playbooks/deploy.md) |
 | [`demos/`](demos/) | Real transcripts |
 | [`tests/`](tests/) | CPU tests: the spec self-check, the grader, and every Forth example in the docs |
 
-Run the CPU tests with `uv sync` and `uv run --group dev pytest -q`. We ran the GPU parts on machines with 8 RTX PRO 6000 GPUs. We did not run them again for this repository.
+Run the CPU tests with `uv sync` and `uv run --group dev pytest -q`. We ran the GPU parts on machines with 8 RTX PRO 6000 GPUs. For this repository we ran the deployment paths again on a fresh machine, one GPU each: [Deploy and test](playbooks/deploy.md). We did not run the training steps again.
 
 Model and data (release pending): the round-7 adapter is [markab/rpn-gpt-lightning](https://huggingface.co/markab/rpn-gpt-lightning), and its training rows and evaluation sets are [markab/rpn-gpt-data](https://huggingface.co/datasets/markab/rpn-gpt-data). The rollouts and the other adapters stay private. The held-out evaluation sets are also in [`training/data/`](training/data/).
 

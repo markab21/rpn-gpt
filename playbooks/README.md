@@ -2,6 +2,8 @@
 
 This page shows each step of the project, from an empty GPU machine to a measured adapter. The GPU steps are Ansible playbooks in [`ansible/`](ansible/), run from your laptop. The CPU steps run on the laptop itself.
 
+To run the released model on one GPU or a Mac without Ansible, follow [Deploy and test](deploy.md).
+
 The steps use [uv](https://docs.astral.sh/uv/), [Ansible](https://docs.ansible.com/), [vLLM](https://docs.vllm.ai/) 0.29, [NeMo AutoModel](https://github.com/NVIDIA-NeMo/Automodel) (LoRA SFT), [NeMo RL](https://github.com/NVIDIA-NeMo/RL) (its lock file builds the environments, and GRPO), and the [Hugging Face Hub](https://huggingface.co/docs/huggingface_hub).
 
 ## On your laptop
