@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use or change rpn-gpt, please credit it with a link to https://github.com/markab21/rpn-gpt and cite it as below."
+title: "rpn-gpt: An exact Forth machine compiled into the weights of a language model"
+type: software
+authors:
+  - family-names: Berry
+    given-names: Mark
+license: MIT
+repository-code: "https://github.com/markab21/rpn-gpt"
+url: "https://github.com/markab21/rpn-gpt"

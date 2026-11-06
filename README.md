@@ -92,3 +92,16 @@ The training rows, rollouts and adapters are private and not published here. The
 The idea of compiling a machine into a language model's weights comes from [qwenputer](https://github.com/divagr18/qwenputer) by Divyansh Agrawal. Our first, Qwen-based phase reused its MIT-licensed weight compiler and carry-lookahead construction. The Nemotron kernel here is a new construction, but the [LICENSE](LICENSE) keeps the upstream copyright notice.
 
 Nemotron 3.5 Lightning is NVIDIA's model, under its own license. This repository holds no model weights.
+
+## Credit and citation
+
+The MIT license requires that you keep the copyright and permission notice in copies. In addition, we ask you, politely, to credit rpn-gpt with a link to this repository when you use or change it. [CITATION.cff](CITATION.cff) has the citation data.
+
+```bibtex
+@misc{berry2026rpngpt,
+  author       = {Mark Berry},
+  title        = {rpn-gpt: An exact Forth machine compiled into the weights of a language model},
+  year         = {2026},
+  howpublished = {\url{https://github.com/markab21/rpn-gpt}}
+}
+```
