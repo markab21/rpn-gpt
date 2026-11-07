@@ -6,3 +6,5 @@ __pycache__/
 *.partial.jsonl
 playbooks/ansible/inventory.yml
 runs/
+bench/raw/forth/*.json
+bench/raw/

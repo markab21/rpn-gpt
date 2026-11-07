@@ -89,8 +89,6 @@ On easy problems the machine hurts: the model does them well by hand, and the ma
 
 ## Results
 
-<!-- BENCH: arithmetic benchmark chart vs stock / stock+Python / Qwenputer -->
-
 | Question | Result |
 |---|---|
 | Does training help? | On 600 held-out problems: stock Lightning 79.1%, trained model (round 7) 92.1%, **+13.0 points** [+10.2, +15.8]. On the 194 hard problems: 69.1% to 89.7%. Median answer length: 3494 to 775 tokens. |
@@ -101,6 +99,18 @@ On easy problems the machine hurts: the model does them well by hand, and the ma
 The score gain comes from training. The kernel's claim is exactness. Most training and evaluation ran the spec outside the model, as a Python loop that appends each output block. It writes the same tokens as the kernel (row 3) and runs on an ordinary vLLM server.
 
 How we measured: a problem counts only if its final answer equals the exact answer. Each comparison runs both models on the same problems, system prompt, thinking budget (12,000 tokens) and grader, and pairs results problem by problem. Intervals are 95% bootstrap over problems. [Training](training/README.md#the-rounds) has every round and its settings.
+
+## Head to head on Qwenputer's arithmetic sets
+
+![rpn-gpt vs stock Lightning, stock Lightning with Python, and Qwenputer on five arithmetic sets](bench/chart.png)
+
+We ran the arithmetic sets that [Qwenputer](https://github.com/divagr18/qwenputer) reports, 40 problems per set, the same problems for every model. We also ran Qwenputer's own model and code on them.
+
+- On the four DeepMind sets, rpn-gpt ties stock Lightning and stock Lightning with Python: every score is between 94 and 100%. A 30B model that thinks rarely needs the machine there: ours wrote a Forth block in 0 to 12% of those turns.
+- On NUPA long integers, Python wins: 99.4% against our 71.2%. 9 of the 40 problems have products over 20 digits, past what the machine holds. On the rest, most misses are long additions and subtractions that the model did by hand instead of with the machine.
+- In all 1,000 of our turns, every kernel token matched the spec. The losses come from the model's choices and the 20-digit limit, not from the kernel.
+
+[The benchmark page](bench/README.md) has the method, every interval and the failure buckets.
 
 ## What this buys, and what it costs
 

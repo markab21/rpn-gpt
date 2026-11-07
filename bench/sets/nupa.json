@@ -1,0 +1,410 @@
+{
+ "meta": {
+  "source": "NUPA_text test.json (HaotongYang/NUPA_text), integer add / sub / multiply_hard / multiply_easy",
+  "sampler": "qwenputer arith_bench.load_nupa at n=144 per task (576), then random.Random(0).sample 40",
+  "n": 40,
+  "seed": 0
+ },
+ "problems": [
+  {
+   "id": "nupa_add-L3-148",
+   "set": "nupa",
+   "question": "Add two numbers: 807 + 71",
+   "gold": "878",
+   "digits": 3,
+   "q": "Add two numbers: 807 + 71\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "878",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L4-842",
+   "set": "nupa",
+   "question": "Add two numbers: 4474 + 7231",
+   "gold": "11705",
+   "digits": 4,
+   "q": "Add two numbers: 4474 + 7231\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "11705",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L8-374",
+   "set": "nupa",
+   "question": "Add two numbers: 54431734 + 5496",
+   "gold": "54437230",
+   "digits": 8,
+   "q": "Add two numbers: 54431734 + 5496\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "54437230",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L10-876",
+   "set": "nupa",
+   "question": "Add two numbers: 373058 + 7331521429",
+   "gold": "7331894487",
+   "digits": 10,
+   "q": "Add two numbers: 373058 + 7331521429\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "7331894487",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L12-368",
+   "set": "nupa",
+   "question": "Add two numbers: 50104038 + 675199957713",
+   "gold": "675250061751",
+   "digits": 12,
+   "q": "Add two numbers: 50104038 + 675199957713\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "675250061751",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L14-777",
+   "set": "nupa",
+   "question": "Add two numbers: 73101490479005 + 4061242576",
+   "gold": "73105551721581",
+   "digits": 14,
+   "q": "Add two numbers: 73101490479005 + 4061242576\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "73105551721581",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L15-130",
+   "set": "nupa",
+   "question": "Add two numbers: 9852503 + 213724466884786",
+   "gold": "213724476737289",
+   "digits": 15,
+   "q": "Add two numbers: 9852503 + 213724466884786\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "213724476737289",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L15-836",
+   "set": "nupa",
+   "question": "Add two numbers: 815514170511147 + 265836043432943",
+   "gold": "1081350213944090",
+   "digits": 15,
+   "q": "Add two numbers: 815514170511147 + 265836043432943\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1081350213944090",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L15-974",
+   "set": "nupa",
+   "question": "Add two numbers: 564714150698138 + 5739563084771",
+   "gold": "570453713782909",
+   "digits": 15,
+   "q": "Add two numbers: 564714150698138 + 5739563084771\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "570453713782909",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L20-601",
+   "set": "nupa",
+   "question": "Add two numbers: 27587525364133604010 + 726799323210140",
+   "gold": "27588252163456814150",
+   "digits": 20,
+   "q": "Add two numbers: 27587525364133604010 + 726799323210140\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "27588252163456814150",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_add-L20-873",
+   "set": "nupa",
+   "question": "Add two numbers: 94089925593525022 + 54453577539300961196",
+   "gold": "54547667464894486218",
+   "digits": 20,
+   "q": "Add two numbers: 94089925593525022 + 54453577539300961196\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "54547667464894486218",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_sub-L3-671",
+   "set": "nupa",
+   "question": "Subtract two numbers: 768 - 523",
+   "gold": "245",
+   "digits": 3,
+   "q": "Subtract two numbers: 768 - 523\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "245",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_sub-L11-151",
+   "set": "nupa",
+   "question": "Subtract two numbers: 71801487664 - 3984855",
+   "gold": "71797502809",
+   "digits": 11,
+   "q": "Subtract two numbers: 71801487664 - 3984855\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "71797502809",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_sub-L12-980",
+   "set": "nupa",
+   "question": "Subtract two numbers: 859525824019 - 999546632",
+   "gold": "858526277387",
+   "digits": 12,
+   "q": "Subtract two numbers: 859525824019 - 999546632\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "858526277387",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_sub-L17-33",
+   "set": "nupa",
+   "question": "Subtract two numbers: 13349702820805067 - 7185724372026028",
+   "gold": "6163978448779039",
+   "digits": 17,
+   "q": "Subtract two numbers: 13349702820805067 - 7185724372026028\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "6163978448779039",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_sub-L18-52",
+   "set": "nupa",
+   "question": "Subtract two numbers: 516056940691399159 - 199382869346088850",
+   "gold": "316674071345310309",
+   "digits": 18,
+   "q": "Subtract two numbers: 516056940691399159 - 199382869346088850\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "316674071345310309",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_sub-L18-135",
+   "set": "nupa",
+   "question": "Subtract two numbers: 235180287223254817 - 672775205",
+   "gold": "235180286550479612",
+   "digits": 18,
+   "q": "Subtract two numbers: 235180287223254817 - 672775205\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "235180286550479612",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L3-22",
+   "set": "nupa",
+   "question": "Multiply two numbers: 104 * 29",
+   "gold": "3016",
+   "digits": 3,
+   "q": "Multiply two numbers: 104 * 29\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "3016",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L5-722",
+   "set": "nupa",
+   "question": "Multiply two numbers: 67517 * 92",
+   "gold": "6211564",
+   "digits": 5,
+   "q": "Multiply two numbers: 67517 * 92\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "6211564",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L6-716",
+   "set": "nupa",
+   "question": "Multiply two numbers: 851969 * 9166",
+   "gold": "7809147854",
+   "digits": 6,
+   "q": "Multiply two numbers: 851969 * 9166\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "7809147854",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L7-651",
+   "set": "nupa",
+   "question": "Multiply two numbers: 939225 * 3538319",
+   "gold": "3323277662775",
+   "digits": 7,
+   "q": "Multiply two numbers: 939225 * 3538319\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "3323277662775",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L9-67",
+   "set": "nupa",
+   "question": "Multiply two numbers: 853890392 * 967353",
+   "gold": "826013432372376",
+   "digits": 9,
+   "q": "Multiply two numbers: 853890392 * 967353\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "826013432372376",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L12-391",
+   "set": "nupa",
+   "question": "Multiply two numbers: 43096507361 * 858381425819",
+   "gold": "36993241436354208953659",
+   "digits": 12,
+   "q": "Multiply two numbers: 43096507361 * 858381425819\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "36993241436354208953659",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L12-817",
+   "set": "nupa",
+   "question": "Multiply two numbers: 946948934 * 337185035117",
+   "gold": "319297009564795715278",
+   "digits": 12,
+   "q": "Multiply two numbers: 946948934 * 337185035117\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "319297009564795715278",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L16-226",
+   "set": "nupa",
+   "question": "Multiply two numbers: 1285820210108726 * 868853195",
+   "gold": "1117188997748537882479570",
+   "digits": 16,
+   "q": "Multiply two numbers: 1285820210108726 * 868853195\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1117188997748537882479570",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L18-14",
+   "set": "nupa",
+   "question": "Multiply two numbers: 975696400298 * 168357248609050542",
+   "gold": "164265561431926081332945861516",
+   "digits": 18,
+   "q": "Multiply two numbers: 975696400298 * 168357248609050542\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "164265561431926081332945861516",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L18-812",
+   "set": "nupa",
+   "question": "Multiply two numbers: 820664552714243100 * 6563497123686",
+   "gold": "5386429431250992311134572066600",
+   "digits": 18,
+   "q": "Multiply two numbers: 820664552714243100 * 6563497123686\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "5386429431250992311134572066600",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mulh-L20-855",
+   "set": "nupa",
+   "question": "Multiply two numbers: 84414329754 * 60280151090036750641",
+   "gold": "5088508551735304812588044872314",
+   "digits": 20,
+   "q": "Multiply two numbers: 84414329754 * 60280151090036750641\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "5088508551735304812588044872314",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L4-770",
+   "set": "nupa",
+   "question": "Multiply two numbers: 7622 * 810",
+   "gold": "6173820",
+   "digits": 4,
+   "q": "Multiply two numbers: 7622 * 810\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "6173820",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L5-381",
+   "set": "nupa",
+   "question": "Multiply two numbers: 28485 * 499",
+   "gold": "14214015",
+   "digits": 5,
+   "q": "Multiply two numbers: 28485 * 499\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "14214015",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L9-190",
+   "set": "nupa",
+   "question": "Multiply two numbers: 334176353 * 110",
+   "gold": "36759398830",
+   "digits": 9,
+   "q": "Multiply two numbers: 334176353 * 110\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "36759398830",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L10-23",
+   "set": "nupa",
+   "question": "Multiply two numbers: 9467784860 * 848",
+   "gold": "8028681561280",
+   "digits": 10,
+   "q": "Multiply two numbers: 9467784860 * 848\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "8028681561280",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L11-321",
+   "set": "nupa",
+   "question": "Multiply two numbers: 59500145446 * 811",
+   "gold": "48254617956706",
+   "digits": 11,
+   "q": "Multiply two numbers: 59500145446 * 811\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "48254617956706",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L13-639",
+   "set": "nupa",
+   "question": "Multiply two numbers: 4135327071618 * 45",
+   "gold": "186089718222810",
+   "digits": 13,
+   "q": "Multiply two numbers: 4135327071618 * 45\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "186089718222810",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L14-408",
+   "set": "nupa",
+   "question": "Multiply two numbers: 43375805095845 * 419",
+   "gold": "18174462335159055",
+   "digits": 14,
+   "q": "Multiply two numbers: 43375805095845 * 419\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "18174462335159055",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L15-629",
+   "set": "nupa",
+   "question": "Multiply two numbers: 314280023033300 * 61",
+   "gold": "19171081405031300",
+   "digits": 15,
+   "q": "Multiply two numbers: 314280023033300 * 61\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "19171081405031300",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L17-148",
+   "set": "nupa",
+   "question": "Multiply two numbers: 79010825260141118 * 427",
+   "gold": "33737622386080257386",
+   "digits": 17,
+   "q": "Multiply two numbers: 79010825260141118 * 427\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "33737622386080257386",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L19-40",
+   "set": "nupa",
+   "question": "Multiply two numbers: 6341895969064708220 * 441",
+   "gold": "2796776122357536325020",
+   "digits": 19,
+   "q": "Multiply two numbers: 6341895969064708220 * 441\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "2796776122357536325020",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L19-555",
+   "set": "nupa",
+   "question": "Multiply two numbers: 4726399498620624323 * 938",
+   "gold": "4433362729706145614974",
+   "digits": 19,
+   "q": "Multiply two numbers: 4726399498620624323 * 938\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "4433362729706145614974",
+   "family": "nupa"
+  },
+  {
+   "id": "nupa_mule-L20-623",
+   "set": "nupa",
+   "question": "Multiply two numbers: 55528985626996328262 * 205",
+   "gold": "11383442053534247293710",
+   "digits": 20,
+   "q": "Multiply two numbers: 55528985626996328262 * 205\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "11383442053534247293710",
+   "family": "nupa"
+  }
+ ]
+}

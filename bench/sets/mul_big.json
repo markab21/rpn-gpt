@@ -1,0 +1,370 @@
+{
+ "meta": {
+  "source": "DeepMind mathematics_dataset v1.0, extrapolate split, test file arithmetic__mul_big.txt",
+  "sampler": "qwenputer arith_bench.load_dm",
+  "n": 40,
+  "seed": 0
+ },
+ "problems": [
+  {
+   "id": "dmx_mul_big-230",
+   "set": "mul_big",
+   "question": "What is 3 times 12093549.14?",
+   "gold": "36280647.42",
+   "q": "What is 3 times 12093549.14?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "36280647.42",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-663",
+   "set": "mul_big",
+   "question": "Work out 444108934 * -0.4.",
+   "gold": "-177643573.6",
+   "q": "Work out 444108934 * -0.4.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-177643573.6",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-1020",
+   "set": "mul_big",
+   "question": "-3388.02 times 32790",
+   "gold": "-111093175.8",
+   "q": "-3388.02 times 32790\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-111093175.8",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-1208",
+   "set": "mul_big",
+   "question": "Work out 151434918 * 7.",
+   "gold": "1060044426",
+   "q": "Work out 151434918 * 7.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1060044426",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-1553",
+   "set": "mul_big",
+   "question": "Product of -7827497782 and 4.",
+   "gold": "-31309991128",
+   "q": "Product of -7827497782 and 4.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-31309991128",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-1618",
+   "set": "mul_big",
+   "question": "What is the product of 18739 and 1155213?",
+   "gold": "21647536407",
+   "q": "What is the product of 18739 and 1155213?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "21647536407",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-1649",
+   "set": "mul_big",
+   "question": "Multiply 15 and 2224346455.",
+   "gold": "33365196825",
+   "q": "Multiply 15 and 2224346455.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "33365196825",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-2281",
+   "set": "mul_big",
+   "question": "What is 31 times -111041359?",
+   "gold": "-3442282129",
+   "q": "What is 31 times -111041359?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-3442282129",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-2289",
+   "set": "mul_big",
+   "question": "Multiply 6 and 487456.0507.",
+   "gold": "2924736.3042",
+   "q": "Multiply 6 and 487456.0507.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "2924736.3042",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-2407",
+   "set": "mul_big",
+   "question": "2295668356*46",
+   "gold": "105600744376",
+   "q": "2295668356*46\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "105600744376",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-3350",
+   "set": "mul_big",
+   "question": "Product of 15808 and -3233.83.",
+   "gold": "-51120384.64",
+   "q": "Product of 15808 and -3233.83.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-51120384.64",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-3578",
+   "set": "mul_big",
+   "question": "Multiply 27169.91 and 283.",
+   "gold": "7689084.53",
+   "q": "Multiply 27169.91 and 283.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "7689084.53",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-4104",
+   "set": "mul_big",
+   "question": "Calculate 1*-9540241022.",
+   "gold": "-9540241022",
+   "q": "Calculate 1*-9540241022.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-9540241022",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-4242",
+   "set": "mul_big",
+   "question": "What is the product of -0.3 and -494580943.4?",
+   "gold": "148374283.02",
+   "q": "What is the product of -0.3 and -494580943.4?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "148374283.02",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-4267",
+   "set": "mul_big",
+   "question": "Product of -0.5 and -10813115081.",
+   "gold": "5406557540.5",
+   "q": "Product of -0.5 and -10813115081.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "5406557540.5",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-4617",
+   "set": "mul_big",
+   "question": "Multiply 13.32 and 4170068.",
+   "gold": "55545305.76",
+   "q": "Multiply 13.32 and 4170068.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "55545305.76",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-4969",
+   "set": "mul_big",
+   "question": "What is the product of -116547 and -2140?",
+   "gold": "249410580",
+   "q": "What is the product of -116547 and -2140?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "249410580",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-5081",
+   "set": "mul_big",
+   "question": "Multiply 1270.8672 and 1.169.",
+   "gold": "1485.6437568",
+   "q": "Multiply 1270.8672 and 1.169.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1485.6437568",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-5180",
+   "set": "mul_big",
+   "question": "What is the product of 0.8 and 2818881196?",
+   "gold": "2255104956.8",
+   "q": "What is the product of 0.8 and 2818881196?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "2255104956.8",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-5409",
+   "set": "mul_big",
+   "question": "Product of -4.2 and 53.09122.",
+   "gold": "-222.983124",
+   "q": "Product of -4.2 and 53.09122.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-222.983124",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-5796",
+   "set": "mul_big",
+   "question": "Work out 125083302 * 0.15.",
+   "gold": "18762495.3",
+   "q": "Work out 125083302 * 0.15.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "18762495.3",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-5866",
+   "set": "mul_big",
+   "question": "146028*-133714",
+   "gold": "-19525987992",
+   "q": "146028*-133714\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-19525987992",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-6311",
+   "set": "mul_big",
+   "question": "Product of -0.162177 and -1246.",
+   "gold": "202.072542",
+   "q": "Product of -0.162177 and -1246.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "202.072542",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-6634",
+   "set": "mul_big",
+   "question": "Work out -222 * -1326.77695.",
+   "gold": "294544.4829",
+   "q": "Work out -222 * -1326.77695.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "294544.4829",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-6890",
+   "set": "mul_big",
+   "question": "What is the product of -7.95922042 and 5?",
+   "gold": "-39.7961021",
+   "q": "What is the product of -7.95922042 and 5?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-39.7961021",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-7113",
+   "set": "mul_big",
+   "question": "Calculate -230*-2.69625412.",
+   "gold": "620.1384476",
+   "q": "Calculate -230*-2.69625412.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "620.1384476",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-7253",
+   "set": "mul_big",
+   "question": "Product of -394169.14 and -419.",
+   "gold": "165156869.66",
+   "q": "Product of -394169.14 and -419.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "165156869.66",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-7735",
+   "set": "mul_big",
+   "question": "What is the product of 339 and 13.589987?",
+   "gold": "4607.005593",
+   "q": "What is the product of 339 and 13.589987?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "4607.005593",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-7808",
+   "set": "mul_big",
+   "question": "-1.30243625 * -84",
+   "gold": "109.404645",
+   "q": "-1.30243625 * -84\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "109.404645",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-7815",
+   "set": "mul_big",
+   "question": "Multiply 0.054478 and 9385.",
+   "gold": "511.27603",
+   "q": "Multiply 0.054478 and 9385.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "511.27603",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-7961",
+   "set": "mul_big",
+   "question": "-184.052*-0.0893",
+   "gold": "16.4358436",
+   "q": "-184.052*-0.0893\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "16.4358436",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-8268",
+   "set": "mul_big",
+   "question": "Multiply -0.41 and 4.38858265.",
+   "gold": "-1.7993188865",
+   "q": "Multiply -0.41 and 4.38858265.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-1.7993188865",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-8376",
+   "set": "mul_big",
+   "question": "Calculate 0.25431*58463.",
+   "gold": "14867.72553",
+   "q": "Calculate 0.25431*58463.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "14867.72553",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-8541",
+   "set": "mul_big",
+   "question": "What is 21699525.2 times 32?",
+   "gold": "694384806.4",
+   "q": "What is 21699525.2 times 32?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "694384806.4",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-8725",
+   "set": "mul_big",
+   "question": "Work out -24821796 * 0.07.",
+   "gold": "-1737525.72",
+   "q": "Work out -24821796 * 0.07.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-1737525.72",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-8989",
+   "set": "mul_big",
+   "question": "Multiply -25327 and 276.2011.",
+   "gold": "-6995345.2597",
+   "q": "Multiply -25327 and 276.2011.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-6995345.2597",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-9052",
+   "set": "mul_big",
+   "question": "Multiply 1.5 and -303716404.",
+   "gold": "-455574606",
+   "q": "Multiply 1.5 and -303716404.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-455574606",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-9171",
+   "set": "mul_big",
+   "question": "Multiply 2 and -11622.346.",
+   "gold": "-23244.692",
+   "q": "Multiply 2 and -11622.346.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-23244.692",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-9558",
+   "set": "mul_big",
+   "question": "What is the product of 20819357474 and -2?",
+   "gold": "-41638714948",
+   "q": "What is the product of 20819357474 and -2?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-41638714948",
+   "family": "dm.mul_big"
+  },
+  {
+   "id": "dmx_mul_big-9861",
+   "set": "mul_big",
+   "question": "Multiply 0.0527606523 and 0.09.",
+   "gold": "0.004748458707",
+   "q": "Multiply 0.0527606523 and 0.09.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "0.004748458707",
+   "family": "dm.mul_big"
+  }
+ ]
+}

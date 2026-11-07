@@ -1,0 +1,370 @@
+{
+ "meta": {
+  "source": "DeepMind mathematics_dataset v1.0, extrapolate split, test file arithmetic__div_big.txt",
+  "sampler": "qwenputer arith_bench.load_dm",
+  "n": 40,
+  "seed": 0
+ },
+ "problems": [
+  {
+   "id": "dmx_div_big-230",
+   "set": "div_big",
+   "question": "-613642005876 divided by -4",
+   "gold": "153410501469",
+   "q": "-613642005876 divided by -4\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "153410501469",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-663",
+   "set": "div_big",
+   "question": "Calculate -18471759952 divided by -18364.",
+   "gold": "1005868",
+   "q": "Calculate -18471759952 divided by -18364.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1005868",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-1020",
+   "set": "div_big",
+   "question": "What is 4992101522 divided by -418169?",
+   "gold": "-11938",
+   "q": "What is 4992101522 divided by -418169?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-11938",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-1208",
+   "set": "div_big",
+   "question": "Calculate 4854387050 divided by -970877410.",
+   "gold": "-5",
+   "q": "Calculate 4854387050 divided by -970877410.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-5",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-1553",
+   "set": "div_big",
+   "question": "Calculate -7543865412 divided by -2.",
+   "gold": "3771932706",
+   "q": "Calculate -7543865412 divided by -2.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "3771932706",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-1618",
+   "set": "div_big",
+   "question": "Divide 2973569190 by 5.",
+   "gold": "594713838",
+   "q": "Divide 2973569190 by 5.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "594713838",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-1649",
+   "set": "div_big",
+   "question": "80385785 divided by -10",
+   "gold": "-16077157/2",
+   "q": "80385785 divided by -10\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-16077157/2",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-2281",
+   "set": "div_big",
+   "question": "What is 7576697503 divided by -2?",
+   "gold": "-7576697503/2",
+   "q": "What is 7576697503 divided by -2?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-7576697503/2",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-2289",
+   "set": "div_big",
+   "question": "333 divided by -164968443",
+   "gold": "-37/18329827",
+   "q": "333 divided by -164968443\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-37/18329827",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-2407",
+   "set": "div_big",
+   "question": "Calculate 117772889 divided by -106.",
+   "gold": "-117772889/106",
+   "q": "Calculate 117772889 divided by -106.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-117772889/106",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-3350",
+   "set": "div_big",
+   "question": "Calculate 1785 divided by 13201915.",
+   "gold": "357/2640383",
+   "q": "Calculate 1785 divided by 13201915.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "357/2640383",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-3578",
+   "set": "div_big",
+   "question": "5 divided by 6744908131",
+   "gold": "5/6744908131",
+   "q": "5 divided by 6744908131\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "5/6744908131",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-4104",
+   "set": "div_big",
+   "question": "Calculate -1539439 divided by -2572.",
+   "gold": "1539439/2572",
+   "q": "Calculate -1539439 divided by -2572.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1539439/2572",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-4242",
+   "set": "div_big",
+   "question": "Calculate 11735538914 divided by -1066867174.",
+   "gold": "-11",
+   "q": "Calculate 11735538914 divided by -1066867174.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-11",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-4267",
+   "set": "div_big",
+   "question": "Calculate 4 divided by -731721563.",
+   "gold": "-4/731721563",
+   "q": "Calculate 4 divided by -731721563.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-4/731721563",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-4617",
+   "set": "div_big",
+   "question": "-39457232 divided by -189",
+   "gold": "39457232/189",
+   "q": "-39457232 divided by -189\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "39457232/189",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-4969",
+   "set": "div_big",
+   "question": "-6846569864 divided by -58",
+   "gold": "118044308",
+   "q": "-6846569864 divided by -58\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "118044308",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-5081",
+   "set": "div_big",
+   "question": "Calculate -9742047 divided by 122.",
+   "gold": "-9742047/122",
+   "q": "Calculate -9742047 divided by 122.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-9742047/122",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-5180",
+   "set": "div_big",
+   "question": "What is 12808314432 divided by -1686192?",
+   "gold": "-7596",
+   "q": "What is 12808314432 divided by -1686192?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-7596",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-5409",
+   "set": "div_big",
+   "question": "-6612513433 divided by 54149",
+   "gold": "-122117",
+   "q": "-6612513433 divided by 54149\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-122117",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-5796",
+   "set": "div_big",
+   "question": "Divide 63548576 by -28912.",
+   "gold": "-2198",
+   "q": "Divide 63548576 by -28912.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-2198",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-5866",
+   "set": "div_big",
+   "question": "Divide -2119381524 by 19.",
+   "gold": "-111546396",
+   "q": "Divide -2119381524 by 19.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-111546396",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-6311",
+   "set": "div_big",
+   "question": "What is 156893555 divided by -13?",
+   "gold": "-12068735",
+   "q": "What is 156893555 divided by -13?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-12068735",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-6634",
+   "set": "div_big",
+   "question": "What is -5 divided by -1235037691?",
+   "gold": "5/1235037691",
+   "q": "What is -5 divided by -1235037691?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "5/1235037691",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-6890",
+   "set": "div_big",
+   "question": "2 divided by 375795966",
+   "gold": "1/187897983",
+   "q": "2 divided by 375795966\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1/187897983",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-7113",
+   "set": "div_big",
+   "question": "Calculate -76912208802 divided by 157014.",
+   "gold": "-489843",
+   "q": "Calculate -76912208802 divided by 157014.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-489843",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-7253",
+   "set": "div_big",
+   "question": "-9785409417 divided by -7396379",
+   "gold": "1323",
+   "q": "-9785409417 divided by -7396379\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1323",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-7735",
+   "set": "div_big",
+   "question": "Divide -438953580 by -2340.",
+   "gold": "187587",
+   "q": "Divide -438953580 by -2340.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "187587",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-7808",
+   "set": "div_big",
+   "question": "What is -11195219250 divided by 6?",
+   "gold": "-1865869875",
+   "q": "What is -11195219250 divided by 6?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-1865869875",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-7815",
+   "set": "div_big",
+   "question": "Divide 793836237 by 78621.",
+   "gold": "10097",
+   "q": "Divide 793836237 by 78621.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "10097",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-7961",
+   "set": "div_big",
+   "question": "4851484 divided by -4752",
+   "gold": "-110261/108",
+   "q": "4851484 divided by -4752\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-110261/108",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-8268",
+   "set": "div_big",
+   "question": "Divide 7696030732 by 1924007683.",
+   "gold": "4",
+   "q": "Divide 7696030732 by 1924007683.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "4",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-8376",
+   "set": "div_big",
+   "question": "What is 4227775742 divided by -1?",
+   "gold": "-4227775742",
+   "q": "What is 4227775742 divided by -1?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-4227775742",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-8541",
+   "set": "div_big",
+   "question": "-52006618112 divided by 3250413632",
+   "gold": "-16",
+   "q": "-52006618112 divided by 3250413632\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-16",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-8725",
+   "set": "div_big",
+   "question": "Calculate -3244280634 divided by -830589.",
+   "gold": "3906",
+   "q": "Calculate -3244280634 divided by -830589.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "3906",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-8989",
+   "set": "div_big",
+   "question": "Calculate -2142 divided by -7037.",
+   "gold": "2142/7037",
+   "q": "Calculate -2142 divided by -7037.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "2142/7037",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-9052",
+   "set": "div_big",
+   "question": "Divide 30395061972 by 844307277.",
+   "gold": "36",
+   "q": "Divide 30395061972 by 844307277.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "36",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-9171",
+   "set": "div_big",
+   "question": "27443490133 divided by -22114013",
+   "gold": "-1241",
+   "q": "27443490133 divided by -22114013\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-1241",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-9558",
+   "set": "div_big",
+   "question": "Divide -1 by -223612853.",
+   "gold": "1/223612853",
+   "q": "Divide -1 by -223612853.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1/223612853",
+   "family": "dm.div_big"
+  },
+  {
+   "id": "dmx_div_big-9861",
+   "set": "div_big",
+   "question": "Calculate -24514515912 divided by 1021438163.",
+   "gold": "-24",
+   "q": "Calculate -24514515912 divided by 1021438163.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-24",
+   "family": "dm.div_big"
+  }
+ ]
+}

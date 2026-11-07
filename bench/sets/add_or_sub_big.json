@@ -1,0 +1,370 @@
+{
+ "meta": {
+  "source": "DeepMind mathematics_dataset v1.0, extrapolate split, test file arithmetic__add_or_sub_big.txt",
+  "sampler": "qwenputer arith_bench.load_dm",
+  "n": 40,
+  "seed": 0
+ },
+ "problems": [
+  {
+   "id": "dmx_add_or_sub_big-230",
+   "set": "add_or_sub_big",
+   "question": "Sum 55839343876742 and -8.",
+   "gold": "55839343876734",
+   "q": "Sum 55839343876742 and -8.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "55839343876734",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-663",
+   "set": "add_or_sub_big",
+   "question": "What is 923.4 + 10731898399476?",
+   "gold": "10731898400399.4",
+   "q": "What is 923.4 + 10731898399476?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "10731898400399.4",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-1020",
+   "set": "add_or_sub_big",
+   "question": "What is the difference between 1508489756117 and -29.392?",
+   "gold": "1508489756146.392",
+   "q": "What is the difference between 1508489756117 and -29.392?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "1508489756146.392",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-1208",
+   "set": "add_or_sub_big",
+   "question": "Put together -0.1 and -17168749240684.",
+   "gold": "-17168749240684.1",
+   "q": "Put together -0.1 and -17168749240684.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-17168749240684.1",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-1553",
+   "set": "add_or_sub_big",
+   "question": "What is the difference between 32992.34 and 42.7535084?",
+   "gold": "32949.5864916",
+   "q": "What is the difference between 32992.34 and 42.7535084?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "32949.5864916",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-1618",
+   "set": "add_or_sub_big",
+   "question": "50.27 - 108310073762415",
+   "gold": "-108310073762364.73",
+   "q": "50.27 - 108310073762415\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-108310073762364.73",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-1649",
+   "set": "add_or_sub_big",
+   "question": "Subtract 14183610710683 from 0.56.",
+   "gold": "-14183610710682.44",
+   "q": "Subtract 14183610710683 from 0.56.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-14183610710682.44",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-2281",
+   "set": "add_or_sub_big",
+   "question": "Calculate -0.05 + -2766266180453692.",
+   "gold": "-2766266180453692.05",
+   "q": "Calculate -0.05 + -2766266180453692.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-2766266180453692.05",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-2289",
+   "set": "add_or_sub_big",
+   "question": "Subtract -1.7 from 11827692104516.7223.",
+   "gold": "11827692104518.4223",
+   "q": "Subtract -1.7 from 11827692104516.7223.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "11827692104518.4223",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-2407",
+   "set": "add_or_sub_big",
+   "question": "679052989.53 - -26770003",
+   "gold": "705822992.53",
+   "q": "679052989.53 - -26770003\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "705822992.53",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-3350",
+   "set": "add_or_sub_big",
+   "question": "What is the difference between 0.123 and -11603165188544130?",
+   "gold": "11603165188544130.123",
+   "q": "What is the difference between 0.123 and -11603165188544130?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "11603165188544130.123",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-3578",
+   "set": "add_or_sub_big",
+   "question": "What is -62455 - 182298598272?",
+   "gold": "-182298660727",
+   "q": "What is -62455 - 182298598272?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-182298660727",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-4104",
+   "set": "add_or_sub_big",
+   "question": "Add 29409409721012.28 and 0.1.",
+   "gold": "29409409721012.38",
+   "q": "Add 29409409721012.28 and 0.1.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "29409409721012.38",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-4242",
+   "set": "add_or_sub_big",
+   "question": "What is 937916304963 minus 205636?",
+   "gold": "937916099327",
+   "q": "What is 937916304963 minus 205636?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "937916099327",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-4267",
+   "set": "add_or_sub_big",
+   "question": "What is 12109.01 + -13729973.203?",
+   "gold": "-13717864.193",
+   "q": "What is 12109.01 + -13729973.203?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-13717864.193",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-4617",
+   "set": "add_or_sub_big",
+   "question": "-711245098945261 - 16.3",
+   "gold": "-711245098945277.3",
+   "q": "-711245098945261 - 16.3\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-711245098945277.3",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-4969",
+   "set": "add_or_sub_big",
+   "question": "Add 0.14 and 222120624.263157193.",
+   "gold": "222120624.403157193",
+   "q": "Add 0.14 and 222120624.263157193.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "222120624.403157193",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-5081",
+   "set": "add_or_sub_big",
+   "question": "Calculate -0.25 + -910542641490935.",
+   "gold": "-910542641490935.25",
+   "q": "Calculate -0.25 + -910542641490935.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-910542641490935.25",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-5180",
+   "set": "add_or_sub_big",
+   "question": "What is 3534538042068 less than 1.712?",
+   "gold": "-3534538042066.288",
+   "q": "What is 3534538042068 less than 1.712?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-3534538042066.288",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-5409",
+   "set": "add_or_sub_big",
+   "question": "What is 5028215297 less than -879395040?",
+   "gold": "-5907610337",
+   "q": "What is 5028215297 less than -879395040?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-5907610337",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-5796",
+   "set": "add_or_sub_big",
+   "question": "Calculate -2046419474747 + 0.18.",
+   "gold": "-2046419474746.82",
+   "q": "Calculate -2046419474747 + 0.18.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-2046419474746.82",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-5866",
+   "set": "add_or_sub_big",
+   "question": "-0.3 + 141530134213315855",
+   "gold": "141530134213315854.7",
+   "q": "-0.3 + 141530134213315855\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "141530134213315854.7",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-6311",
+   "set": "add_or_sub_big",
+   "question": "338 - 6535085.701845",
+   "gold": "-6534747.701845",
+   "q": "338 - 6535085.701845\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-6534747.701845",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-6634",
+   "set": "add_or_sub_big",
+   "question": "What is the distance between 20412938679033416 and -0.4?",
+   "gold": "20412938679033416.4",
+   "q": "What is the distance between 20412938679033416 and -0.4?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "20412938679033416.4",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-6890",
+   "set": "add_or_sub_big",
+   "question": "Put together 0 and -99999825257217326.",
+   "gold": "-99999825257217326",
+   "q": "Put together 0 and -99999825257217326.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-99999825257217326",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-7113",
+   "set": "add_or_sub_big",
+   "question": "Work out 25158200815769862 - 0.15.",
+   "gold": "25158200815769861.85",
+   "q": "Work out 25158200815769862 - 0.15.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "25158200815769861.85",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-7253",
+   "set": "add_or_sub_big",
+   "question": "Sum -15946679 and 3803942.7061.",
+   "gold": "-12142736.2939",
+   "q": "Sum -15946679 and 3803942.7061.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-12142736.2939",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-7735",
+   "set": "add_or_sub_big",
+   "question": "5 + -2662.12336251844",
+   "gold": "-2657.12336251844",
+   "q": "5 + -2662.12336251844\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-2657.12336251844",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-7808",
+   "set": "add_or_sub_big",
+   "question": "-150846 + -11006017713.482",
+   "gold": "-11006168559.482",
+   "q": "-150846 + -11006017713.482\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-11006168559.482",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-7815",
+   "set": "add_or_sub_big",
+   "question": "Calculate -276338369497168666 + -0.1.",
+   "gold": "-276338369497168666.1",
+   "q": "Calculate -276338369497168666 + -0.1.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-276338369497168666.1",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-7961",
+   "set": "add_or_sub_big",
+   "question": "Calculate 147912711213230404 - -30.",
+   "gold": "147912711213230434",
+   "q": "Calculate 147912711213230404 - -30.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "147912711213230434",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-8268",
+   "set": "add_or_sub_big",
+   "question": "What is -79033541 plus -314193100?",
+   "gold": "-393226641",
+   "q": "What is -79033541 plus -314193100?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-393226641",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-8376",
+   "set": "add_or_sub_big",
+   "question": "Work out 5.113 + -755407878588.",
+   "gold": "-755407878582.887",
+   "q": "Work out 5.113 + -755407878588.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-755407878582.887",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-8541",
+   "set": "add_or_sub_big",
+   "question": "What is -3352996922417 take away -17.553?",
+   "gold": "-3352996922399.447",
+   "q": "What is -3352996922417 take away -17.553?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-3352996922399.447",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-8725",
+   "set": "add_or_sub_big",
+   "question": "What is 3722054566 + 47.02888?",
+   "gold": "3722054613.02888",
+   "q": "What is 3722054566 + 47.02888?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "3722054613.02888",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-8989",
+   "set": "add_or_sub_big",
+   "question": "Subtract 513257 from 134265167521.",
+   "gold": "134264654264",
+   "q": "Subtract 513257 from 134265167521.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "134264654264",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-9052",
+   "set": "add_or_sub_big",
+   "question": "Work out 0.5 + 111125527959556222.",
+   "gold": "111125527959556222.5",
+   "q": "Work out 0.5 + 111125527959556222.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "111125527959556222.5",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-9171",
+   "set": "add_or_sub_big",
+   "question": "What is -39479319.91990704 plus 5?",
+   "gold": "-39479314.91990704",
+   "q": "What is -39479319.91990704 plus 5?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-39479314.91990704",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-9558",
+   "set": "add_or_sub_big",
+   "question": "Work out -3130565121888 + -0.24234.",
+   "gold": "-3130565121888.24234",
+   "q": "Work out -3130565121888 + -0.24234.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-3130565121888.24234",
+   "family": "dm.add_or_sub_big"
+  },
+  {
+   "id": "dmx_add_or_sub_big-9861",
+   "set": "add_or_sub_big",
+   "question": "-0.2+-22943129591371454",
+   "gold": "-22943129591371454.2",
+   "q": "-0.2+-22943129591371454\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-22943129591371454.2",
+   "family": "dm.add_or_sub_big"
+  }
+ ]
+}

@@ -11,7 +11,7 @@ and the composite checkpoint (kernel/composite/build.py OUT nvidia/NVIDIA-Nemotr
       [MAX_ALL=200000]
   -> OUT.json: total {n, correct, exact, tokens, wall_s} + per problem got / ok / tokens / visible / hidden / turn_cut.
 kernel/ must be the source the checkpoint's kernel was built from (the text_vm reference). Budgets: env THINK / GRACE /
-TURN override e2e_demo's 4000 / 1000 / 8000 (visible tokens); MAX_SEQS (64) concurrent.
+TURN override e2e_demo's 4000 / 1000 / 8000 (visible tokens); MAX_SEQS (64) concurrent; TEMP (1.0; 0 = greedy).
 """
 
 import json
@@ -117,7 +117,7 @@ def main(model, outp, only, adapter, max_new=MAX_ALL):
         msgs = [{"role": "system", "content": sysm}, {"role": "user", "content": P[i]["q"]}]
         prompts.append(tok(tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, enable_thinking=True),
                            add_special_tokens=False).input_ids)
-    sps = [SamplingParams(max_tokens=int(max_new), temperature=1.0, top_p=0.95, seed=j, logprobs=1,
+    sps = [SamplingParams(max_tokens=int(max_new), temperature=float(os.environ.get("TEMP", 1.0)), top_p=0.95, seed=j, logprobs=1,
                           extra_args={"key": j}) for j, i in enumerate(idx)]  # IDX may repeat (load tests)
     t0 = time.time()
     outs = llm.generate([{"prompt_token_ids": p} for p in prompts], sps, use_tqdm=False,

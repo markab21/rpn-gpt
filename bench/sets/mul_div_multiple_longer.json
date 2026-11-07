@@ -1,0 +1,370 @@
+{
+ "meta": {
+  "source": "DeepMind mathematics_dataset v1.0, extrapolate split, test file arithmetic__mul_div_multiple_longer.txt",
+  "sampler": "qwenputer arith_bench.load_dm",
+  "n": 40,
+  "seed": 0
+ },
+ "problems": [
+  {
+   "id": "dmx_mul_div_multiple_longer-230",
+   "set": "mul_div_multiple_longer",
+   "question": "What is 20*(-8)/(-60)*329*9/((-36)/2)*7*(-6)/49?",
+   "gold": "376",
+   "q": "What is 20*(-8)/(-60)*329*9/((-36)/2)*7*(-6)/49?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "376",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-663",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate ((17/((-918)/(-12)))/((((-130)/390)/(7/3))/9))/(1/(-2)).",
+   "gold": "28",
+   "q": "Evaluate ((17/((-918)/(-12)))/((((-130)/390)/(7/3))/9))/(1/(-2)).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "28",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-1020",
+   "set": "mul_div_multiple_longer",
+   "question": "(-1*-638*(-7)/(-7))/(((-62)/(-279))/(((-170)/3060)/(1/(-2))))",
+   "gold": "319",
+   "q": "(-1*-638*(-7)/(-7))/(((-62)/(-279))/(((-170)/3060)/(1/(-2))))\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "319",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-1208",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate 37/(((7/42*-3)/(-7*(-21)/98))/(((-14)/7)/((-4)/(6/(-3))))).",
+   "gold": "111",
+   "q": "Evaluate 37/(((7/42*-3)/(-7*(-21)/98))/(((-14)/7)/((-4)/(6/(-3))))).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "111",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-1553",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate 3*404/(-2)*((1269/(-188))/(-27)*(-12)/22)/((32/32)/((-55)/15)).",
+   "gold": "-303",
+   "q": "Evaluate 3*404/(-2)*((1269/(-188))/(-27)*(-12)/22)/((32/32)/((-55)/15)).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-303",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-1618",
+   "set": "mul_div_multiple_longer",
+   "question": "(360/27)/4*(-5)/((-20)/4)*-1*3*(-12)/180*-27",
+   "gold": "-18",
+   "q": "(360/27)/4*(-5)/((-20)/4)*-1*3*(-12)/180*-27\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-18",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-1649",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of 609*((-3)/(-18))/(3/6)*((-5)/(-25))/((6/15)/(-1))*60476/(-30238)?",
+   "gold": "203",
+   "q": "What is the value of 609*((-3)/(-18))/(3/6)*((-5)/(-25))/((6/15)/(-1))*60476/(-30238)?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "203",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-2281",
+   "set": "mul_div_multiple_longer",
+   "question": "Calculate ((-8)/3)/2*(-300)/40*320/(-640)*5/((-25)/78)*2.",
+   "gold": "156",
+   "q": "Calculate ((-8)/3)/2*(-300)/40*320/(-640)*5/((-25)/78)*2.\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "156",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-2289",
+   "set": "mul_div_multiple_longer",
+   "question": "What is (((-16)/(-4))/((5/2)/((-120)/(-16))*8))/((-1)/(252/6))?",
+   "gold": "-63",
+   "q": "What is (((-16)/(-4))/((5/2)/((-120)/(-16))*8))/((-1)/(252/6))?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-63",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-2407",
+   "set": "mul_div_multiple_longer",
+   "question": "(((-153)/357)/(2/7))/(6/(-16)*((-480)/(-650))/(-6)*(-10)/24)",
+   "gold": "78",
+   "q": "(((-153)/357)/(2/7))/(6/(-16)*((-480)/(-650))/(-6)*(-10)/24)\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "78",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-3350",
+   "set": "mul_div_multiple_longer",
+   "question": "(((-1)/(-15))/((-1)/2)*(5/10)/(((-4)/(-6))/(368/46)))/(112/(-31920))",
+   "gold": "228",
+   "q": "(((-1)/(-15))/((-1)/2)*(5/10)/(((-4)/(-6))/(368/46)))/(112/(-31920))\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "228",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-3578",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of 5/((-25)/(-2))*((-150)/(-14))/((-8)/70)*(1820/21)/(-65)?",
+   "gold": "50",
+   "q": "What is the value of 5/((-25)/(-2))*((-150)/(-14))/((-8)/70)*(1820/21)/(-65)?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "50",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-4104",
+   "set": "mul_div_multiple_longer",
+   "question": "What is (-1)/(-1)*(((2/8)/(-1))/((145/15)/29))/((-20)/(80/(-1)))?",
+   "gold": "-3",
+   "q": "What is (-1)/(-1)*(((2/8)/(-1))/((145/15)/29))/((-20)/(80/(-1)))?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-3",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-4242",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of (-18)/1*(-3*(-4)/7)/(6/56*45*(-112)/840*-1)?",
+   "gold": "-48",
+   "q": "What is the value of (-18)/1*(-3*(-4)/7)/(6/56*45*(-112)/840*-1)?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-48",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-4267",
+   "set": "mul_div_multiple_longer",
+   "question": "What is 6*8/(-5)*4/3*(6/16*5*(-24)/90)/(101/505)?",
+   "gold": "32",
+   "q": "What is 6*8/(-5)*4/3*(6/16*5*(-24)/90)/(101/505)?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "32",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-4617",
+   "set": "mul_div_multiple_longer",
+   "question": "(((-2034)/(-4))/9)/(3/8*(450/30*-2*(-1)/(-9))/((-120)/(-48)))",
+   "gold": "-113",
+   "q": "(((-2034)/(-4))/9)/(3/8*(450/30*-2*(-1)/(-9))/((-120)/(-48)))\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-113",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-4969",
+   "set": "mul_div_multiple_longer",
+   "question": "What is (-1)/(((((-12)/(-40))/((-2)/5))/(((-18)/20)/((-268)/1005)))/(342/(-19)))?",
+   "gold": "-81",
+   "q": "What is (-1)/(((((-12)/(-40))/((-2)/5))/(((-18)/20)/((-268)/1005)))/(342/(-19)))?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-81",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-5081",
+   "set": "mul_div_multiple_longer",
+   "question": "What is (-9)/((-243)/18)*((9396/(-6090))/((-4)/(-7)))/(18/30)*2/(-18)*-498?",
+   "gold": "-166",
+   "q": "What is (-9)/((-243)/18)*((9396/(-6090))/((-4)/(-7)))/(18/30)*2/(-18)*-498?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-166",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-5180",
+   "set": "mul_div_multiple_longer",
+   "question": "((-3312)/96)/(((2*3/16)/((-9)/6))/(880/(-33110)*43)*18/21)",
+   "gold": "-184",
+   "q": "((-3312)/96)/(((2*3/16)/((-9)/6))/(880/(-33110)*43)*18/21)\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-184",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-5409",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate (-9*16/(-9))/(((((-32)/(-15))/4)/((-76)/6))/(50/125)).",
+   "gold": "-152",
+   "q": "Evaluate (-9*16/(-9))/(((((-32)/(-15))/4)/((-76)/6))/(50/125)).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-152",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-5796",
+   "set": "mul_div_multiple_longer",
+   "question": "What is 2/4*354*-5*242/55*(-131)/33143*(-69)/(-18)?",
+   "gold": "59",
+   "q": "What is 2/4*354*-5*242/55*(-131)/33143*(-69)/(-18)?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "59",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-5866",
+   "set": "mul_div_multiple_longer",
+   "question": "((24/(-32)*50/9)/((-1)/(-2)))/(-2*7/63*39/(-26))",
+   "gold": "-25",
+   "q": "((24/(-32)*50/9)/((-1)/(-2)))/(-2*7/63*39/(-26))\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-25",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-6311",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate (5490/(-488))/((((-3)/60)/((-36)/9))/(((-4)/(-14)*1)/(((-144)/28)/(-3)))).",
+   "gold": "-150",
+   "q": "Evaluate (5490/(-488))/((((-3)/60)/((-36)/9))/(((-4)/(-14)*1)/(((-144)/28)/(-3)))).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-150",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-6634",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of 3*(-20)/60*(-2)/2*(-1443)/(1209/(-31))*(-2)/(-2)*-3?",
+   "gold": "-111",
+   "q": "What is the value of 3*(-20)/60*(-2)/2*(-1443)/(1209/(-31))*(-2)/(-2)*-3?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-111",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-6890",
+   "set": "mul_div_multiple_longer",
+   "question": "Calculate 356/(-6)*((-4)/(-5))/((-48)/160)*((-6)/(-72))/(4/(-27)).",
+   "gold": "-89",
+   "q": "Calculate 356/(-6)*((-4)/(-5))/((-48)/160)*((-6)/(-72))/(4/(-27)).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-89",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-7113",
+   "set": "mul_div_multiple_longer",
+   "question": "Calculate ((-2182)/7637)/((-8)/(-84)*-3*8/(-6360)*-5*(-6)/(-4)).",
+   "gold": "106",
+   "q": "Calculate ((-2182)/7637)/((-8)/(-84)*-3*8/(-6360)*-5*(-6)/(-4)).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "106",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-7253",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of (4/(-8))/((-21)/(-28))*63/(-28)*2/(-2)*2096/12?",
+   "gold": "-262",
+   "q": "What is the value of (4/(-8))/((-21)/(-28))*63/(-28)*2/(-2)*2096/12?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-262",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-7735",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of (26/(-4))/((3*(-1)/(4/(-3))*9*(-235)/3807)/(40/16))?",
+   "gold": "13",
+   "q": "What is the value of (26/(-4))/((3*(-1)/(4/(-3))*9*(-235)/3807)/(40/16))?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "13",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-7808",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate (3/(-3)*16)/((((-2)/(-6))/(2/54*3))/((-44)/7920*30*-189)).",
+   "gold": "-168",
+   "q": "Evaluate (3/(-3)*16)/((((-2)/(-6))/(2/54*3))/((-44)/7920*30*-189)).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-168",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-7815",
+   "set": "mul_div_multiple_longer",
+   "question": "72/336*4/3*-2*602/4*(-84)/(-420)*(-5)/2",
+   "gold": "43",
+   "q": "72/336*4/3*-2*602/4*(-84)/(-420)*(-5)/2\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "43",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-7961",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of (24/448*8)/(-4*3/824)*(57/95)/((-6)/35)?",
+   "gold": "103",
+   "q": "What is the value of (24/448*8)/(-4*3/824)*(57/95)/((-6)/35)?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "103",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-8268",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of ((-2)/(-20)*5630/(-1689)*570)/((-2)/((-1)/(-1))*4/(-48)*-3)?",
+   "gold": "380",
+   "q": "What is the value of ((-2)/(-20)*5630/(-1689)*570)/((-2)/((-1)/(-1))*4/(-48)*-3)?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "380",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-8376",
+   "set": "mul_div_multiple_longer",
+   "question": "Calculate (20*(-2220)/2368*3/((-9)/2))/((1/(-40))/((-146)/730)).",
+   "gold": "100",
+   "q": "Calculate (20*(-2220)/2368*3/((-9)/2))/((1/(-40))/((-146)/730)).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "100",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-8541",
+   "set": "mul_div_multiple_longer",
+   "question": "What is 22/((-6)/8*((-171)/96957*36)/((1*(-1)/1)/6))?",
+   "gold": "-77",
+   "q": "What is 22/((-6)/8*((-171)/96957*36)/((1*(-1)/1)/6))?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-77",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-8725",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate ((-1)/28*-4*-6)/((-3)/(-98)*(-26)/195*(-545)/(-109)).",
+   "gold": "42",
+   "q": "Evaluate ((-1)/28*-4*-6)/((-3)/(-98)*(-26)/195*(-545)/(-109)).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "42",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-8989",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate -1*(-20)/(-8)*(84/147)/((-10)/(-329))*-1*5*(54/(-5))/(-18).",
+   "gold": "141",
+   "q": "Evaluate -1*(-20)/(-8)*(84/147)/((-10)/(-329))*-1*5*(54/(-5))/(-18).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "141",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-9052",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of ((1*(-1)/4)/((-9)/48*392/12))/(32/(-84)*(-125)/1000)*35?",
+   "gold": "30",
+   "q": "What is the value of ((1*(-1)/4)/((-9)/48*392/12))/(32/(-84)*(-125)/1000)*35?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "30",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-9171",
+   "set": "mul_div_multiple_longer",
+   "question": "What is the value of ((-44)/(7040/60)*1/(-2)*(-9460)/33)/(11*(-12)/528)?",
+   "gold": "215",
+   "q": "What is the value of ((-44)/(7040/60)*1/(-2)*(-9460)/33)/(11*(-12)/528)?\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "215",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-9558",
+   "set": "mul_div_multiple_longer",
+   "question": "((-582)/(-2))/((68/612)/((-1)/(-9))*2*((-286)/44)/13)",
+   "gold": "-291",
+   "q": "((-582)/(-2))/((68/612)/((-1)/(-9))*2*((-286)/44)/13)\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-291",
+   "family": "dm.mul_div_multiple_longer"
+  },
+  {
+   "id": "dmx_mul_div_multiple_longer-9861",
+   "set": "mul_div_multiple_longer",
+   "question": "Evaluate ((-5)/(-3*2/3*1/(-2)))/(4/(-82)*(-41)/106).",
+   "gold": "-265",
+   "q": "Evaluate ((-5)/(-3*2/3*1/(-2)))/(4/(-82)*(-41)/106).\n\nGive the final answer as a single number in \\boxed{} at the end.",
+   "a": "-265",
+   "family": "dm.mul_div_multiple_longer"
+  }
+ ]
+}

@@ -1,0 +1,522 @@
+{
+ "sets": [
+  "nupa",
+  "mul_big",
+  "div_big",
+  "add_or_sub_big",
+  "mul_div_multiple_longer"
+ ],
+ "conditions": {
+  "stock": {
+   "nupa": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 9,
+     "operand over 10 digits": 4
+    },
+    "sampled_mean": 65.0,
+    "sampled_ci95": [
+     53.1,
+     76.2
+    ],
+    "sampled_runs": {
+     "s0": 70.0,
+     "s1": 67.5,
+     "s2": 67.5,
+     "s3": 55.0
+    },
+    "greedy": 60.0,
+    "greedy_n": 40,
+    "wrong_sampled": 56,
+    "buckets_sampled": {
+     "model error: no machine, wrong by hand": 24,
+     "overflow past 20 digits": 31,
+     "model error: turn cap": 1
+    },
+    "median_tokens": 12033
+   },
+   "mul_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 30,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 98.1,
+    "sampled_ci95": [
+     95.0,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 95.0,
+     "s1": 100.0,
+     "s2": 97.5,
+     "s3": 100.0
+    },
+    "greedy": 97.5,
+    "greedy_n": 40,
+    "wrong_sampled": 3,
+    "buckets_sampled": {
+     "model error: no machine, wrong by hand": 3
+    },
+    "median_tokens": 1632
+   },
+   "div_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 10
+    },
+    "sampled_mean": 99.4,
+    "sampled_ci95": [
+     98.1,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 100.0,
+     "s1": 97.5,
+     "s2": 100.0,
+     "s3": 100.0
+    },
+    "greedy": 97.5,
+    "greedy_n": 40,
+    "wrong_sampled": 1,
+    "buckets_sampled": {
+     "model error: no machine, wrong by hand": 1
+    },
+    "median_tokens": 1338
+   },
+   "add_or_sub_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 32,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 98.8,
+    "sampled_ci95": [
+     96.9,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 95.0,
+     "s1": 100.0,
+     "s2": 100.0,
+     "s3": 100.0
+    },
+    "greedy": 100.0,
+    "greedy_n": 40,
+    "wrong_sampled": 2,
+    "buckets_sampled": {
+     "decimal": 2
+    },
+    "median_tokens": 832
+   },
+   "mul_div_multiple_longer": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 98.8,
+    "sampled_ci95": [
+     96.9,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 95.0,
+     "s1": 100.0,
+     "s2": 100.0,
+     "s3": 100.0
+    },
+    "greedy": 95.0,
+    "greedy_n": 40,
+    "wrong_sampled": 2,
+    "buckets_sampled": {
+     "model error: no machine, wrong by hand": 2
+    },
+    "median_tokens": 2610
+   }
+  },
+  "stock_python": {
+   "nupa": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 9,
+     "operand over 10 digits": 4
+    },
+    "sampled_mean": 99.4,
+    "sampled_ci95": [
+     98.1,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 100.0,
+     "s1": 100.0,
+     "s2": 100.0,
+     "s3": 97.5
+    },
+    "greedy": 100.0,
+    "greedy_n": 40,
+    "wrong_sampled": 1,
+    "buckets_sampled": {
+     "overflow past 20 digits": 1
+    },
+    "median_tokens": 285
+   },
+   "mul_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 30,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 99.4,
+    "sampled_ci95": [
+     98.1,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 100.0,
+     "s1": 100.0,
+     "s2": 97.5,
+     "s3": 100.0
+    },
+    "greedy": 100.0,
+    "greedy_n": 40,
+    "wrong_sampled": 1,
+    "buckets_sampled": {
+     "model error: the machine printed the answer, the model wrote another": 1
+    },
+    "median_tokens": 261
+   },
+   "div_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 10
+    },
+    "sampled_mean": 97.5,
+    "sampled_ci95": [
+     94.4,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 95.0,
+     "s1": 95.0,
+     "s2": 100.0,
+     "s3": 100.0
+    },
+    "greedy": 100.0,
+    "greedy_n": 40,
+    "wrong_sampled": 4,
+    "buckets_sampled": {
+     "model error: wrong program or wrong use": 4
+    },
+    "median_tokens": 483
+   },
+   "add_or_sub_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 32,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 94.4,
+    "sampled_ci95": [
+     90.0,
+     98.1
+    ],
+    "sampled_runs": {
+     "s0": 92.5,
+     "s1": 95.0,
+     "s2": 95.0,
+     "s3": 95.0
+    },
+    "greedy": 97.5,
+    "greedy_n": 40,
+    "wrong_sampled": 9,
+    "buckets_sampled": {
+     "decimal": 9
+    },
+    "median_tokens": 470
+   },
+   "mul_div_multiple_longer": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 98.8,
+    "sampled_ci95": [
+     96.9,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 97.5,
+     "s1": 100.0,
+     "s2": 100.0,
+     "s3": 97.5
+    },
+    "greedy": 92.5,
+    "greedy_n": 40,
+    "wrong_sampled": 2,
+    "buckets_sampled": {
+     "model error: the machine printed the answer, the model wrote another": 1,
+     "model error: wrong program or wrong use": 1
+    },
+    "median_tokens": 1137
+   }
+  },
+  "forth": {
+   "nupa": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 9,
+     "operand over 10 digits": 4
+    },
+    "sampled_mean": 71.2,
+    "sampled_ci95": [
+     59.4,
+     82.5
+    ],
+    "sampled_runs": {
+     "s0": 67.5,
+     "s1": 70.0,
+     "s2": 72.5,
+     "s3": 75.0
+    },
+    "greedy": 82.5,
+    "greedy_n": 40,
+    "wrong_sampled": 46,
+    "buckets_sampled": {
+     "model error: no machine, wrong by hand": 14,
+     "model error: the machine printed the answer, the model wrote another": 1,
+     "model error: turn cap": 1,
+     "overflow past 20 digits": 30
+    },
+    "median_tokens": 2631,
+    "kernel_exact": "200/200"
+   },
+   "mul_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 30,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 99.4,
+    "sampled_ci95": [
+     98.1,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 100.0,
+     "s1": 100.0,
+     "s2": 97.5,
+     "s3": 100.0
+    },
+    "greedy": 100.0,
+    "greedy_n": 40,
+    "wrong_sampled": 1,
+    "buckets_sampled": {
+     "decimal": 1
+    },
+    "median_tokens": 607,
+    "kernel_exact": "200/200"
+   },
+   "div_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 10
+    },
+    "sampled_mean": 95.0,
+    "sampled_ci95": [
+     91.2,
+     98.1
+    ],
+    "sampled_runs": {
+     "s0": 97.5,
+     "s1": 90.0,
+     "s2": 95.0,
+     "s3": 97.5
+    },
+    "greedy": 90.0,
+    "greedy_n": 40,
+    "wrong_sampled": 8,
+    "buckets_sampled": {
+     "model error: wrong program or wrong use": 2,
+     "model error: no machine, wrong by hand": 5,
+     "step cap": 1
+    },
+    "median_tokens": 778,
+    "kernel_exact": "200/200"
+   },
+   "add_or_sub_big": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 32,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 98.1,
+    "sampled_ci95": [
+     95.6,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 97.5,
+     "s1": 97.5,
+     "s2": 97.5,
+     "s3": 100.0
+    },
+    "greedy": 100.0,
+    "greedy_n": 40,
+    "wrong_sampled": 3,
+    "buckets_sampled": {
+     "decimal": 2,
+     "model error: no machine, wrong by hand": 1
+    },
+    "median_tokens": 321,
+    "kernel_exact": "200/200"
+   },
+   "mul_div_multiple_longer": {
+    "n_problems": 40,
+    "problems_over_a_machine_limit": {
+     "decimal": 0,
+     "overflow past 20 digits": 0,
+     "operand over 10 digits": 0
+    },
+    "sampled_mean": 97.5,
+    "sampled_ci95": [
+     94.4,
+     100.0
+    ],
+    "sampled_runs": {
+     "s0": 100.0,
+     "s1": 95.0,
+     "s2": 100.0,
+     "s3": 95.0
+    },
+    "greedy": 100.0,
+    "greedy_n": 40,
+    "wrong_sampled": 4,
+    "buckets_sampled": {
+     "model error: no machine, wrong by hand": 4
+    },
+    "median_tokens": 1395,
+    "kernel_exact": "200/200"
+   }
+  }
+ },
+ "qwenputer_published": {
+  "base": [
+   48.6,
+   55.0,
+   72.5,
+   87.5,
+   90.0
+  ],
+  "qwenputer": [
+   100.0,
+   97.5,
+   97.5,
+   97.5,
+   100.0
+  ],
+  "python": [
+   100.0,
+   100.0,
+   95.0,
+   97.5,
+   97.5
+  ]
+ },
+ "paired_forth_minus": {
+  "stock": {
+   "nupa": [
+    6.2,
+    -1.2,
+    13.8
+   ],
+   "mul_big": [
+    1.2,
+    -1.2,
+    4.4
+   ],
+   "div_big": [
+    -4.4,
+    -8.1,
+    -1.2
+   ],
+   "add_or_sub_big": [
+    -0.6,
+    -3.1,
+    1.9
+   ],
+   "mul_div_multiple_longer": [
+    -1.2,
+    -3.8,
+    1.2
+   ]
+  },
+  "stock_python": {
+   "nupa": [
+    -28.1,
+    -40.0,
+    -16.9
+   ],
+   "mul_big": [
+    0.0,
+    -1.9,
+    1.9
+   ],
+   "div_big": [
+    -2.5,
+    -6.2,
+    1.2
+   ],
+   "add_or_sub_big": [
+    3.8,
+    -0.6,
+    8.8
+   ],
+   "mul_div_multiple_longer": [
+    -1.2,
+    -5.0,
+    1.9
+   ]
+  }
+ },
+ "qwenputer_reproduced": {
+  "nupa": {
+   "greedy": 100.0,
+   "n": 40
+  },
+  "mul_big": {
+   "greedy": 95.0,
+   "n": 40
+  },
+  "div_big": {
+   "greedy": 95.0,
+   "n": 40
+  },
+  "add_or_sub_big": {
+   "greedy": 95.0,
+   "n": 40
+  },
+  "mul_div_multiple_longer": {
+   "greedy": 97.5,
+   "n": 40
+  }
+ }
+}
